@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 420">
+  <defs>
+    <radialGradient id="bgGrad" cx="50%" cy="40%" r="60%"><stop offset="0%" stop-color="#1a1a4e"/><stop offset="100%" stop-color="#0a0a2e"/></radialGradient>
+  </defs>
+  <rect width="280" height="420" fill="url(#bgGrad)"/>
+  <circle cx="50" cy="45" r="2" fill="#fff" opacity="0.6"/>
+  <circle cx="220" cy="55" r="1.5" fill="#fff" opacity="0.4"/>
+  <!-- Cup body -->
+  <path d="M80,180 L90,340 Q140,360 190,340 L200,180 Z" fill="#e74c3c" stroke="#c0392b" stroke-width="3"/>
+  <path d="M90,190 L95,335 Q140,352 185,335 L190,190 Z" fill="#f06060" opacity="0.5"/>
+  <!-- Cup rim -->
+  <ellipse cx="140" cy="180" rx="60" ry="15" fill="#e74c3c" stroke="#c0392b" stroke-width="3"/>
+  <ellipse cx="140" cy="180" rx="50" ry="10" fill="#c0392b" opacity="0.3"/>
+  <!-- Handles -->
+  <path d="M80,210 Q55,240 80,270" fill="none" stroke="#e74c3c" stroke-width="8" stroke-linecap="round"/>
+  <path d="M200,210 Q225,240 200,270" fill="none" stroke="#e74c3c" stroke-width="8" stroke-linecap="round"/>
+  <!-- Cute face -->
+  <circle cx="125" cy="240" r="7" fill="#fff"/>
+  <circle cx="155" cy="240" r="7" fill="#fff"/>
+  <circle cx="127" cy="240" r="4.5" fill="#222"/>
+  <circle cx="157" cy="240" r="4.5" fill="#222"/>
+  <circle cx="128" cy="238" r="2" fill="#fff"/>
+  <circle cx="158" cy="238" r="2" fill="#fff"/>
+  <path d="M132,258 Q140,268 148,258" fill="none" stroke="#c0392b" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="113" cy="250" r="6" fill="#ff9999" opacity="0.3"/>
+  <circle cx="167" cy="250" r="6" fill="#ff9999" opacity="0.3"/>
+  <!-- Base -->
+  <ellipse cx="140" cy="355" rx="60" ry="12" fill="#c0392b" stroke="#7b241c" stroke-width="2"/>
+  <!-- Stars in cup -->
+  <polygon points="120,200 122,208 130,210 122,212 120,220 118,212 110,210 118,208" fill="#FFD700" opacity="0.6"/>
+  <polygon points="155,195 157,202 163,204 157,206 155,212 153,206 147,204 153,202" fill="#f1c40f" opacity="0.5"/>
+  <text x="140" y="400" text-anchor="middle" fill="#e74c3c" font-family="Fredoka, sans-serif" font-size="14" font-weight="bold">巨爵座 🍷</text>
+</svg>

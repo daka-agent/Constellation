@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 420">
+  <defs>
+    <radialGradient id="bgGrad" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#1a1a4e"/>
+      <stop offset="100%" stop-color="#0a0a2e"/>
+    </radialGradient>
+  </defs>
+  <rect width="280" height="420" fill="url(#bgGrad)"/>
+  <circle cx="50" cy="50" r="2" fill="#fff" opacity="0.6"/>
+  <circle cx="220" cy="40" r="1.5" fill="#fff" opacity="0.4"/>
+  <circle cx="200" cy="180" r="1" fill="#fff" opacity="0.5"/>
+  <!-- Body -->
+  <ellipse cx="140" cy="300" rx="40" ry="45" fill="#f39c12" stroke="#e67e22" stroke-width="3"/>
+  <ellipse cx="140" cy="305" rx="28" ry="32" fill="#f5b041"/>
+  <!-- Mane -->
+  <circle cx="140" cy="235" r="38" fill="#e67e22" stroke="#d35400" stroke-width="3"/>
+  <circle cx="140" cy="235" r="35" fill="#f39c12" opacity="0.8"/>
+  <!-- Mane tufts -->
+  <path d="M110,210 Q100,200 105,215" fill="#e67e22" stroke="#d35400" stroke-width="1.5"/>
+  <path d="M170,210 Q180,200 175,215" fill="#e67e22" stroke="#d35400" stroke-width="1.5"/>
+  <path d="M115,225 Q100,220 108,232" fill="#e67e22" stroke="#d35400" stroke-width="1.5"/>
+  <path d="M165,225 Q180,220 172,232" fill="#e67e22" stroke="#d35400" stroke-width="1.5"/>
+  <!-- Face -->
+  <ellipse cx="140" cy="238" rx="22" ry="20" fill="#f5b041" stroke="#d35400" stroke-width="2"/>
+  <!-- Eyes -->
+  <circle cx="130" cy="233" r="5.5" fill="#fff"/>
+  <circle cx="150" cy="233" r="5.5" fill="#fff"/>
+  <circle cx="131" cy="233" r="3.5" fill="#3a1a0a"/>
+  <circle cx="151" cy="233" r="3.5" fill="#3a1a0a"/>
+  <circle cx="132" cy="231" r="1.5" fill="#fff"/>
+  <circle cx="152" cy="231" r="1.5" fill="#fff"/>
+  <!-- Nose -->
+  <ellipse cx="140" cy="242" rx="5" ry="3" fill="#d35400"/>
+  <!-- Mouth -->
+  <path d="M136,246 Q140,250 144,246" fill="none" stroke="#d35400" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- Cheeks -->
+  <circle cx="120" cy="240" r="5" fill="#ff9999" opacity="0.3"/>
+  <circle cx="160" cy="240" r="5" fill="#ff9999" opacity="0.3"/>
+  <!-- Tiny ears -->
+  <ellipse cx="120" cy="222" rx="5" ry="8" fill="#f39c12" stroke="#e67e22" stroke-width="1.5"/>
+  <ellipse cx="160" cy="222" rx="5" ry="8" fill="#f39c12" stroke="#e67e22" stroke-width="1.5"/>
+  <!-- Legs -->
+  <rect x="115" y="338" width="10" height="32" rx="5" fill="#f39c12"/>
+  <rect x="130" y="340" width="10" height="30" rx="5" fill="#e67e22"/>
+  <rect x="140" y="340" width="10" height="30" rx="5" fill="#e67e22"/>
+  <rect x="155" y="338" width="10" height="32" rx="5" fill="#f39c12"/>
+  <ellipse cx="120" cy="372" rx="7" ry="4" fill="#d35400"/>
+  <ellipse cx="160" cy="372" rx="7" ry="4" fill="#d35400"/>
+  <!-- Tail -->
+  <path d="M100,300 Q80,290 75,270 Q85,280 95,295" fill="#e67e22" stroke="#d35400" stroke-width="2"/>
+  <circle cx="73" cy="268" r="6" fill="#f39c12"/>
+  <text x="140" y="400" text-anchor="middle" fill="#f39c12" font-family="Fredoka, sans-serif" font-size="14" font-weight="bold">小狮座 🦁</text>
+</svg>

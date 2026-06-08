@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 420">
+  <defs>
+    <radialGradient id="bgGrad" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#1a1a4e"/>
+      <stop offset="100%" stop-color="#0a0a2e"/>
+    </radialGradient>
+  </defs>
+  <rect width="280" height="420" fill="url(#bgGrad)"/>
+  <circle cx="50" cy="50" r="2" fill="#fff" opacity="0.6"/>
+  <circle cx="220" cy="40" r="1.5" fill="#fff" opacity="0.4"/>
+  <circle cx="40" cy="370" r="1" fill="#fff" opacity="0.5"/>
+  <!-- Hair flowing down -->
+  <path d="M80,100 Q70,150 65,200 Q60,260 75,320 Q80,340 85,330" fill="none" stroke="#8B4513" stroke-width="6" stroke-linecap="round" opacity="0.6"/>
+  <path d="M100,90 Q90,140 85,190 Q80,250 90,320 Q95,340 100,330" fill="none" stroke="#a0522d" stroke-width="6" stroke-linecap="round" opacity="0.6"/>
+  <path d="M120,85 Q115,135 110,185 Q105,240 115,310" fill="none" stroke="#CD853F" stroke-width="5" stroke-linecap="round" opacity="0.6"/>
+  <path d="M140,83 Q140,130 138,180 Q136,240 140,300" fill="none" stroke="#8B4513" stroke-width="5" stroke-linecap="round" opacity="0.6"/>
+  <path d="M160,85 Q165,135 170,185 Q175,240 165,310" fill="none" stroke="#CD853F" stroke-width="5" stroke-linecap="round" opacity="0.6"/>
+  <path d="M180,90 Q190,140 195,190 Q200,250 190,320" fill="none" stroke="#a0522d" stroke-width="6" stroke-linecap="round" opacity="0.6"/>
+  <path d="M200,100 Q210,150 215,200 Q220,260 205,320" fill="none" stroke="#8B4513" stroke-width="6" stroke-linecap="round" opacity="0.6"/>
+  <!-- Sparkles in hair -->
+  <polygon points="90,200 92,208 100,210 92,212 90,220 88,212 80,210 88,208" fill="#FFD700" opacity="0.7"/>
+  <polygon points="160,230 162,238 170,240 162,242 160,250 158,242 150,240 158,238" fill="#FFD700" opacity="0.6"/>
+  <polygon points="120,150 122,156 128,158 122,160 120,166 118,160 112,158 118,156" fill="#f1c40f" opacity="0.5"/>
+  <polygon points="190,180 192,186 198,188 192,190 190,196 188,190 182,188 188,186" fill="#f1c40f" opacity="0.5"/>
+  <!-- Hair clip/tie -->
+  <ellipse cx="140" cy="88" rx="20" ry="6" fill="#FFD700"/>
+  <circle cx="140" cy="88" r="5" fill="#f1c40f"/>
+  <!-- Cute face at top -->
+  <circle cx="140" cy="120" r="22" fill="#ffdbac" stroke="#d4a86a" stroke-width="2"/>
+  <circle cx="132" cy="117" r="4.5" fill="#fff"/>
+  <circle cx="148" cy="117" r="4.5" fill="#fff"/>
+  <circle cx="133" cy="117" r="3" fill="#2a1a0a"/>
+  <circle cx="149" cy="117" r="3" fill="#2a1a0a"/>
+  <circle cx="134" cy="115" r="1" fill="#fff"/>
+  <circle cx="150" cy="115" r="1" fill="#fff"/>
+  <path d="M136,126 Q140,130 144,126" fill="none" stroke="#d4a86a" stroke-width="1.5" stroke-linecap="round"/>
+  <circle cx="125" cy="125" r="4" fill="#ff9999" opacity="0.4"/>
+  <circle cx="155" cy="125" r="4" fill="#ff9999" opacity="0.4"/>
+  <text x="140" y="400" text-anchor="middle" fill="#CD853F" font-family="Fredoka, sans-serif" font-size="14" font-weight="bold">后发座 ✨</text>
+</svg>

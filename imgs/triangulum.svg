@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 420">
+  <defs>
+    <radialGradient id="bgGrad" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#1a1a4e"/>
+      <stop offset="100%" stop-color="#0a0a2e"/>
+    </radialGradient>
+  </defs>
+  <rect width="280" height="420" fill="url(#bgGrad)"/>
+  <circle cx="50" cy="50" r="2" fill="#fff" opacity="0.6"/>
+  <circle cx="220" cy="40" r="1.5" fill="#fff" opacity="0.4"/>
+  <circle cx="40" cy="370" r="1" fill="#fff" opacity="0.5"/>
+  <circle cx="230" cy="360" r="1.5" fill="#fff" opacity="0.3"/>
+  <!-- Triangle body -->
+  <polygon points="140,120 50,320 230,320" fill="#6c5ce7" stroke="#4a3fcf" stroke-width="4"/>
+  <polygon points="140,135 65,310 215,310" fill="#a29bfe" opacity="0.3"/>
+  <!-- Vertex stars -->
+  <circle cx="140" cy="120" r="8" fill="#FFD700"/>
+  <circle cx="140" cy="120" r="4" fill="#f1c40f"/>
+  <circle cx="50" cy="320" r="8" fill="#00cec9"/>
+  <circle cx="50" cy="320" r="4" fill="#81ecec"/>
+  <circle cx="230" cy="320" r="8" fill="#e17055"/>
+  <circle cx="230" cy="320" r="4" fill="#fab1a0"/>
+  <!-- Cute face -->
+  <circle cx="125" cy="250" r="7" fill="#fff"/>
+  <circle cx="155" cy="250" r="7" fill="#fff"/>
+  <circle cx="127" cy="250" r="4.5" fill="#222"/>
+  <circle cx="157" cy="250" r="4.5" fill="#222"/>
+  <circle cx="128" cy="248" r="1.5" fill="#fff"/>
+  <circle cx="158" cy="248" r="1.5" fill="#fff"/>
+  <!-- Happy mouth -->
+  <path d="M130,265 Q140,275 150,265" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Cheeks -->
+  <circle cx="112" cy="258" r="6" fill="#ff9999" opacity="0.3"/>
+  <circle cx="168" cy="258" r="6" fill="#ff9999" opacity="0.3"/>
+  <!-- Tiny legs -->
+  <rect x="120" y="320" width="10" height="30" rx="5" fill="#4a3fcf"/>
+  <rect x="150" y="320" width="10" height="30" rx="5" fill="#4a3fcf"/>
+  <ellipse cx="125" cy="352" rx="7" ry="4" fill="#4a3fcf"/>
+  <ellipse cx="155" cy="352" rx="7" ry="4" fill="#4a3fcf"/>
+  <text x="140" y="400" text-anchor="middle" fill="#a29bfe" font-family="Fredoka, sans-serif" font-size="14" font-weight="bold">三角座 △</text>
+</svg>

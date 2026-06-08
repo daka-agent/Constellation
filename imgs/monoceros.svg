@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 420">
+  <defs>
+    <radialGradient id="bgGrad" cx="50%" cy="40%" r="60%"><stop offset="0%" stop-color="#1a1a4e"/><stop offset="100%" stop-color="#0a0a2e"/></radialGradient>
+  </defs>
+  <rect width="280" height="420" fill="url(#bgGrad)"/>
+  <circle cx="50" cy="45" r="2" fill="#fff" opacity="0.6"/>
+  <circle cx="220" cy="55" r="1.5" fill="#fff" opacity="0.4"/>
+  <circle cx="200" cy="200" r="1" fill="#fff" opacity="0.5"/>
+  <!-- Body -->
+  <ellipse cx="140" cy="295" rx="40" ry="38" fill="#f8f9fa" stroke="#dee2e6" stroke-width="3"/>
+  <ellipse cx="140" cy="290" rx="26" ry="26" fill="#fff"/>
+  <!-- Head -->
+  <ellipse cx="140" cy="240" rx="25" ry="22" fill="#f8f9fa" stroke="#dee2e6" stroke-width="2"/>
+  <!-- Mane -->
+  <path d="M115,240 Q110,220 118,210 Q125,195 135,200 Q132,210 128,225" fill="#e8d5f5" stroke="#d4b5e8" stroke-width="1.5"/>
+  <path d="M125,218 Q130,200 140,198 Q142,210 138,222" fill="#f0e0ff"/>
+  <!-- Horn -->
+  <polygon points="140,210 135,180 145,180" fill="#FFD700" stroke="#f1c40f" stroke-width="2"/>
+  <line x1="137" y1="200" x2="143" y2="200" stroke="#f1c40f" stroke-width="1.5"/>
+  <line x1="136" y1="193" x2="144" y2="193" stroke="#f1c40f" stroke-width="1.5"/>
+  <!-- Eyes -->
+  <circle cx="130" cy="238" r="5" fill="#fff"/>
+  <circle cx="150" cy="238" r="5" fill="#fff"/>
+  <circle cx="131" cy="238" r="3.5" fill="#6c5ce7"/>
+  <circle cx="151" cy="238" r="3.5" fill="#6c5ce7"/>
+  <circle cx="132" cy="236" r="1.5" fill="#fff"/>
+  <circle cx="152" cy="236" r="1.5" fill="#fff"/>
+  <!-- Nose -->
+  <ellipse cx="140" cy="245" rx="6" ry="4" fill="#e8d5f5"/>
+  <path d="M136,248 Q140,252 144,248" fill="none" stroke="#ccc" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- Ears -->
+  <ellipse cx="118" cy="228" rx="5" ry="10" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1.5" transform="rotate(-15,118,228)"/>
+  <ellipse cx="162" cy="228" rx="5" ry="10" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1.5" transform="rotate(15,162,228)"/>
+  <!-- Legs -->
+  <rect x="115" y="328" width="11" height="35" rx="5" fill="#f8f9fa"/>
+  <rect x="133" y="330" width="11" height="33" rx="5" fill="#dee2e6"/>
+  <rect x="138" y="330" width="11" height="33" rx="5" fill="#dee2e6"/>
+  <rect x="154" y="328" width="11" height="35" rx="5" fill="#f8f9fa"/>
+  <ellipse cx="120" cy="365" rx="7" ry="4" fill="#dee2e6"/>
+  <ellipse cx="160" cy="365" rx="7" ry="4" fill="#dee2e6"/>
+  <!-- Tail -->
+  <path d="M105,295 Q85,275 80,255" fill="none" stroke="#f0e0ff" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="78" cy="253" r="7" fill="#e8d5f5"/>
+  <!-- Sparkles -->
+  <polygon points="170,200 172,208 180,210 172,212 170,220 168,212 160,210 168,208" fill="#FFD700" opacity="0.6"/>
+  <text x="140" y="400" text-anchor="middle" fill="#a29bfe" font-family="Fredoka, sans-serif" font-size="14" font-weight="bold">麒麟座 🦄</text>
+</svg>

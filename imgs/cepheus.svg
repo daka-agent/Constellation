@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 420">
+  <defs>
+    <radialGradient id="bgGrad" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#1a1a4e"/>
+      <stop offset="100%" stop-color="#0a0a2e"/>
+    </radialGradient>
+  </defs>
+  <rect width="280" height="420" fill="url(#bgGrad)"/>
+  <circle cx="50" cy="50" r="2" fill="#fff" opacity="0.6"/>
+  <circle cx="230" cy="40" r="1.5" fill="#fff" opacity="0.4"/>
+  <circle cx="200" cy="180" r="1" fill="#fff" opacity="0.5"/>
+  <!-- Crown -->
+  <path d="M100,150 L115,120 L130,145 L145,115 L160,145 L175,120 L190,150" fill="none" stroke="#FFD700" stroke-width="4"/>
+  <polygon points="100,150 115,120 130,145 145,115 160,145 175,120 190,150 185,160 105,160" fill="#FFD700" opacity="0.7"/>
+  <!-- Jewels on crown -->
+  <circle cx="115" cy="122" r="3" fill="#e74c3c"/>
+  <circle cx="145" cy="117" r="3" fill="#3498db"/>
+  <circle cx="175" cy="122" r="3" fill="#2ecc71"/>
+  <!-- Face -->
+  <ellipse cx="145" cy="185" rx="30" ry="32" fill="#ffdbac" stroke="#d4a86a" stroke-width="2"/>
+  <!-- Beard -->
+  <path d="M115,195 Q145,230 175,195" fill="#8B4513" stroke="#5a2d0c" stroke-width="2"/>
+  <path d="M120,200 Q145,228 170,200" fill="#a0522d"/>
+  <!-- Eyes -->
+  <circle cx="135" cy="182" r="5" fill="#fff"/>
+  <circle cx="155" cy="182" r="5" fill="#fff"/>
+  <circle cx="136" cy="182" r="3" fill="#2a1a0a"/>
+  <circle cx="156" cy="182" r="3" fill="#2a1a0a"/>
+  <!-- Smile -->
+  <path d="M138,192 Q145,198 152,192" fill="none" stroke="#d4a86a" stroke-width="2" stroke-linecap="round"/>
+  <!-- Robe/body -->
+  <path d="M100,210 Q90,280 95,350 L195,350 Q200,280 190,210" fill="#4a0e8f" stroke="#3a0a6f" stroke-width="3"/>
+  <!-- Royal sash -->
+  <path d="M115,250 L175,250" fill="none" stroke="#FFD700" stroke-width="4"/>
+  <rect x="135" y="246" width="20" height="8" rx="2" fill="#e74c3c"/>
+  <!-- Sceptre -->
+  <rect x="195" y="180" width="6" height="80" rx="3" fill="#FFD700"/>
+  <circle cx="198" cy="178" r="8" fill="#FFD700"/>
+  <circle cx="198" cy="178" r="4" fill="#f1c40f"/>
+  <!-- Legs -->
+  <rect x="115" y="340" width="14" height="35" rx="7" fill="#3a0a6f"/>
+  <rect x="161" y="340" width="14" height="35" rx="7" fill="#3a0a6f"/>
+  <ellipse cx="122" cy="377" rx="10" ry="5" fill="#3a0a6f"/>
+  <ellipse cx="168" cy="377" rx="10" ry="5" fill="#3a0a6f"/>
+  <text x="145" y="400" text-anchor="middle" fill="#FFD700" font-family="Fredoka, sans-serif" font-size="14" font-weight="bold">仙王座 👑</text>
+</svg>

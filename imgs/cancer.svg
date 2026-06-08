@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 420">
+  <defs>
+    <radialGradient id="bgGrad" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#1a1a4e"/>
+      <stop offset="100%" stop-color="#0a0a2e"/>
+    </radialGradient>
+  </defs>
+  <rect width="280" height="420" fill="url(#bgGrad)"/>
+  <!-- Stars -->
+  <circle cx="60" cy="50" r="2" fill="#fff" opacity="0.6"/>
+  <circle cx="200" cy="70" r="1.5" fill="#fff" opacity="0.4"/>
+  <circle cx="40" cy="120" r="1.5" fill="#fff" opacity="0.5"/>
+  <circle cx="230" cy="140" r="2" fill="#fff" opacity="0.3"/>
+  <circle cx="80" cy="200" r="1" fill="#fff" opacity="0.5"/>
+  <circle cx="210" cy="30" r="1.5" fill="#fff" opacity="0.4"/>
+  <!-- Body -->
+  <ellipse cx="140" cy="270" rx="75" ry="55" fill="#e84343" stroke="#c0392b" stroke-width="3"/>
+  <ellipse cx="140" cy="270" rx="60" ry="42" fill="#f06060"/>
+  <!-- Shell pattern -->
+  <path d="M100,240 Q140,220 180,240" fill="none" stroke="#c0392b" stroke-width="2" opacity="0.5"/>
+  <path d="M105,258 Q140,240 175,258" fill="none" stroke="#c0392b" stroke-width="2" opacity="0.4"/>
+  <!-- Eyes -->
+  <circle cx="120" cy="248" r="8" fill="#fff"/>
+  <circle cx="160" cy="248" r="8" fill="#fff"/>
+  <circle cx="122" cy="248" r="5" fill="#222"/>
+  <circle cx="162" cy="248" r="5" fill="#222"/>
+  <circle cx="123" cy="246" r="2" fill="#fff"/>
+  <circle cx="163" cy="246" r="2" fill="#fff"/>
+  <!-- Happy mouth -->
+  <path d="M130,260 Q140,268 150,260" fill="none" stroke="#c0392b" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Cheeks -->
+  <circle cx="108" cy="258" r="7" fill="#ff9999" opacity="0.5"/>
+  <circle cx="172" cy="258" r="7" fill="#ff9999" opacity="0.5"/>
+  <!-- Left claw -->
+  <g transform="translate(65,260)">
+    <ellipse cx="-15" cy="10" rx="20" ry="8" fill="#e84343" stroke="#c0392b" stroke-width="2" transform="rotate(-20)"/>
+    <path d="M-30,5 L-38,-2 M-28,8 L-36,4 M-26,12 L-34,10" stroke="#c0392b" stroke-width="2" stroke-linecap="round"/>
+  </g>
+  <!-- Right claw -->
+  <g transform="translate(215,260)">
+    <ellipse cx="15" cy="10" rx="20" ry="8" fill="#e84343" stroke="#c0392b" stroke-width="2" transform="rotate(20)"/>
+    <path d="M30,5 L38,-2 M28,8 L36,4 M26,12 L34,10" stroke="#c0392b" stroke-width="2" stroke-linecap="round"/>
+  </g>
+  <!-- Legs -->
+  <line x1="100" y1="315" x2="85" y2="370" stroke="#c0392b" stroke-width="4" stroke-linecap="round"/>
+  <line x1="120" y1="320" x2="110" y2="375" stroke="#c0392b" stroke-width="4" stroke-linecap="round"/>
+  <line x1="160" y1="320" x2="170" y2="375" stroke="#c0392b" stroke-width="4" stroke-linecap="round"/>
+  <line x1="180" y1="315" x2="195" y2="370" stroke="#c0392b" stroke-width="4" stroke-linecap="round"/>
+  <!-- Label -->
+  <text x="140" y="400" text-anchor="middle" fill="#f06060" font-family="Fredoka, sans-serif" font-size="14" font-weight="bold">巨蟹座 ♋</text>
+</svg>

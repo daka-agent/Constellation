@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 420">
+  <defs>
+    <radialGradient id="bgGrad" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#1a1a4e"/>
+      <stop offset="100%" stop-color="#0a0a2e"/>
+    </radialGradient>
+    <linearGradient id="sailGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8f9fa"/>
+      <stop offset="100%" stop-color="#e9ecef"/>
+    </linearGradient>
+  </defs>
+  <rect width="280" height="420" fill="url(#bgGrad)"/>
+  <circle cx="50" cy="50" r="2" fill="#fff" opacity="0.6"/>
+  <circle cx="230" cy="40" r="1.5" fill="#fff" opacity="0.4"/>
+  <circle cx="60" cy="380" r="1" fill="#fff" opacity="0.5"/>
+  <circle cx="210" cy="370" r="1.5" fill="#fff" opacity="0.3"/>
+  <!-- Waves -->
+  <path d="M0,340 Q30,325 60,340 Q90,355 120,340 Q150,325 180,340 Q210,355 240,340 Q270,325 280,340 L280,420 L0,420 Z" fill="#1a5276" opacity="0.5"/>
+  <path d="M0,355 Q40,340 80,355 Q120,370 160,355 Q200,340 240,355 Q260,365 280,355 L280,420 L0,420 Z" fill="#2980b9" opacity="0.3"/>
+  <!-- Hull -->
+  <path d="M40,320 Q30,340 40,355 L240,355 Q250,340 240,320 Z" fill="#8B4513" stroke="#5a2d0c" stroke-width="3"/>
+  <rect x="45" y="315" width="190" height="8" rx="3" fill="#a0522d"/>
+  <!-- Mast -->
+  <rect x="137" y="120" width="6" height="200" rx="3" fill="#5a2d0c"/>
+  <!-- Main sail -->
+  <path d="M143,130 L200,190 L143,250" fill="url(#sailGrad)" stroke="#ccc" stroke-width="2"/>
+  <path d="M143,130 L200,190 L143,250" fill="none" stroke="#ddd" stroke-width="1" opacity="0.5"/>
+  <!-- Front sail -->
+  <path d="M137,140 L90,190 L137,240" fill="#f8f9fa" stroke="#ccc" stroke-width="2" opacity="0.85"/>
+  <!-- Flag -->
+  <path d="M143,120 L170,130 L143,140" fill="#e74c3c" stroke="#c0392b" stroke-width="1"/>
+  <!-- Little bird on mast -->
+  <circle cx="148" cy="108" r="6" fill="#f39c12"/>
+  <ellipse cx="148" cy="110" rx="8" ry="5" fill="#f1c40f" stroke="#f39c12" stroke-width="1"/>
+  <circle cx="151" cy="106" r="2" fill="#222"/>
+  <path d="M153,108 L158,105" stroke="#f39c12" stroke-width="2"/>
+  <!-- Portholes -->
+  <circle cx="90" cy="335" r="7" fill="#1a1a4e" stroke="#5a2d0c" stroke-width="2"/>
+  <circle cx="190" cy="335" r="7" fill="#1a1a4e" stroke="#5a2d0c" stroke-width="2"/>
+  <circle cx="90" cy="335" r="3" fill="#FFD700" opacity="0.5"/>
+  <circle cx="190" cy="335" r="3" fill="#FFD700" opacity="0.5"/>
+  <text x="140" y="400" text-anchor="middle" fill="#f1c40f" font-family="Fredoka, sans-serif" font-size="14" font-weight="bold">船底座 ⛵</text>
+</svg>

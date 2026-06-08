@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 420">
+  <defs>
+    <radialGradient id="bgGrad" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#1a1a4e"/>
+      <stop offset="100%" stop-color="#0a0a2e"/>
+    </radialGradient>
+  </defs>
+  <rect width="280" height="420" fill="url(#bgGrad)"/>
+  <circle cx="50" cy="45" r="2" fill="#fff" opacity="0.6"/>
+  <circle cx="220" cy="55" r="1.5" fill="#fff" opacity="0.4"/>
+  <circle cx="230" cy="150" r="1" fill="#fff" opacity="0.5"/>
+  <!-- Body -->
+  <ellipse cx="140" cy="280" rx="30" ry="60" fill="#27ae60" stroke="#1e8449" stroke-width="3"/>
+  <ellipse cx="140" cy="275" rx="18" ry="45" fill="#2ecc71"/>
+  <!-- Spots -->
+  <circle cx="128" cy="250" r="5" fill="#1e8449" opacity="0.5"/>
+  <circle cx="152" cy="280" r="4" fill="#1e8449" opacity="0.4"/>
+  <circle cx="135" cy="310" r="4" fill="#1e8449" opacity="0.5"/>
+  <!-- Head -->
+  <ellipse cx="140" cy="205" rx="22" ry="18" fill="#27ae60" stroke="#1e8449" stroke-width="2"/>
+  <ellipse cx="140" cy="208" rx="14" ry="11" fill="#2ecc71"/>
+  <!-- Eyes -->
+  <circle cx="132" cy="202" r="5" fill="#fff"/>
+  <circle cx="148" cy="202" r="5" fill="#fff"/>
+  <circle cx="134" cy="202" r="3" fill="#1a1a4e"/>
+  <circle cx="146" cy="202" r="3" fill="#1a1a4e"/>
+  <circle cx="135" cy="200" r="1" fill="#fff"/>
+  <circle cx="147" cy="200" r="1" fill="#fff"/>
+  <!-- Smile -->
+  <path d="M135,212 Q140,216 145,212" fill="none" stroke="#1e8449" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- Tongue -->
+  <path d="M140,216 L140,222 M138,222 L142,222" fill="none" stroke="#e74c3c" stroke-width="2" stroke-linecap="round"/>
+  <!-- Legs -->
+  <path d="M115,320 L100,360 L108,362" fill="none" stroke="#27ae60" stroke-width="6" stroke-linecap="round"/>
+  <path d="M125,325 L115,362 L123,364" fill="none" stroke="#1e8449" stroke-width="6" stroke-linecap="round"/>
+  <path d="M155,325 L165,362 L157,364" fill="none" stroke="#1e8449" stroke-width="6" stroke-linecap="round"/>
+  <path d="M165,320 L180,360 L172,362" fill="none" stroke="#27ae60" stroke-width="6" stroke-linecap="round"/>
+  <!-- Tail -->
+  <path d="M140,335 Q120,360 100,380 Q90,390 95,395" fill="none" stroke="#27ae60" stroke-width="6" stroke-linecap="round"/>
+  <text x="140" y="400" text-anchor="middle" fill="#2ecc71" font-family="Fredoka, sans-serif" font-size="14" font-weight="bold">蝎虎座 🦎</text>
+</svg>

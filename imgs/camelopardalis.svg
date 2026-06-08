@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 420">
+  <defs>
+    <radialGradient id="bgGrad" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#1a1a4e"/>
+      <stop offset="100%" stop-color="#0a0a2e"/>
+    </radialGradient>
+  </defs>
+  <rect width="280" height="420" fill="url(#bgGrad)"/>
+  <circle cx="50" cy="45" r="2" fill="#fff" opacity="0.6"/>
+  <circle cx="220" cy="55" r="1.5" fill="#fff" opacity="0.4"/>
+  <circle cx="230" cy="200" r="1" fill="#fff" opacity="0.5"/>
+  <!-- Body -->
+  <ellipse cx="140" cy="310" rx="45" ry="38" fill="#f39c12" stroke="#e67e22" stroke-width="3"/>
+  <ellipse cx="140" cy="305" rx="30" ry="25" fill="#f5b041"/>
+  <!-- Spots -->
+  <circle cx="120" cy="295" r="6" fill="#e67e22" opacity="0.5"/>
+  <circle cx="160" cy="310" r="5" fill="#e67e22" opacity="0.5"/>
+  <circle cx="145" cy="325" r="4" fill="#e67e22" opacity="0.4"/>
+  <circle cx="125" cy="320" r="4" fill="#e67e22" opacity="0.3"/>
+  <!-- Long neck -->
+  <rect x="132" y="170" width="16" height="145" rx="8" fill="#f39c12" stroke="#e67e22" stroke-width="2"/>
+  <rect x="136" y="175" width="8" height="135" rx="4" fill="#f5b041" opacity="0.5"/>
+  <!-- Head -->
+  <ellipse cx="140" cy="165" rx="22" ry="18" fill="#f39c12" stroke="#e67e22" stroke-width="2"/>
+  <!-- Ossicones (horns) -->
+  <line x1="132" y1="150" x2="128" y2="138" stroke="#e67e22" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="128" cy="136" r="4" fill="#8B4513"/>
+  <line x1="148" y1="150" x2="152" y2="138" stroke="#e67e22" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="152" cy="136" r="4" fill="#8B4513"/>
+  <!-- Ears -->
+  <ellipse cx="118" cy="158" rx="5" ry="10" fill="#f39c12" stroke="#e67e22" stroke-width="1.5" transform="rotate(-30,118,158)"/>
+  <ellipse cx="162" cy="158" rx="5" ry="10" fill="#f39c12" stroke="#e67e22" stroke-width="1.5" transform="rotate(30,162,158)"/>
+  <!-- Eyes -->
+  <circle cx="132" cy="162" r="5" fill="#fff"/>
+  <circle cx="148" cy="162" r="5" fill="#fff"/>
+  <circle cx="133" cy="162" r="3.5" fill="#3a1a0a"/>
+  <circle cx="149" cy="162" r="3.5" fill="#3a1a0a"/>
+  <circle cx="134" cy="160" r="1.5" fill="#fff"/>
+  <circle cx="150" cy="160" r="1.5" fill="#fff"/>
+  <!-- Nose -->
+  <ellipse cx="140" cy="170" rx="5" ry="3" fill="#e67e22"/>
+  <!-- Smile -->
+  <path d="M134,174 Q140,178 146,174" fill="none" stroke="#e67e22" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- Legs -->
+  <rect x="112" y="342" width="12" height="40" rx="6" fill="#f39c12"/>
+  <rect x="128" y="345" width="12" height="37" rx="6" fill="#e67e22"/>
+  <rect x="140" y="345" width="12" height="37" rx="6" fill="#e67e22"/>
+  <rect x="156" y="342" width="12" height="40" rx="6" fill="#f39c12"/>
+  <ellipse cx="118" cy="384" rx="8" ry="4" fill="#8B4513"/>
+  <ellipse cx="162" cy="384" rx="8" ry="4" fill="#8B4513"/>
+  <text x="140" y="400" text-anchor="middle" fill="#f39c12" font-family="Fredoka, sans-serif" font-size="14" font-weight="bold">鹿豹座 🦒</text>
+</svg>

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 420">
+  <defs>
+    <radialGradient id="bgGrad" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#1a1a4e"/>
+      <stop offset="100%" stop-color="#0a0a2e"/>
+    </radialGradient>
+  </defs>
+  <rect width="280" height="420" fill="url(#bgGrad)"/>
+  <circle cx="50" cy="45" r="2" fill="#fff" opacity="0.6"/>
+  <circle cx="230" cy="55" r="1.5" fill="#fff" opacity="0.4"/>
+  <circle cx="200" cy="160" r="1" fill="#fff" opacity="0.5"/>
+  <!-- Body -->
+  <ellipse cx="140" cy="290" rx="45" ry="35" fill="#d4a017" stroke="#b8860b" stroke-width="3"/>
+  <ellipse cx="140" cy="285" rx="30" ry="22" fill="#f0c040"/>
+  <!-- Head -->
+  <ellipse cx="140" cy="205" rx="32" ry="38" fill="#d4a017" stroke="#b8860b" stroke-width="3"/>
+  <!-- Mane -->
+  <path d="M108,205 Q100,185 105,170 Q110,180 115,170 Q120,180 125,170 Q130,180 135,170" fill="#b8860b" stroke="#8B6914" stroke-width="2"/>
+  <!-- Ears -->
+  <ellipse cx="115" cy="175" rx="6" ry="12" fill="#d4a017" stroke="#b8860b" stroke-width="2" transform="rotate(-15,115,175)"/>
+  <ellipse cx="115" cy="175" rx="3" ry="7" fill="#f5deb3" transform="rotate(-15,115,175)"/>
+  <ellipse cx="165" cy="175" rx="6" ry="12" fill="#d4a017" stroke="#b8860b" stroke-width="2" transform="rotate(15,165,175)"/>
+  <ellipse cx="165" cy="175" rx="3" ry="7" fill="#f5deb3" transform="rotate(15,165,175)"/>
+  <!-- Eyes -->
+  <circle cx="128" cy="200" r="7" fill="#fff"/>
+  <circle cx="152" cy="200" r="7" fill="#fff"/>
+  <circle cx="130" cy="200" r="4.5" fill="#3a1a0a"/>
+  <circle cx="154" cy="200" r="4.5" fill="#3a1a0a"/>
+  <circle cx="131" cy="198" r="1.5" fill="#fff"/>
+  <circle cx="155" cy="198" r="1.5" fill="#fff"/>
+  <!-- Nuzzle -->
+  <ellipse cx="140" cy="215" rx="12" ry="8" fill="#f0c040" stroke="#b8860b" stroke-width="1.5"/>
+  <ellipse cx="135" cy="214" r="3" fill="#8B6914"/>
+  <ellipse cx="145" cy="214" r="3" fill="#8B6914"/>
+  <!-- Mouth -->
+  <path d="M136,220 Q140,224 144,220" fill="none" stroke="#b8860b" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- Legs -->
+  <rect x="110" y="320" width="12" height="45" rx="6" fill="#d4a017"/>
+  <rect x="130" y="322" width="12" height="43" rx="6" fill="#b8860b"/>
+  <rect x="140" y="322" width="12" height="43" rx="6" fill="#b8860b"/>
+  <rect x="158" y="320" width="12" height="45" rx="6" fill="#d4a017"/>
+  <!-- Small hooves -->
+  <ellipse cx="116" cy="367" rx="8" ry="4" fill="#5a3a0a"/>
+  <ellipse cx="164" cy="367" rx="8" ry="4" fill="#5a3a0a"/>
+  <!-- Tiny tail -->
+  <path d="M95,285 Q80,275 75,260 Q80,270 85,275 Q90,280 95,285" fill="#b8860b"/>
+  <text x="140" y="400" text-anchor="middle" fill="#f0c040" font-family="Fredoka, sans-serif" font-size="14" font-weight="bold">小马座 🐴</text>
+</svg>

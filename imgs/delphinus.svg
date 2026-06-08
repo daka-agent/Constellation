@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 420">
+  <defs>
+    <radialGradient id="bgGrad" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#1a1a4e"/>
+      <stop offset="100%" stop-color="#0a0a2e"/>
+    </radialGradient>
+    <linearGradient id="dolphinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#74b9ff"/>
+      <stop offset="100%" stop-color="#0984e3"/>
+    </linearGradient>
+  </defs>
+  <rect width="280" height="420" fill="url(#bgGrad)"/>
+  <circle cx="50" cy="50" r="2" fill="#fff" opacity="0.6"/>
+  <circle cx="230" cy="40" r="1.5" fill="#fff" opacity="0.4"/>
+  <circle cx="40" cy="370" r="1" fill="#fff" opacity="0.5"/>
+  <!-- Water -->
+  <path d="M0,340 Q40,328 80,340 Q120,352 160,340 Q200,328 240,340 Q270,352 280,340 L280,420 L0,420 Z" fill="#1a5276" opacity="0.4"/>
+  <!-- Dolphin body -->
+  <path d="M60,260 Q80,220 130,200 Q180,185 220,210 Q240,225 230,250 Q220,265 200,260 Q170,255 150,270 Q130,285 100,280 Q70,275 60,260 Z" fill="url(#dolphinGrad)" stroke="#2980b9" stroke-width="2"/>
+  <!-- Belly -->
+  <path d="M90,262 Q130,240 170,242 Q200,248 215,252" fill="none" stroke="#dfe6e9" stroke-width="6" opacity="0.4" stroke-linecap="round"/>
+  <!-- Flipper -->
+  <path d="M120,250 L100,290 L135,265" fill="#74b9ff" stroke="#2980b9" stroke-width="2"/>
+  <!-- Tail -->
+  <path d="M230,245 Q250,225 260,220 Q250,238 255,252 Q250,242 230,245" fill="#74b9ff" stroke="#2980b9" stroke-width="2"/>
+  <!-- Eye -->
+  <circle cx="210" cy="215" r="6" fill="#fff"/>
+  <circle cx="211" cy="215" r="4" fill="#1a1a4e"/>
+  <circle cx="212" cy="213" r="1.5" fill="#fff"/>
+  <!-- Smile -->
+  <path d="M215,225 Q220,232 226,225" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+  <!-- Cheek -->
+  <circle cx="200" cy="222" r="5" fill="#ff9999" opacity="0.4"/>
+  <!-- Water splashes -->
+  <circle cx="50" cy="270" r="5" fill="#74b9ff" opacity="0.4"/>
+  <circle cx="40" cy="260" r="3" fill="#74b9ff" opacity="0.3"/>
+  <circle cx="55" cy="250" r="4" fill="#74b9ff" opacity="0.3"/>
+  <!-- Stars -->
+  <polygon points="130,170 132,178 140,180 132,182 130,190 128,182 120,180 128,178" fill="#FFD700" opacity="0.7"/>
+  <text x="140" y="400" text-anchor="middle" fill="#74b9ff" font-family="Fredoka, sans-serif" font-size="14" font-weight="bold">海豚座 🐬</text>
+</svg>

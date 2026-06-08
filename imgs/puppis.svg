@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 420">
+  <defs>
+    <radialGradient id="bgGrad" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#1a1a4e"/>
+      <stop offset="100%" stop-color="#0a0a2e"/>
+    </radialGradient>
+  </defs>
+  <rect width="280" height="420" fill="url(#bgGrad)"/>
+  <circle cx="50" cy="50" r="2" fill="#fff" opacity="0.6"/>
+  <circle cx="220" cy="40" r="1.5" fill="#fff" opacity="0.4"/>
+  <circle cx="60" cy="370" r="1" fill="#fff" opacity="0.5"/>
+  <!-- Waves -->
+  <path d="M0,340 Q40,328 80,340 Q120,352 160,340 Q200,328 240,340 Q260,352 280,340 L280,420 L0,420 Z" fill="#1a5276" opacity="0.5"/>
+  <!-- Stern hull -->
+  <path d="M30,320 Q20,340 30,355 L260,355 Q270,340 250,320 Q220,310 140,315 Q60,310 30,320 Z" fill="#8B4513" stroke="#5a2d0c" stroke-width="3"/>
+  <rect x="35" y="313" width="210" height="10" rx="4" fill="#a0522d"/>
+  <!-- Rudder -->
+  <rect x="240" y="320" width="8" height="50" rx="4" fill="#5a2d0c"/>
+  <ellipse cx="244" cy="370" rx="12" ry="8" fill="#8B4513" stroke="#5a2d0c" stroke-width="2"/>
+  <!-- Little captain wheel -->
+  <circle cx="130" cy="280" r="22" fill="none" stroke="#8B4513" stroke-width="4"/>
+  <circle cx="130" cy="280" r="6" fill="#8B4513"/>
+  <line x1="130" y1="258" x2="130" y2="302" stroke="#8B4513" stroke-width="3"/>
+  <line x1="108" y1="280" x2="152" y2="280" stroke="#8B4513" stroke-width="3"/>
+  <line x1="115" y1="265" x2="145" y2="295" stroke="#8B4513" stroke-width="3"/>
+  <line x1="145" y1="265" x2="115" y2="295" stroke="#8B4513" stroke-width="3"/>
+  <!-- Anchor -->
+  <path d="M90,360 L90,310 M80,310 L100,310 M78,320 L82,320" fill="none" stroke="#5a2d0c" stroke-width="3" stroke-linecap="round"/>
+  <path d="M75,320 Q90,335 105,320" fill="none" stroke="#5a2d0c" stroke-width="3" stroke-linecap="round"/>
+  <!-- Little face -->
+  <circle cx="100" cy="296" r="4" fill="#fff"/>
+  <circle cx="116" cy="296" r="4" fill="#fff"/>
+  <circle cx="101" cy="296" r="2" fill="#222"/>
+  <circle cx="117" cy="296" r="2" fill="#222"/>
+  <!-- Cute smile on the hull -->
+  <path d="M105,305 Q108,310 111,305" fill="none" stroke="#5a2d0c" stroke-width="1.5"/>
+  <text x="140" y="400" text-anchor="middle" fill="#f39c12" font-family="Fredoka, sans-serif" font-size="14" font-weight="bold">船尾座 ⚓</text>
+</svg>

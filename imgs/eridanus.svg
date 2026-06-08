@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 420">
+  <defs>
+    <radialGradient id="bgGrad" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#1a1a4e"/>
+      <stop offset="100%" stop-color="#0a0a2e"/>
+    </radialGradient>
+    <linearGradient id="riverGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2980b9"/>
+      <stop offset="50%" stop-color="#3498db"/>
+      <stop offset="100%" stop-color="#1abc9c"/>
+    </linearGradient>
+  </defs>
+  <rect width="280" height="420" fill="url(#bgGrad)"/>
+  <circle cx="60" cy="40" r="2" fill="#fff" opacity="0.6"/>
+  <circle cx="220" cy="60" r="1.5" fill="#fff" opacity="0.4"/>
+  <circle cx="30" cy="100" r="1" fill="#fff" opacity="0.5"/>
+  <!-- River body -->
+  <path d="M40,120 Q80,100 120,130 Q160,160 100,200 Q40,240 140,280 Q240,320 180,370 Q140,400 120,390" fill="none" stroke="url(#riverGrad)" stroke-width="24" stroke-linecap="round" opacity="0.6"/>
+  <path d="M40,120 Q80,100 120,130 Q160,160 100,200 Q40,240 140,280 Q240,320 180,370 Q140,400 120,390" fill="none" stroke="#74b9ff" stroke-width="14" stroke-linecap="round" opacity="0.7"/>
+  <path d="M40,120 Q80,100 120,130 Q160,160 100,200 Q40,240 140,280 Q240,320 180,370 Q140,400 120,390" fill="none" stroke="#dfe6e9" stroke-width="5" stroke-linecap="round" opacity="0.5"/>
+  <!-- Cute face on river -->
+  <circle cx="120" cy="195" r="6" fill="#2980b9"/>
+  <circle cx="150" cy="195" r="6" fill="#2980b9"/>
+  <circle cx="122" cy="195" r="3" fill="#fff"/>
+  <circle cx="152" cy="195" r="3" fill="#fff"/>
+  <path d="M130,205 Q135,210 140,205" fill="none" stroke="#2980b9" stroke-width="2" stroke-linecap="round"/>
+  <!-- Stars along river -->
+  <circle cx="100" cy="140" r="3" fill="#FFD700" opacity="0.8"/>
+  <circle cx="150" cy="170" r="2.5" fill="#FFD700" opacity="0.7"/>
+  <circle cx="90" cy="220" r="3" fill="#FFD700" opacity="0.8"/>
+  <circle cx="170" cy="270" r="2" fill="#FFD700" opacity="0.6"/>
+  <circle cx="130" cy="320" r="3" fill="#FFD700" opacity="0.8"/>
+  <!-- Greenery -->
+  <ellipse cx="50" cy="125" rx="15" ry="8" fill="#27ae60" opacity="0.5"/>
+  <ellipse cx="220" cy="310" rx="12" ry="7" fill="#27ae60" opacity="0.5"/>
+  <text x="140" y="400" text-anchor="middle" fill="#3498db" font-family="Fredoka, sans-serif" font-size="14" font-weight="bold">波江座 🌊</text>
+</svg>

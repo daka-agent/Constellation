@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 420">
+  <defs>
+    <radialGradient id="bgGrad" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#1a1a4e"/>
+      <stop offset="100%" stop-color="#0a0a2e"/>
+    </radialGradient>
+  </defs>
+  <rect width="280" height="420" fill="url(#bgGrad)"/>
+  <circle cx="50" cy="45" r="2" fill="#fff" opacity="0.6"/>
+  <circle cx="220" cy="55" r="1.5" fill="#fff" opacity="0.4"/>
+  <circle cx="40" cy="130" r="1" fill="#fff" opacity="0.5"/>
+  <!-- Shield base -->
+  <path d="M90,120 Q140,100 190,120 L200,220 Q140,280 80,220 Z" fill="#2980b9" stroke="#1a5276" stroke-width="4"/>
+  <path d="M100,130 Q140,115 180,130 L185,215 Q140,260 95,215 Z" fill="#3498db"/>
+  <!-- Shield center emblem -->
+  <circle cx="140" cy="195" r="30" fill="#f1c40f" stroke="#f39c12" stroke-width="3"/>
+  <!-- Star emblem -->
+  <polygon points="140,172 145,187 160,187 148,197 152,212 140,202 128,212 132,197 120,187 135,187" fill="#e74c3c"/>
+  <!-- Shield rim rivets -->
+  <circle cx="120" cy="125" r="3" fill="#f1c40f"/>
+  <circle cx="140" cy="118" r="3" fill="#f1c40f"/>
+  <circle cx="160" cy="125" r="3" fill="#f1c40f"/>
+  <circle cx="185" cy="170" r="3" fill="#f1c40f"/>
+  <circle cx="95" cy="170" r="3" fill="#f1c40f"/>
+  <!-- Cute face on shield -->
+  <circle cx="130" cy="185" r="4" fill="#fff"/>
+  <circle cx="150" cy="185" r="4" fill="#fff"/>
+  <circle cx="131" cy="185" r="2.5" fill="#222"/>
+  <circle cx="151" cy="185" r="2.5" fill="#222"/>
+  <path d="M136,192 Q140,196 144,192" fill="none" stroke="#c0392b" stroke-width="2" stroke-linecap="round"/>
+  <!-- Arms -->
+  <rect x="70" y="240" width="12" height="80" rx="6" fill="#34495e"/>
+  <rect x="198" y="240" width="12" height="80" rx="6" fill="#34495e"/>
+  <!-- Hands -->
+  <circle cx="76" cy="325" r="10" fill="#e67e22"/>
+  <circle cx="204" cy="325" r="10" fill="#e67e22"/>
+  <!-- Feet -->
+  <ellipse cx="120" cy="370" rx="18" ry="10" fill="#2c3e50"/>
+  <ellipse cx="160" cy="370" rx="18" ry="10" fill="#2c3e50"/>
+  <text x="140" y="400" text-anchor="middle" fill="#3498db" font-family="Fredoka, sans-serif" font-size="14" font-weight="bold">盾牌座 🛡</text>
+</svg>

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 420">
+  <defs>
+    <radialGradient id="bgGrad" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#1a1a4e"/>
+      <stop offset="100%" stop-color="#0a0a2e"/>
+    </radialGradient>
+  </defs>
+  <rect width="280" height="420" fill="url(#bgGrad)"/>
+  <circle cx="50" cy="45" r="2" fill="#fff" opacity="0.6"/>
+  <circle cx="220" cy="55" r="1.5" fill="#fff" opacity="0.4"/>
+  <circle cx="200" cy="150" r="1" fill="#fff" opacity="0.5"/>
+  <!-- Sextant arc -->
+  <path d="M70,330 Q140,390 210,330" fill="none" stroke="#FFD700" stroke-width="8"/>
+  <path d="M70,330 Q140,390 210,330" fill="none" stroke="#f1c40f" stroke-width="4"/>
+  <!-- Tick marks on arc -->
+  <line x1="90" y1="345" x2="92" y2="355" stroke="#FFD700" stroke-width="2"/>
+  <line x1="110" y1="358" x2="112" y2="368" stroke="#FFD700" stroke-width="2"/>
+  <line x1="130" y1="368" x2="131" y2="378" stroke="#FFD700" stroke-width="2"/>
+  <line x1="150" y1="370" x2="150" y2="380" stroke="#FFD700" stroke-width="2"/>
+  <line x1="170" y1="368" x2="169" y2="378" stroke="#FFD700" stroke-width="2"/>
+  <line x1="190" y1="358" x2="188" y2="368" stroke="#FFD700" stroke-width="2"/>
+  <!-- Pivot -->
+  <circle cx="140" cy="220" r="12" fill="#5a2d0c" stroke="#3a1a06" stroke-width="2"/>
+  <circle cx="140" cy="220" r="6" fill="#FFD700"/>
+  <circle cx="140" cy="220" r="3" fill="#f1c40f"/>
+  <!-- Moving arm -->
+  <line x1="140" y1="220" x2="105" y2="345" stroke="#8B4513" stroke-width="4" stroke-linecap="round"/>
+  <!-- Fixed frame -->
+  <line x1="140" y1="220" x2="175" y2="345" stroke="#8B4513" stroke-width="6" stroke-linecap="round"/>
+  <!-- Top frame -->
+  <line x1="140" y1="220" x2="200" y2="210" stroke="#8B4513" stroke-width="6" stroke-linecap="round"/>
+  <!-- Telescope -->
+  <rect x="190" y="195" width="30" height="30" rx="5" fill="#FFD700" stroke="#e67e22" stroke-width="2" transform="rotate(-20,205,210)"/>
+  <circle cx="220" cy="203" r="12" fill="#fff" stroke="#e67e22" stroke-width="2" transform="rotate(-20,220,203)"/>
+  <circle cx="220" cy="203" r="5" fill="#1a1a4e" transform="rotate(-20,220,203)"/>
+  <!-- Handle -->
+  <rect x="130" y="350" width="20" height="30" rx="8" fill="#5a2d0c"/>
+  <!-- Cute face on the pivot -->
+  <circle cx="134" cy="216" r="3" fill="#fff"/>
+  <circle cx="146" cy="216" r="3" fill="#fff"/>
+  <circle cx="135" cy="216" r="2" fill="#222"/>
+  <circle cx="147" cy="216" r="2" fill="#222"/>
+  <path d="M138,222 Q140,225 142,222" fill="none" stroke="#222" stroke-width="1" stroke-linecap="round"/>
+  <!-- Stars around -->
+  <polygon points="60,280 62,288 70,290 62,292 60,300 58,292 50,290 58,288" fill="#fff" opacity="0.5"/>
+  <polygon points="230,290 232,296 238,298 232,300 230,306 228,300 222,298 228,296" fill="#fff" opacity="0.4"/>
+  <text x="140" y="400" text-anchor="middle" fill="#FFD700" font-family="Fredoka, sans-serif" font-size="14" font-weight="bold">六分仪座 🔭</text>
+</svg>

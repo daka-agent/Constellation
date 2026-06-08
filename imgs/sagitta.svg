@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 420">
+  <defs>
+    <radialGradient id="bgGrad" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#1a1a4e"/>
+      <stop offset="100%" stop-color="#0a0a2e"/>
+    </radialGradient>
+  </defs>
+  <rect width="280" height="420" fill="url(#bgGrad)"/>
+  <circle cx="50" cy="45" r="2" fill="#fff" opacity="0.6"/>
+  <circle cx="230" cy="60" r="1.5" fill="#fff" opacity="0.4"/>
+  <circle cx="60" cy="370" r="1" fill="#fff" opacity="0.5"/>
+  <!-- Arrow shaft -->
+  <rect x="125" y="140" width="8" height="180" rx="4" fill="#8B4513" transform="rotate(15, 129, 230)"/>
+  <!-- Arrowhead -->
+  <polygon points="115,145 129,115 143,145" fill="#f39c12" stroke="#e67e22" stroke-width="2"/>
+  <polygon points="122,143 129,128 136,143" fill="#f1c40f"/>
+  <!-- Feathers -->
+  <path d="M110,305 L95,320 L115,315 Z" fill="#e74c3c"/>
+  <path d="M115,315 L100,335 L120,325 Z" fill="#e67e22"/>
+  <path d="M145,300 L160,315 L140,310 Z" fill="#e74c3c"/>
+  <path d="M140,310 L155,330 L135,320 Z" fill="#e67e22"/>
+  <!-- Bow -->
+  <path d="M40,200 Q60,160 100,190 Q70,220 40,200" fill="none" stroke="#8B4513" stroke-width="5"/>
+  <line x1="45" y1="200" x2="95" y2="190" stroke="#ccc" stroke-width="1.5"/>
+  <!-- Speed lines -->
+  <line x1="150" y1="120" x2="180" y2="110" stroke="#FFD700" stroke-width="2" opacity="0.5" stroke-linecap="round"/>
+  <line x1="155" y1="135" x2="190" y2="128" stroke="#FFD700" stroke-width="1.5" opacity="0.4" stroke-linecap="round"/>
+  <line x1="148" y1="105" x2="170" y2="95" stroke="#FFD700" stroke-width="1.5" opacity="0.3" stroke-linecap="round"/>
+  <!-- Sparkle -->
+  <polygon points="195,95 197,103 205,105 197,107 195,115 193,107 185,105 193,103" fill="#FFD700" opacity="0.8"/>
+  <text x="140" y="400" text-anchor="middle" fill="#f39c12" font-family="Fredoka, sans-serif" font-size="14" font-weight="bold">天箭座 🏹</text>
+</svg>

@@ -793,6 +793,7 @@ const CONSTELLATIONS = [
     ],
     lines: [[0,1],[0,2],[1,3],[2,5],[3,4],[4,5]],
     difficulty: 2, starsCount: 6,
+    imageFile: 'cancer',
   },
   {
     id: "lepus",
@@ -810,6 +811,7 @@ const CONSTELLATIONS = [
     ],
     lines: [[0,1],[0,2],[1,3],[2,5],[3,4],[4,5]],
     difficulty: 2, starsCount: 6,
+    imageFile: 'lepus',
   },
   {
     id: "auriga",
@@ -827,6 +829,7 @@ const CONSTELLATIONS = [
     ],
     lines: [[0,1],[0,2],[0,3],[1,4],[3,6],[1,5],[5,6]],
     difficulty: 3, starsCount: 7,
+    imageFile: 'auriga',
   },
   {
     id: "cetus",
@@ -844,6 +847,7 @@ const CONSTELLATIONS = [
     ],
     lines: [[0,1],[0,2],[1,3],[2,5],[3,4],[4,5],[3,6],[5,7]],
     difficulty: 4, starsCount: 8,
+    imageFile: 'cetus',
   },
   {
     id: "eridanus",
@@ -861,6 +865,7 @@ const CONSTELLATIONS = [
     ],
     lines: [[0,1],[1,2],[2,3],[3,4],[4,5]],
     difficulty: 2, starsCount: 6,
+    imageFile: 'eridanus',
   },
   {
     id: "crux",
@@ -878,6 +883,7 @@ const CONSTELLATIONS = [
     ],
     lines: [[0,1],[2,3]],
     difficulty: 1, starsCount: 4,
+    imageFile: 'crux',
   },
   {
     id: "centaurus",
@@ -895,6 +901,7 @@ const CONSTELLATIONS = [
     ],
     lines: [[0,1],[0,2],[1,4],[2,3],[3,4],[3,5],[5,6]],
     difficulty: 3, starsCount: 7,
+    imageFile: 'centaurus',
   },
   {
     id: "carina",
@@ -912,6 +919,7 @@ const CONSTELLATIONS = [
     ],
     lines: [[0,1],[0,2],[1,3],[2,5],[1,4],[4,5]],
     difficulty: 2, starsCount: 6,
+    imageFile: 'carina',
   },
   {
     id: "vela",
@@ -929,6 +937,7 @@ const CONSTELLATIONS = [
     ],
     lines: [[0,1],[0,2],[1,3],[2,5],[3,4],[4,5]],
     difficulty: 2, starsCount: 6,
+    imageFile: 'vela',
   },
   {
     id: "puppis",
@@ -946,6 +955,7 @@ const CONSTELLATIONS = [
     ],
     lines: [[0,1],[0,2],[1,3],[2,5],[1,4],[4,5]],
     difficulty: 2, starsCount: 6,
+    imageFile: 'puppis',
   },
   {
     id: "serpens",
@@ -963,6 +973,7 @@ const CONSTELLATIONS = [
     ],
     lines: [[0,1],[1,2],[2,3],[3,4],[4,5],[5,6]],
     difficulty: 3, starsCount: 7,
+    imageFile: 'serpens',
   },
   {
     id: "scutum",
@@ -980,6 +991,7 @@ const CONSTELLATIONS = [
     ],
     lines: [[0,1],[0,2],[1,3],[2,4],[3,4]],
     difficulty: 1, starsCount: 5,
+    imageFile: 'scutum',
   },
   {
     id: "sagitta",
@@ -997,6 +1009,7 @@ const CONSTELLATIONS = [
     ],
     lines: [[0,1],[1,2],[2,3]],
     difficulty: 1, starsCount: 4,
+    imageFile: 'sagitta',
   },
   {
     id: "delphinus",
@@ -1014,6 +1027,7 @@ const CONSTELLATIONS = [
     ],
     lines: [[0,1],[1,3],[3,2],[2,0]],
     difficulty: 1, starsCount: 4,
+    imageFile: 'delphinus',
   },
   {
     id: "equuleus",
@@ -1031,6 +1045,7 @@ const CONSTELLATIONS = [
     ],
     lines: [[0,1],[0,2],[1,3],[2,3]],
     difficulty: 1, starsCount: 4,
+    imageFile: 'equuleus',
   },
   {
     id: "triangulum",
@@ -1047,6 +1062,7 @@ const CONSTELLATIONS = [
     ],
     lines: [[0,1],[1,2],[2,0]],
     difficulty: 1, starsCount: 3,
+    imageFile: 'triangulum',
   },
   {
     id: "vulpecula",
@@ -1064,6 +1080,7 @@ const CONSTELLATIONS = [
     ],
     lines: [[0,1],[0,2],[1,3],[2,5],[3,4],[4,5]],
     difficulty: 2, starsCount: 6,
+    imageFile: 'vulpecula',
   },
   {
     id: "lacerta",
@@ -1081,6 +1098,7 @@ const CONSTELLATIONS = [
     ],
     lines: [[0,1],[0,2],[1,3],[2,5],[3,4],[4,5]],
     difficulty: 2, starsCount: 6,
+    imageFile: 'lacerta',
   },
   {
     id: "camelopardalis",
@@ -1098,6 +1116,7 @@ const CONSTELLATIONS = [
     ],
     lines: [[0,1],[0,2],[1,3],[2,5],[1,4],[4,5]],
     difficulty: 2, starsCount: 6,
+    imageFile: 'camelopardalis',
   },
   {
     id: "cepheus",
@@ -1115,6 +1134,7 @@ const CONSTELLATIONS = [
     ],
     lines: [[0,1],[0,2],[1,3],[2,4],[3,4]],
     difficulty: 1, starsCount: 5,
+    imageFile: 'cepheus',
   },
   {
     id: "canes_venatici",
@@ -1132,6 +1152,7 @@ const CONSTELLATIONS = [
     ],
     lines: [[0,1],[0,2],[1,3],[2,4]],
     difficulty: 1, starsCount: 5,
+    imageFile: 'canes_venatici',
   },
   {
     id: "coma_berenices",
@@ -1149,6 +1170,7 @@ const CONSTELLATIONS = [
     ],
     lines: [[0,1],[0,2],[1,3],[2,5],[3,4],[4,5]],
     difficulty: 2, starsCount: 6,
+    imageFile: 'coma_berenices',
   },
   {
     id: "leo_minor",
@@ -1166,6 +1188,7 @@ const CONSTELLATIONS = [
     ],
     lines: [[0,1],[0,2],[1,3],[2,5],[3,4],[4,5]],
     difficulty: 2, starsCount: 6,
+    imageFile: 'leo_minor',
   },
   {
     id: "sextans",
@@ -1183,6 +1206,7 @@ const CONSTELLATIONS = [
     ],
     lines: [[0,1],[0,2],[1,3],[2,5],[3,4],[4,5]],
     difficulty: 2, starsCount: 6,
+    imageFile: 'sextans',
   },
   {
     id: "crater",
@@ -1200,6 +1224,7 @@ const CONSTELLATIONS = [
     ],
     lines: [[0,1],[0,2],[1,3],[2,5],[3,4],[4,5]],
     difficulty: 2, starsCount: 6,
+    imageFile: 'crater',
   },
   {
     id: "corvus",
@@ -1217,6 +1242,7 @@ const CONSTELLATIONS = [
     ],
     lines: [[0,1],[0,2],[1,3],[2,3]],
     difficulty: 1, starsCount: 4,
+    imageFile: 'corvus',
   },
   {
     id: "monoceros",
@@ -1234,6 +1260,7 @@ const CONSTELLATIONS = [
     ],
     lines: [[0,1],[0,2],[1,3],[2,5],[1,4],[4,5]],
     difficulty: 2, starsCount: 6,
+    imageFile: 'monoceros',
   },
   {
     id: "antlia",
@@ -1251,6 +1278,7 @@ const CONSTELLATIONS = [
     ],
     lines: [[0,1],[0,2],[1,3],[2,5],[3,4],[4,5]],
     difficulty: 2, starsCount: 6,
+    imageFile: 'antlia',
   },
   {
     id: "pyxis",
@@ -1268,6 +1296,7 @@ const CONSTELLATIONS = [
     ],
     lines: [[0,1],[0,2],[1,3],[2,5],[3,4],[4,5]],
     difficulty: 2, starsCount: 6,
+    imageFile: 'pyxis',
   },
   {
     id: "columba",
@@ -1285,6 +1314,7 @@ const CONSTELLATIONS = [
     ],
     lines: [[0,1],[0,2],[1,3],[2,5],[3,4],[4,5]],
     difficulty: 2, starsCount: 6,
+    imageFile: 'columba',
   },
   {
     id: "lupus",
@@ -1302,6 +1332,7 @@ const CONSTELLATIONS = [
     ],
     lines: [[0,1],[0,2],[1,3],[2,5],[3,4],[4,5]],
     difficulty: 2, starsCount: 6,
+    imageFile: 'lupus',
   },
   {
     id: "norma",
@@ -1319,6 +1350,7 @@ const CONSTELLATIONS = [
     ],
     lines: [[0,1],[0,2],[1,3],[2,5],[3,4],[4,5]],
     difficulty: 2, starsCount: 6,
+    imageFile: 'norma',
   },
   {
     id: "circinus",
@@ -1336,6 +1368,7 @@ const CONSTELLATIONS = [
     ],
     lines: [[0,1],[0,2],[1,3],[2,4],[3,4]],
     difficulty: 1, starsCount: 5,
+    imageFile: 'circinus',
   },
   {
     id: "ara",
@@ -1353,6 +1386,7 @@ const CONSTELLATIONS = [
     ],
     lines: [[0,1],[0,2],[1,3],[2,5],[3,4],[4,5]],
     difficulty: 2, starsCount: 6,
+    imageFile: 'ara',
   },
   {
     id: "triangulum_australe",
@@ -1369,6 +1403,7 @@ const CONSTELLATIONS = [
     ],
     lines: [[0,1],[1,2],[2,0]],
     difficulty: 1, starsCount: 3,
+    imageFile: 'triangulum_australe',
   },
   {
     id: "apus",
@@ -1386,6 +1421,7 @@ const CONSTELLATIONS = [
     ],
     lines: [[0,1],[0,2],[1,3],[2,5],[3,4],[4,5]],
     difficulty: 2, starsCount: 6,
+    imageFile: 'apus',
   },
   {
     id: "pavo",
@@ -1403,6 +1439,7 @@ const CONSTELLATIONS = [
     ],
     lines: [[0,1],[0,2],[1,3],[2,5],[3,4],[4,6],[5,6]],
     difficulty: 3, starsCount: 7,
+    imageFile: 'pavo',
   },
   {
     id: "tucana",
@@ -1420,6 +1457,7 @@ const CONSTELLATIONS = [
     ],
     lines: [[0,1],[0,2],[1,3],[2,5],[3,4],[4,5]],
     difficulty: 2, starsCount: 6,
+    imageFile: 'tucana',
   },
   {
     id: "grus",
@@ -1437,6 +1475,7 @@ const CONSTELLATIONS = [
     ],
     lines: [[0,1],[0,2],[1,3],[2,4],[3,5],[4,5]],
     difficulty: 2, starsCount: 6,
+    imageFile: 'grus',
   },
   {
     id: "phoenix",
@@ -1454,6 +1493,7 @@ const CONSTELLATIONS = [
     ],
     lines: [[0,1],[0,2],[1,3],[2,5],[3,4],[4,5]],
     difficulty: 2, starsCount: 6,
+    imageFile: 'phoenix',
   },
   {
     id: "piscis_austrinus",
@@ -1471,6 +1511,7 @@ const CONSTELLATIONS = [
     ],
     lines: [[0,1],[0,2],[1,3],[2,5],[3,4],[4,5]],
     difficulty: 2, starsCount: 6,
+    imageFile: 'piscis_austrinus',
   },
   {
     id: "sculptor",
@@ -1488,6 +1529,7 @@ const CONSTELLATIONS = [
     ],
     lines: [[0,1],[0,2],[1,3],[2,5],[3,4],[4,5]],
     difficulty: 2, starsCount: 6,
+    imageFile: 'sculptor',
   },
   {
     id: "fornax",
@@ -1505,6 +1547,7 @@ const CONSTELLATIONS = [
     ],
     lines: [[0,1],[0,2],[1,3],[2,5],[3,4],[4,5]],
     difficulty: 2, starsCount: 6,
+    imageFile: 'fornax',
   },
   {
     id: "caelum",
@@ -1522,6 +1565,7 @@ const CONSTELLATIONS = [
     ],
     lines: [[0,1],[0,2],[1,3],[2,4],[3,4]],
     difficulty: 1, starsCount: 5,
+    imageFile: 'caelum',
   },
   {
     id: "horologium",
@@ -1539,6 +1583,7 @@ const CONSTELLATIONS = [
     ],
     lines: [[0,1],[0,2],[1,3],[2,5],[3,4],[4,5]],
     difficulty: 2, starsCount: 6,
+    imageFile: 'horologium',
   },
   {
     id: "reticulum",
@@ -1556,6 +1601,7 @@ const CONSTELLATIONS = [
     ],
     lines: [[0,1],[0,2],[1,3],[2,4],[3,4]],
     difficulty: 1, starsCount: 5,
+    imageFile: 'reticulum',
   },
   {
     id: "dorado",
@@ -1573,6 +1619,7 @@ const CONSTELLATIONS = [
     ],
     lines: [[0,1],[0,2],[1,3],[2,5],[3,4],[4,5]],
     difficulty: 2, starsCount: 6,
+    imageFile: 'dorado',
   },
   {
     id: "pictor",
@@ -1590,6 +1637,7 @@ const CONSTELLATIONS = [
     ],
     lines: [[0,1],[0,2],[1,3],[2,5],[3,4],[4,5]],
     difficulty: 2, starsCount: 6,
+    imageFile: 'pictor',
   },
   {
     id: "volans",
@@ -1607,6 +1655,7 @@ const CONSTELLATIONS = [
     ],
     lines: [[0,1],[0,2],[1,3],[2,5],[3,4],[4,5]],
     difficulty: 2, starsCount: 6,
+    imageFile: 'volans',
   },
   {
     id: "musca",
@@ -1624,6 +1673,7 @@ const CONSTELLATIONS = [
     ],
     lines: [[0,1],[0,2],[1,3],[2,5],[3,4],[4,5]],
     difficulty: 2, starsCount: 6,
+    imageFile: 'musca',
   },
   {
     id: "hydrus",
@@ -1641,6 +1691,7 @@ const CONSTELLATIONS = [
     ],
     lines: [[0,1],[0,2],[1,3],[2,5],[3,4],[4,5]],
     difficulty: 2, starsCount: 6,
+    imageFile: 'hydrus',
   },
   {
     id: "indus",
@@ -1658,6 +1709,7 @@ const CONSTELLATIONS = [
     ],
     lines: [[0,1],[0,2],[1,3],[2,5],[3,4],[4,5]],
     difficulty: 2, starsCount: 6,
+    imageFile: 'indus',
   },
   {
     id: "chamaeleon",
@@ -1675,6 +1727,7 @@ const CONSTELLATIONS = [
     ],
     lines: [[0,1],[0,2],[1,3],[2,5],[3,4],[4,5]],
     difficulty: 2, starsCount: 6,
+    imageFile: 'chamaeleon',
   },
   {
     id: "mensa",
@@ -1692,6 +1745,7 @@ const CONSTELLATIONS = [
     ],
     lines: [[0,1],[0,2],[1,3],[2,4],[3,4]],
     difficulty: 1, starsCount: 5,
+    imageFile: 'mensa',
   },
   {
     id: "octans",
@@ -1709,6 +1763,7 @@ const CONSTELLATIONS = [
     ],
     lines: [[0,1],[0,2],[1,3],[2,5],[3,4],[4,5]],
     difficulty: 2, starsCount: 6,
+    imageFile: 'octans',
   },
   {
     id: "microscopium",
@@ -1726,6 +1781,7 @@ const CONSTELLATIONS = [
     ],
     lines: [[0,1],[0,2],[1,3],[2,4],[3,4]],
     difficulty: 1, starsCount: 5,
+    imageFile: 'microscopium',
   },
   {
     id: "telescopium",
@@ -1743,6 +1799,7 @@ const CONSTELLATIONS = [
     ],
     lines: [[0,1],[0,2],[1,3],[2,5],[3,4],[4,5]],
     difficulty: 2, starsCount: 6,
+    imageFile: 'telescopium',
   },
   {
     id: "corona_australis",
@@ -1760,6 +1817,7 @@ const CONSTELLATIONS = [
     ],
     lines: [[0,1],[0,2],[1,3],[2,5],[3,4],[4,5]],
     difficulty: 2, starsCount: 6,
+    imageFile: 'corona_australis',
   },
 ];
 

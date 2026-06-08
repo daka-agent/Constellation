@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 420">
+  <defs>
+    <radialGradient id="bgGrad" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#1a1a4e"/>
+      <stop offset="100%" stop-color="#0a0a2e"/>
+    </radialGradient>
+  </defs>
+  <rect width="280" height="420" fill="url(#bgGrad)"/>
+  <circle cx="50" cy="45" r="2" fill="#fff" opacity="0.6"/>
+  <circle cx="220" cy="55" r="1.5" fill="#fff" opacity="0.4"/>
+  <circle cx="190" cy="160" r="1" fill="#fff" opacity="0.5"/>
+  <circle cx="80" cy="180" r="1.5" fill="#fff" opacity="0.3"/>
+  <!-- Hat/helmet -->
+  <ellipse cx="140" cy="142" rx="42" ry="12" fill="#8B4513" stroke="#5a2d0c" stroke-width="2"/>
+  <path d="M105,142 Q110,100 140,95 Q170,100 175,142" fill="#a0522d" stroke="#5a2d0c" stroke-width="2"/>
+  <circle cx="140" cy="110" r="6" fill="#FFD700"/>
+  <!-- Face -->
+  <ellipse cx="140" cy="170" rx="38" ry="35" fill="#ffdbac" stroke="#d4a86a" stroke-width="2"/>
+  <!-- Beard -->
+  <path d="M110,180 Q140,210 170,180" fill="#8B4513" stroke="#5a2d0c" stroke-width="2"/>
+  <!-- Eyes -->
+  <circle cx="128" cy="165" r="6" fill="#fff"/>
+  <circle cx="152" cy="165" r="6" fill="#fff"/>
+  <circle cx="129" cy="165" r="3.5" fill="#2a1a0a"/>
+  <circle cx="153" cy="165" r="3.5" fill="#2a1a0a"/>
+  <!-- Smile -->
+  <path d="M132,178 Q140,184 148,178" fill="none" stroke="#d4a86a" stroke-width="2" stroke-linecap="round"/>
+  <!-- Body/cloak -->
+  <path d="M90,195 Q80,280 85,340 L195,340 Q200,280 190,195" fill="#4a6fa5" stroke="#2e4a7a" stroke-width="3"/>
+  <!-- Belt -->
+  <rect x="88" y="250" width="104" height="10" rx="3" fill="#8B4513"/>
+  <rect x="130" y="247" width="20" height="16" rx="4" fill="#FFD700"/>
+  <!-- Arms holding goat -->
+  <path d="M85,230 Q60,220 55,210" stroke="#ffdbac" stroke-width="8" stroke-linecap="round"/>
+  <path d="M195,230 Q220,220 225,210" stroke="#ffdbac" stroke-width="8" stroke-linecap="round"/>
+  <!-- Baby goat in arms -->
+  <ellipse cx="140" cy="215" rx="22" ry="18" fill="#f5f5dc" stroke="#ccc" stroke-width="2"/>
+  <ellipse cx="140" cy="208" rx="15" ry="12" fill="#f5f5dc" stroke="#ccc" stroke-width="2"/>
+  <circle cx="134" cy="206" r="4" fill="#fff"/>
+  <circle cx="146" cy="206" r="4" fill="#fff"/>
+  <circle cx="135" cy="206" r="2.5" fill="#222"/>
+  <circle cx="147" cy="206" r="2.5" fill="#222"/>
+  <ellipse cx="140" cy="213" rx="4" ry="2.5" fill="#ff9999"/>
+  <!-- Tiny horns -->
+  <line x1="133" y1="198" x2="125" y2="190" stroke="#8B4513" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="147" y1="198" x2="155" y2="190" stroke="#8B4513" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Legs -->
+  <rect x="105" y="330" width="16" height="35" rx="8" fill="#4a6fa5"/>
+  <rect x="159" y="330" width="16" height="35" rx="8" fill="#4a6fa5"/>
+  <text x="140" y="400" text-anchor="middle" fill="#4a6fa5" font-family="Fredoka, sans-serif" font-size="14" font-weight="bold">御夫座 🛡</text>
+</svg>

@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 420">
+  <defs>
+    <radialGradient id="bgGrad" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#1a1a4e"/>
+      <stop offset="100%" stop-color="#0a0a2e"/>
+    </radialGradient>
+  </defs>
+  <rect width="280" height="420" fill="url(#bgGrad)"/>
+  <circle cx="70" cy="60" r="2" fill="#fff" opacity="0.6"/>
+  <circle cx="200" cy="40" r="1.5" fill="#fff" opacity="0.4"/>
+  <circle cx="50" cy="150" r="1" fill="#fff" opacity="0.5"/>
+  <circle cx="220" cy="130" r="1.5" fill="#fff" opacity="0.3"/>
+  <!-- Body -->
+  <ellipse cx="140" cy="250" rx="55" ry="65" fill="#f5deb3" stroke="#d4a86a" stroke-width="3"/>
+  <ellipse cx="140" cy="270" rx="40" ry="45" fill="#faf0dc"/>
+  <!-- Head -->
+  <ellipse cx="140" cy="190" rx="48" ry="42" fill="#f5deb3" stroke="#d4a86a" stroke-width="3"/>
+  <!-- Ears -->
+  <ellipse cx="100" cy="155" rx="18" ry="30" fill="#f5deb3" stroke="#d4a86a" stroke-width="3" transform="rotate(-15,100,155)"/>
+  <ellipse cx="100" cy="155" rx="10" ry="20" fill="#ffccd5" transform="rotate(-15,100,155)"/>
+  <ellipse cx="180" cy="155" rx="18" ry="30" fill="#f5deb3" stroke="#d4a86a" stroke-width="3" transform="rotate(15,180,155)"/>
+  <ellipse cx="180" cy="155" rx="10" ry="20" fill="#ffccd5" transform="rotate(15,180,155)"/>
+  <!-- Eyes -->
+  <circle cx="125" cy="185" r="9" fill="#fff"/>
+  <circle cx="155" cy="185" r="9" fill="#fff"/>
+  <circle cx="127" cy="185" r="5.5" fill="#3a1a0a"/>
+  <circle cx="157" cy="185" r="5.5" fill="#3a1a0a"/>
+  <circle cx="128" cy="183" r="2" fill="#fff"/>
+  <!-- Nose -->
+  <ellipse cx="140" cy="198" rx="5" ry="3.5" fill="#ff9999"/>
+  <!-- Mouth -->
+  <path d="M136,203 Q140,210 144,203" fill="none" stroke="#d4a86a" stroke-width="2" stroke-linecap="round"/>
+  <!-- Whiskers -->
+  <line x1="95" y1="195" x2="65" y2="190" stroke="#d4a86a" stroke-width="1.5" opacity="0.6"/>
+  <line x1="95" y1="200" x2="65" y2="200" stroke="#d4a86a" stroke-width="1.5" opacity="0.6"/>
+  <line x1="185" y1="195" x2="215" y2="190" stroke="#d4a86a" stroke-width="1.5" opacity="0.6"/>
+  <line x1="185" y1="200" x2="215" y2="200" stroke="#d4a86a" stroke-width="1.5" opacity="0.6"/>
+  <!-- Cheeks -->
+  <circle cx="110" cy="195" r="6" fill="#ff9999" opacity="0.4"/>
+  <circle cx="170" cy="195" r="6" fill="#ff9999" opacity="0.4"/>
+  <!-- Feet -->
+  <ellipse cx="115" cy="340" rx="20" ry="10" fill="#f5deb3" stroke="#d4a86a" stroke-width="2"/>
+  <ellipse cx="165" cy="340" rx="20" ry="10" fill="#f5deb3" stroke="#d4a86a" stroke-width="2"/>
+  <!-- Little tail -->
+  <circle cx="140" cy="305" r="12" fill="#faf0dc" stroke="#d4a86a" stroke-width="2"/>
+  <text x="140" y="400" text-anchor="middle" fill="#f5deb3" font-family="Fredoka, sans-serif" font-size="14" font-weight="bold">天兔座 🐰</text>
+</svg>

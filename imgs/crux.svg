@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 420">
+  <defs>
+    <radialGradient id="bgGrad" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#1a1a4e"/>
+      <stop offset="100%" stop-color="#0a0a2e"/>
+    </radialGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="280" height="420" fill="url(#bgGrad)"/>
+  <!-- Background stars -->
+  <circle cx="50" cy="40" r="1.5" fill="#fff" opacity="0.4"/>
+  <circle cx="230" cy="70" r="1" fill="#fff" opacity="0.3"/>
+  <circle cx="70" cy="380" r="1.5" fill="#fff" opacity="0.4"/>
+  <circle cx="210" cy="360" r="1" fill="#fff" opacity="0.3"/>
+  <!-- Glowing cross stars -->
+  <g filter="url(#glow)">
+    <!-- Top -->
+    <polygon points="140,100 145,115 160,120 145,125 140,140 135,125 120,120 135,115" fill="#FFD700"/>
+    <!-- Bottom -->
+    <polygon points="140,270 144,282 156,285 144,288 140,300 136,288 124,285 136,282" fill="#87CEEB"/>
+    <!-- Left -->
+    <polygon points="80,185 93,188 95,200 93,195 105,195 93,202 95,212 93,205 80,200 93,195" fill="#FF6347"/>
+    <!-- Right -->
+    <polygon points="200,185 213,188 215,200 213,195 225,195 213,202 215,212 213,205 200,200 213,195" fill="#90EE90"/>
+  </g>
+  <!-- Cross lines -->
+  <line x1="140" y1="115" x2="140" y2="285" stroke="#fff" stroke-width="2" opacity="0.3"/>
+  <line x1="80" y1="200" x2="225" y2="200" stroke="#fff" stroke-width="2" opacity="0.3"/>
+  <!-- Central glow -->
+  <circle cx="140" cy="200" r="15" fill="#fff" opacity="0.1"/>
+  <circle cx="140" cy="200" r="8" fill="#FFD700" opacity="0.3"/>
+  <!-- Label -->
+  <text x="140" y="400" text-anchor="middle" fill="#FFD700" font-family="Fredoka, sans-serif" font-size="14" font-weight="bold">南十字座 ✚</text>
+</svg>

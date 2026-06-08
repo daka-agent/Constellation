@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 420">
+  <defs>
+    <radialGradient id="bgGrad" cx="50%" cy="40%" r="60%"><stop offset="0%" stop-color="#1a1a4e"/><stop offset="100%" stop-color="#0a0a2e"/></radialGradient>
+  </defs>
+  <rect width="280" height="420" fill="url(#bgGrad)"/>
+  <circle cx="50" cy="45" r="2" fill="#fff" opacity="0.6"/>
+  <circle cx="230" cy="55" r="1.5" fill="#fff" opacity="0.4"/>
+  <circle cx="200" cy="180" r="1" fill="#fff" opacity="0.5"/>
+  <!-- Body -->
+  <ellipse cx="140" cy="290" rx="38" ry="50" fill="#2c3e50" stroke="#1a252f" stroke-width="2"/>
+  <ellipse cx="140" cy="295" rx="25" ry="35" fill="#34495e"/>
+  <!-- Wing -->
+  <path d="M175,270 Q220,240 230,280 Q210,290 180,290 Z" fill="#1a252f" stroke="#111" stroke-width="1.5"/>
+  <path d="M102,270 Q60,240 50,280 Q70,290 100,290 Z" fill="#1a252f" stroke="#111" stroke-width="1.5"/>
+  <!-- Head -->
+  <circle cx="140" cy="230" r="22" fill="#2c3e50" stroke="#1a252f" stroke-width="2"/>
+  <!-- Beak -->
+  <polygon points="140,225 148,240 140,248" fill="#f39c12" stroke="#e67e22" stroke-width="1.5"/>
+  <!-- Eyes -->
+  <circle cx="132" cy="228" r="5" fill="#fff"/>
+  <circle cx="148" cy="228" r="5" fill="#fff"/>
+  <circle cx="133" cy="228" r="3" fill="#111"/>
+  <circle cx="149" cy="228" r="3" fill="#111"/>
+  <circle cx="134" cy="226" r="1.5" fill="#fff"/>
+  <circle cx="150" cy="226" r="1.5" fill="#fff"/>
+  <!-- Tail -->
+  <path d="M105,330 Q80,360 70,380" fill="none" stroke="#1a252f" stroke-width="6" stroke-linecap="round"/>
+  <path d="M110,325 Q90,355 85,370" fill="none" stroke="#2c3e50" stroke-width="5" stroke-linecap="round"/>
+  <!-- Legs -->
+  <line x1="130" y1="338" x2="125" y2="370" stroke="#2c3e50" stroke-width="3"/>
+  <line x1="150" y1="338" x2="155" y2="370" stroke="#2c3e50" stroke-width="3"/>
+  <path d="M120,370 L130,370 M124,374 L132,374" stroke="#f39c12" stroke-width="2" stroke-linecap="round"/>
+  <path d="M150,370 L160,370 M154,374 L162,374" stroke="#f39c12" stroke-width="2" stroke-linecap="round"/>
+  <text x="140" y="400" text-anchor="middle" fill="#3498db" font-family="Fredoka, sans-serif" font-size="14" font-weight="bold">乌鸦座 🐦</text>
+</svg>
