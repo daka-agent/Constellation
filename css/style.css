@@ -445,6 +445,71 @@ body {
   color: var(--text-secondary);
 }
 
+/* 语音朗读按钮 */
+.audio-btn {
+  margin-left: auto;
+  padding: 4px 12px;
+  font-size: 13px;
+  border: none;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: #fff;
+  font-family: var(--font-body);
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+.audio-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.4);
+}
+.audio-btn:active {
+  transform: scale(0.97);
+}
+
+/* 朗读状态条 */
+.audio-playing-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  margin-bottom: var(--space-sm);
+  background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(139,92,246,0.1));
+  border: 1px solid rgba(99,102,241,0.2);
+  border-radius: var(--radius-md);
+  font-size: 12px;
+  color: #6366f1;
+}
+
+.audio-wave {
+  animation: audioPulse 0.8s ease-in-out infinite;
+}
+
+@keyframes audioPulse {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+.audio-status {
+  flex: 1;
+}
+
+.audio-stop-btn {
+  padding: 2px 8px;
+  font-size: 14px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(239,68,68,0.15);
+  color: #ef4444;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  line-height: 1;
+}
+.audio-stop-btn:hover {
+  background: rgba(239,68,68,0.3);
+  transform: scale(1.1);
+}
+
 /* 趣味知识卡片 */
 .fun-fact-card {
   display: flex;
@@ -977,9 +1042,12 @@ body {
 /* =============================================
    卡片难度 & 锁定样式
    ============================================= */
-.card-status {
-  font-size: 28px;
-  margin-bottom: 4px;
+/* card-status 已合并到 card-difficulty 行 */
+.card-lock-icon,
+.card-explored-icon {
+  font-size: 13px;
+  margin-right: 3px;
+  flex-shrink: 0;
 }
 
 .card-difficulty {

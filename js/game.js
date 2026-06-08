@@ -13,6 +13,11 @@ const state = {
   gameProgress: 0,               // 当前游戏连接进度（已连几条边）
   gameTotalEdges: 0,             // 当前星座总边数
   gameFinished: false,
+  /* TTS 朗读 */
+  ttsSpeaking: false,
+  ttsPaused: false,
+  ttsUtterance: null,
+  ttsCurrentText: '',
 };
 
 /* -------- 屏幕切换 -------- */
@@ -149,19 +154,10 @@ function createConstellationCard(c, size = 'grid') {
   const card = document.createElement('div');
   card.className = `constellation-card ${size === 'grid' ? 'grid-card' : ''} ${locked ? 'locked' : ''} ${explored ? 'explored' : ''}`;
 
-  let statusIcon = '';
-  if (locked) {
-    statusIcon = '🔒';
-  } else if (explored) {
-    statusIcon = '⭐';
-  } else {
-    statusIcon = diffStars;
-  }
-
   card.innerHTML = `
-    <div class="card-status">${statusIcon}</div>
     <div class="card-name">${c.name}</div>
     <div class="card-difficulty">
+      ${locked ? '<span class="card-lock-icon">🔒</span>' : (explored ? '<span class="card-explored-icon">⭐</span>' : '')}
       <span class="difficulty-stars">${diffStars}</span>
       <span class="difficulty-label">${diffLabel}</span>
     </div>
@@ -282,8 +278,18 @@ function renderTabContent(c) {
   if (state.currentDetailTab === 'story') {
     container.innerHTML = `
       <div class="content-card">
-        <div class="content-card-title">📖 ${c.name}的传说</div>
-        <div class="content-card-text">${c.story.replace(/\n/g, '<br><br>')}</div>
+        <div class="content-card-title">
+          📖 ${c.name}的传说
+          <button class="audio-btn" id="audio-play-btn" onclick="toggleStoryAudio()" title="朗读故事">
+            🔊 朗读
+          </button>
+        </div>
+        <div class="audio-playing-bar" id="audio-playing-bar" style="display:none;">
+          <span class="audio-wave">🔊</span>
+          <span class="audio-status" id="audio-status-text">正在朗读...</span>
+          <button class="audio-stop-btn" onclick="stopStoryAudio()">⏹</button>
+        </div>
+        <div class="content-card-text" id="story-text">${c.story.replace(/\n/g, '<br><br>')}</div>
       </div>
       <div class="fun-fact-card">
         <div class="fun-fact-emoji">💡</div>
@@ -324,6 +330,153 @@ function renderTabContent(c) {
   }
 }
 
+/* -------- TTS 语音朗读 -------- */
+/* 预加载语音列表 */
+let _ttsVoicesLoaded = false;
+function ensureVoicesLoaded() {
+  if (_ttsVoicesLoaded) return;
+  const voices = speechSynthesis.getVoices();
+  if (voices.length > 0) {
+    _ttsVoicesLoaded = true;
+    return;
+  }
+  // 某些浏览器需要等待 voiceschanged 事件
+  return new Promise(resolve => {
+    speechSynthesis.onvoiceschanged = () => {
+      _ttsVoicesLoaded = true;
+      resolve();
+    };
+    // 超时保护
+    setTimeout(() => {
+      _ttsVoicesLoaded = true;
+      resolve();
+    }, 500);
+  });
+}
+
+async function toggleStoryAudio() {
+  // 检查浏览器是否支持语音合成
+  if (!window.speechSynthesis) {
+    showToast('您的浏览器不支持语音朗读功能');
+    return;
+  }
+  await ensureVoicesLoaded();
+
+  if (state.ttsSpeaking && !state.ttsPaused) {
+    pauseStoryAudio();
+    return;
+  }
+  if (state.ttsPaused) {
+    resumeStoryAudio();
+    return;
+  }
+  startStoryAudio();
+}
+
+function startStoryAudio() {
+  const c = CONSTELLATION_MAP[state.currentConstellation];
+  if (!c || !c.story) return;
+
+  stopStoryAudio(); // 清除之前的状态
+
+  const text = c.story;
+  state.ttsCurrentText = text;
+
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = 'zh-CN';
+  utterance.rate = 0.9;
+  utterance.pitch = 1.05;
+
+  // 选择合适的语音
+  const voices = speechSynthesis.getVoices();
+  const zhVoice = voices.find(v => v.lang.startsWith('zh')) || voices[0];
+  if (zhVoice) utterance.voice = zhVoice;
+
+  utterance.onstart = () => {
+    state.ttsSpeaking = true;
+    state.ttsPaused = false;
+    updateAudioUI('playing');
+  };
+
+  utterance.onend = () => {
+    resetAudioState();
+    updateAudioUI('stopped');
+  };
+
+  utterance.onerror = (e) => {
+    console.log('TTS error:', e);
+    if (e.error !== 'canceled' && e.error !== 'interrupted') {
+      resetAudioState();
+      updateAudioUI('stopped');
+    }
+  };
+
+  utterance.onpause = () => {
+    state.ttsPaused = true;
+    updateAudioUI('paused');
+  };
+
+  utterance.onresume = () => {
+    state.ttsPaused = false;
+    updateAudioUI('playing');
+  };
+
+  state.ttsUtterance = utterance;
+  speechSynthesis.speak(utterance);
+  playSound('click');
+}
+
+function pauseStoryAudio() {
+  if (state.ttsSpeaking) {
+    speechSynthesis.pause();
+  }
+}
+
+function resumeStoryAudio() {
+  if (state.ttsPaused) {
+    speechSynthesis.resume();
+  }
+}
+
+function stopStoryAudio() {
+  speechSynthesis.cancel();
+  resetAudioState();
+  updateAudioUI('stopped');
+}
+
+function resetAudioState() {
+  state.ttsSpeaking = false;
+  state.ttsPaused = false;
+  state.ttsUtterance = null;
+  state.ttsCurrentText = '';
+}
+
+function updateAudioUI(status) {
+  const bar = document.getElementById('audio-playing-bar');
+  const btn = document.getElementById('audio-play-btn');
+  const statusText = document.getElementById('audio-status-text');
+
+  if (status === 'playing') {
+    if (bar) bar.style.display = 'flex';
+    if (btn) btn.textContent = '⏸ 暂停';
+    if (statusText) statusText.textContent = '正在朗读...';
+  } else if (status === 'paused') {
+    if (bar) bar.style.display = 'flex';
+    if (btn) btn.textContent = '▶ 继续';
+    if (statusText) statusText.textContent = '已暂停';
+  } else {
+    if (bar) bar.style.display = 'none';
+    if (btn) btn.textContent = '🔊 朗读';
+  }
+}
+
+/* -------- 页面切换时停止朗读 -------- */
+const _origSwitchScreen = switchScreen;
+switchScreen = function(screenName, direction) {
+  if (state.ttsSpeaking) stopStoryAudio();
+  return _origSwitchScreen(screenName, direction);
+};
+
 function getBestMonth(englishName) {
   const monthMap = {
     'Orion': '12月 - 3月（冬季）',
@@ -358,6 +511,8 @@ function initDetailTabs() {
       tab.classList.add('active');
       state.currentDetailTab = tab.dataset.tab;
       playSound('click');
+      // 切出故事 Tab 时停止朗读
+      if (tab.dataset.tab !== 'story' && state.ttsSpeaking) stopStoryAudio();
       const c = CONSTELLATION_MAP[state.currentConstellation];
       renderTabContent(c);
     };
