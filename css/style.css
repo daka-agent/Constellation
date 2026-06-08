@@ -1033,3 +1033,10 @@ body {
 #toast-msg {
   font-family: 'Fredoka', sans-serif;
 }
+
+/* =============================================
+   成就页难度分组
+   ============================================= */
+.achievement-tier {
+  margin-bottom: 8px;
+}

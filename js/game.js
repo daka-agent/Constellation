@@ -1152,12 +1152,29 @@ function playSound(type) {
 /* -------- 成就/图鉴渲染 -------- */
 function renderAchievement() {
   const achieved = getExploredIds();
-  const achievedList = CONSTELLATIONS.filter(c => achieved.includes(c.id));
-  const lockedList = CONSTELLATIONS.filter(c => !achieved.includes(c.id));
-
   document.getElementById('achievement-count').textContent = `${achieved.length} / ${CONSTELLATIONS.length}`;
 
-  renderAchievementGrid('achieved-grid', achievedList, true);
+  // 按难度分组渲染已解锁
+  const tiersEl = document.getElementById('achieved-tiers');
+  if (tiersEl) {
+    tiersEl.innerHTML = '';
+    const tierOrder = [1, 2, 3, 4];
+    tierOrder.forEach(diff => {
+      const tierAchieved = CONSTELLATIONS.filter(c => achieved.includes(c.id) && c.difficulty === diff);
+      if (tierAchieved.length === 0) return;
+      const section = document.createElement('div');
+      section.className = 'achievement-tier';
+      section.innerHTML = `
+        <h2 class="section-title">${getTierEmoji(diff)} ${getTierName(diff)}（${tierAchieved.length}）</h2>
+        <div class="achievement-grid" id="achieved-tier-${diff}"></div>
+      `;
+      tiersEl.appendChild(section);
+      renderAchievementGrid(`achieved-tier-${diff}`, tierAchieved, true);
+    });
+  }
+
+  // 未解锁（按难度排序）
+  const lockedList = CONSTELLATIONS.filter(c => !achieved.includes(c.id));
   renderAchievementGrid('locked-grid', lockedList, false);
 
   // 返回按钮
@@ -1174,10 +1191,15 @@ function renderAchievementGrid(containerId, list, isUnlocked) {
   list.forEach(c => {
     const card = document.createElement('div');
     card.className = `achievement-card ${isUnlocked ? '' : 'locked'}`;
+    const stars = getDifficultyStars(c.difficulty);
     card.innerHTML = `
       <div class="card-star">${isUnlocked ? '⭐' : '🔒'}</div>
       <div class="card-name">${c.name}</div>
-      ${isUnlocked ? '<div class="card-badge">✅</div>' : ''}
+      <div class="card-difficulty" style="margin-top:2px">
+        <span style="font-size:10px;color:#f59e0b">${stars}</span>
+        <span style="font-size:10px;color:#94a3b8">${getDifficultyLabel(c.difficulty)}</span>
+      </div>
+      ${isUnlocked ? '' : `<div style="font-size:10px;color:#f59e0b;margin-top:2px">${getLockHint(c.difficulty)}</div>`}
     `;
     if (isUnlocked) {
       card.onclick = () => {
