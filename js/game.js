@@ -67,11 +67,56 @@ function renderHome() {
   renderCardRow('featured-row1', featured.slice(0, 2));
   renderCardRow('featured-row2', featured.slice(2, 4));
 
-  // 全部星座网格
-  renderConstellationGrid('constellation-grid', CONSTELLATIONS);
+  // 全部星座网格（按难度排序：低难度在前）
+  const sorted = [...CONSTELLATIONS].sort((a, b) => a.difficulty - b.difficulty);
+  renderConstellationGrid('constellation-grid', sorted);
 
   // 搜索功能
   initSearch();
+
+  // 渲染难度进度指示器
+  renderProgressTiers();
+}
+
+function renderProgressTiers() {
+  const container = document.getElementById('progress-tiers');
+  const hint = document.getElementById('progress-hint');
+  if (!container) return;
+
+  container.innerHTML = '';
+  const tiers = [
+    { diff: 1, label: '入门', emoji: '🌟' },
+    { diff: 2, label: '进阶', emoji: '🌟🌟' },
+    { diff: 3, label: '挑战', emoji: '🌟🌟🌟' },
+    { diff: 4, label: '大师', emoji: '🌟🌟🌟🌟' },
+  ];
+
+  let nextHint = '';
+
+  tiers.forEach(({ diff, label, emoji }) => {
+    const unlocked = isTierUnlocked(diff);
+    const tierEl = document.createElement('div');
+    tierEl.className = `progress-tier ${unlocked ? 'unlocked' : 'locked'}`;
+    tierEl.innerHTML = `
+      <span class="tier-name">${label}</span>
+      <span class="tier-stars">${getDifficultyStars(diff)}</span>
+      <span class="${unlocked ? 'tier-icon-unlocked' : 'tier-icon-locked'}">
+        ${unlocked ? '✅' : '🔒'}
+      </span>
+    `;
+    container.appendChild(tierEl);
+
+    if (!unlocked && !nextHint) {
+      const needed = diff === 2 ? 3 : diff === 3 ? 5 : 3;
+      const completed = getCompletedCountByDifficulty(diff - 1);
+      nextHint = `再完成 ${needed - completed} 个${getTierName(diff - 1)}星座，即可解锁「${label}」！`;
+    }
+  });
+
+  if (hint) {
+    const allUnlocked = tiers.every(t => isTierUnlocked(t.diff));
+    hint.textContent = allUnlocked ? '🎉 全部难度已解锁，尽情探索吧！' : (nextHint || '');
+  }
 }
 
 function renderCardRow(containerId, constellations) {
@@ -95,19 +140,58 @@ function renderConstellationGrid(containerId, constellations) {
 }
 
 function createConstellationCard(c, size = 'grid') {
+  const unlocked = isConstellationUnlocked(c.id);
+  const explored = isExplored(c.id);
+  const locked = !unlocked;
+  const diffStars = getDifficultyStars(c.difficulty);
+  const diffLabel = getDifficultyLabel(c.difficulty);
+
   const card = document.createElement('div');
-  card.className = `constellation-card ${size === 'grid' ? 'grid-card' : ''} ${isExplored(c.id) ? '' : 'locked'}`;
+  card.className = `constellation-card ${size === 'grid' ? 'grid-card' : ''} ${locked ? 'locked' : ''} ${explored ? 'explored' : ''}`;
+
+  let statusIcon = '';
+  if (locked) {
+    statusIcon = '🔒';
+  } else if (explored) {
+    statusIcon = '⭐';
+  } else {
+    statusIcon = diffStars;
+  }
+
   card.innerHTML = `
-    <div class="card-star">${isExplored(c.id) ? '⭐' : '🔒'}</div>
+    <div class="card-status">${statusIcon}</div>
     <div class="card-name">${c.name}</div>
+    <div class="card-difficulty">
+      <span class="difficulty-stars">${diffStars}</span>
+      <span class="difficulty-label">${diffLabel}</span>
+    </div>
     ${size === 'large' ? `<div class="card-count">${c.starsCount}颗主星</div>` : ''}
+    ${locked ? `<div class="card-lock-hint">${getLockHint(c.difficulty)}</div>` : ''}
   `;
-  card.addEventListener('click', () => {
-    state.currentConstellation = c.id;
-    playSound('click');
-    switchScreen('detail');
-  });
+
+  if (locked) {
+    card.addEventListener('click', () => {
+      playSound('wrong');
+      showToast(getLockHint(c.difficulty));
+    });
+  } else {
+    card.addEventListener('click', () => {
+      state.currentConstellation = c.id;
+      playSound('click');
+      switchScreen('detail');
+    });
+  }
   return card;
+}
+
+function getLockHint(diff) {
+  if (diff <= 1) return '';
+  const tierNames = ['', '入门', '进阶', '挑战', '大师'];
+  const needed = diff === 2 ? 3 : diff === 3 ? 5 : 3;
+  const completed = getCompletedCountByDifficulty(diff - 1);
+  const remaining = needed - completed;
+  if (remaining <= 0) return ''; // should not happen if isTierUnlocked is correct
+  return `需先完成 ${remaining} 个${tierNames[diff - 1]}星座`;
 }
 
 /* -------- 搜索 -------- */
@@ -150,11 +234,38 @@ function renderDetail() {
   // 游戏按钮
   const btn = document.getElementById('btn-launch-game');
   if (btn) {
-    btn.onclick = () => {
-      state.currentConstellation = c.id;
-      playSound('start');
-      switchScreen('game');
-    };
+    const unlocked = isConstellationUnlocked(c.id);
+    if (unlocked) {
+      btn.disabled = false;
+      btn.style.opacity = '1';
+      btn.style.pointerEvents = 'auto';
+      btn.onclick = () => {
+        state.currentConstellation = c.id;
+        playSound('start');
+        switchScreen('game');
+      };
+    } else {
+      btn.disabled = true;
+      btn.style.opacity = '0.5';
+      btn.style.pointerEvents = 'none';
+      btn.onclick = null;
+    }
+  }
+
+  // 锁定提示
+  let lockTip = document.getElementById('detail-lock-tip');
+  if (!lockTip) {
+    lockTip = document.createElement('div');
+    lockTip.id = 'detail-lock-tip';
+    lockTip.style.cssText = 'text-align:center;color:#f59e0b;font-size:13px;margin:8px 0;min-height:20px;';
+    const btnArea = document.querySelector('.btn-launch-wrap') || btn?.parentElement;
+    if (btnArea) btnArea.parentElement.insertBefore(lockTip, btnArea.nextSibling);
+  }
+  if (!isConstellationUnlocked(c.id)) {
+    lockTip.textContent = getLockHint(c.difficulty) || '该星座尚未解锁，继续努力吧！🌟';
+    lockTip.style.display = 'block';
+  } else {
+    lockTip.style.display = 'none';
   }
 
   // 返回按钮
@@ -702,6 +813,29 @@ function finishGame() {
   } else {
     showGameSuccess();
   }
+}
+
+/* -------- Toast 提示 -------- */
+function showToast(msg, duration = 2000) {
+  let toast = document.getElementById('toast-msg');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.id = 'toast-msg';
+    toast.style.cssText = `
+      position: fixed; bottom: 90px; left: 50%; transform: translateX(-50%);
+      background: rgba(30,30,60,0.92); color: #fff;
+      padding: 10px 24px; border-radius: 20px;
+      font-size: 14px; font-family: 'Fredoka', sans-serif;
+      z-index: 9999; opacity: 0; transition: opacity 0.3s;
+      pointer-events: none; white-space: nowrap;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    `;
+    document.body.appendChild(toast);
+  }
+  toast.textContent = msg;
+  toast.style.opacity = '1';
+  clearTimeout(toast._timer);
+  toast._timer = setTimeout(() => { toast.style.opacity = '0'; }, duration);
 }
 
 function showGameSuccess() {

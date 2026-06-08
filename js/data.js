@@ -1854,7 +1854,57 @@ function isExplored(id) {
   return getExploredIds().includes(id);
 }
 
-function getScore() {
+/* -------- 难度递增系统 -------- */
+function getCompletedCountByDifficulty(diff) {
+  const ids = getExploredIds();
+  return ids.filter(id => {
+    const c = CONSTELLATION_MAP[id];
+    return c && c.difficulty === diff;
+  }).length;
+}
+
+function isTierUnlocked(diff) {
+  if (diff <= 1) return true; // 难度1始终解锁
+  if (diff === 2) return getCompletedCountByDifficulty(1) >= 3;
+  if (diff === 3) return getCompletedCountByDifficulty(2) >= 5;
+  if (diff === 4) return getCompletedCountByDifficulty(3) >= 3;
+  return false;
+}
+
+function isConstellationUnlocked(id) {
+  const c = CONSTELLATION_MAP[id];
+  if (!c) return false;
+  return isTierUnlocked(c.difficulty);
+}
+
+function getNextTierInfo() {
+  for (let d = 2; d <= 4; d++) {
+    if (!isTierUnlocked(d)) {
+      const needed = d === 2 ? 3 : d === 3 ? 5 : 3;
+      const current = getCompletedCountByDifficulty(d - 1);
+      return { tier: d, needed, current, remaining: needed - current };
+    }
+  }
+  return null; // 全部解锁
+}
+
+function getDifficultyStars(diff) {
+  return '★'.repeat(diff) + '☆'.repeat(5 - diff);
+}
+
+function getDifficultyLabel(diff) {
+  return ['', '入门', '进阶', '挑战', '大师'][diff] || '';
+}
+
+function getTierName(diff) {
+  return ['', '入门', '进阶', '挑战', '大师'][diff] || '';
+}
+
+function getTierEmoji(diff) {
+  return ['', '🌟', '🌟🌟', '🌟🌟🌟', '🌟🌟🌟🌟'][diff] || '';
+}
+
+
   try {
     return parseInt(localStorage.getItem('xingzhuo_score') || '0', 10);
   } catch {

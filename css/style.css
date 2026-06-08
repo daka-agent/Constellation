@@ -920,3 +920,116 @@ body {
   background: var(--primary);
   color: white;
 }
+
+/* =============================================
+   难度进度指示器（首页）
+   ============================================= */
+.progress-section {
+  padding: 12px 16px 4px;
+}
+
+.progress-tiers {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.progress-tier {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 600;
+}
+
+.progress-tier.unlocked {
+  background: rgba(139, 92, 246, 0.15);
+  color: #8B5CF6;
+  border: 1.5px solid rgba(139, 92, 246, 0.3);
+}
+
+.progress-tier.locked {
+  background: rgba(148, 163, 184, 0.1);
+  color: #94a3b8;
+  border: 1.5px solid rgba(148, 163, 184, 0.2);
+}
+
+.progress-tier .tier-stars {
+  font-size: 11px;
+}
+
+.progress-tier .tier-icon-unlocked { margin-left: 2px; }
+.progress-tier .tier-icon-locked  { margin-left: 2px; font-size: 11px; }
+
+.progress-hint {
+  text-align: center;
+  font-size: 12px;
+  color: #94a3b8;
+  margin-top: 6px;
+  min-height: 18px;
+  font-family: 'Nunito', sans-serif;
+}
+
+/* =============================================
+   卡片难度 & 锁定样式
+   ============================================= */
+.card-status {
+  font-size: 28px;
+  margin-bottom: 4px;
+}
+
+.card-difficulty {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 2px;
+}
+
+.difficulty-stars {
+  font-size: 11px;
+  color: #f59e0b;
+  letter-spacing: 1px;
+}
+
+.difficulty-label {
+  font-size: 10px;
+  color: #94a3b8;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+}
+
+.card-lock-hint {
+  font-size: 10px;
+  color: #f59e0b;
+  margin-top: 2px;
+  font-family: 'Nunito', sans-serif;
+}
+
+/* 锁定卡片 */
+.constellation-card.locked {
+  opacity: 0.55;
+  filter: grayscale(0.5);
+  cursor: not-allowed;
+}
+
+.constellation-card.locked .card-name {
+  color: #94a3b8;
+}
+
+/* 已探索卡片 */
+.constellation-card.explored {
+  border-color: rgba(139, 92, 246, 0.3);
+}
+
+.constellation-card.explored .card-name {
+  color: #8B5CF6;
+}
+
+/* Toast 提示 */
+#toast-msg {
+  font-family: 'Fredoka', sans-serif;
+}
