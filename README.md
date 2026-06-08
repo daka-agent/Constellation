@@ -6,9 +6,9 @@
 
 ## 🎮 在线玩
 
-无需安装，点击即玩 👉 **[https://7e562daacfcf4c9ba125f654196ca6b1.app.codebuddy.work](https://7e562daacfcf4c9ba125f654196ca6b1.app.codebuddy.work)**
+无需安装，点击即玩 👉 **[https://daka-agent.github.io/Constellation/](https://daka-agent.github.io/Constellation/)**
 
-（也可将本仓库部署到 GitHub Pages / Vercel / Netlify 自行托管）
+> ⚡ 若链接无法访问，请在仓库 **Settings → Pages** 中启用 GitHub Pages（选择 `main` 分支），等待 1-2 分钟即可生效。
 
 ---
 
