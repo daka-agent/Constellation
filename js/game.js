@@ -13,6 +13,8 @@ const state = {
   gameProgress: 0,               // 当前游戏连接进度（已连几条边）
   gameTotalEdges: 0,             // 当前星座总边数
   gameFinished: false,
+  /* 导航 */
+  previousScreen: 'home',
   /* TTS 朗读 */
   ttsSpeaking: false,
   ttsPaused: false,
@@ -41,10 +43,12 @@ function switchScreen(screenName, direction = 'left') {
     if (target) {
       target.classList.add('active');
     }
+    state.previousScreen = state.currentScreen;
     state.currentScreen = screenName;
 
     // 进入页面后刷新内容
     if (screenName === 'home') renderHome();
+    if (screenName === 'sky-map') setTimeout(initSkyMap, 100); // 等待布局完成
     if (screenName === 'achievement') renderAchievement();
     if (screenName === 'detail') renderDetail();
     if (screenName === 'game') initGame();
@@ -267,7 +271,8 @@ function renderDetail() {
   // 返回按钮
   const backBtn = document.getElementById('btn-detail-back');
   if (backBtn) {
-    backBtn.onclick = () => { playSound('navigate'); switchScreen('home'); };
+    const goBackTo = state.previousScreen || 'home';
+    backBtn.onclick = () => { playSound('navigate'); switchScreen(goBackTo); };
   }
 }
 
@@ -1370,7 +1375,6 @@ function renderAchievementGrid(containerId, list, isUnlocked) {
 function initBackButtons() {
   const ids = [
     ['btn-settings', null],
-    ['btn-detail-back', 'home'],
     ['btn-game-back', 'detail'],
     ['btn-achievement-back', 'home'],
   ];
@@ -1380,6 +1384,485 @@ function initBackButtons() {
       btn.onclick = () => switchScreen(target);
     }
   });
+}
+
+/* -------- 星图全景 -------- */
+const SKY_MAP = {
+  canvas: null,
+  ctx: null,
+  width: 3000,
+  height: 3000,
+  centerX: 1500,
+  centerY: 1500,
+  offsetX: 0,
+  offsetY: 0,
+  scale: 0.38,
+  minScale: 0.15,
+  maxScale: 1.2,
+  dragging: false,
+  dragStartX: 0,
+  dragStartY: 0,
+  dragMoved: false,
+};
+
+/* 88星座在天图上的位置（按季节分组，圆形布局） */
+const SKY_POSITIONS = {
+  // ====== 北天拱极（中心区域）======
+  ursa_minor:     { x: 1500, y: 1050, group: 'polar' },
+  ursa_major:     { x: 1500, y: 1300, group: 'polar' },
+  draco:          { x: 1380, y: 1120, group: 'polar' },
+  cassiopeia:     { x: 1620, y: 1080, group: 'polar' },
+  cepheus:        { x: 1560, y: 960,  group: 'polar' },
+  camelopardalis: { x: 1700, y: 1200, group: 'polar' },
+  lynx:           { x: 1350, y: 1380, group: 'polar' },
+  lacerta:        { x: 1640, y: 1180, group: 'polar' },
+  canes_venatici: { x: 1380, y: 1300, group: 'polar' },
+  leo_minor:      { x: 1320, y: 1400, group: 'polar' },
+
+  // ====== 春季（右侧偏上）======
+  leo:            { x: 2050, y: 1150, group: 'spring' },
+  virgo:          { x: 2100, y: 1400, group: 'spring' },
+  bootes:         { x: 1950, y: 1050, group: 'spring' },
+  coma_berenices: { x: 2000, y: 1200, group: 'spring' },
+  cancer:         { x: 1750, y: 900,  group: 'spring' },
+  crater:         { x: 2200, y: 1550, group: 'spring' },
+  corvus:         { x: 2250, y: 1600, group: 'spring' },
+  sextans:        { x: 2150, y: 1500, group: 'spring' },
+  hydra:          { x: 2200, y: 1700, group: 'spring' },
+  centaurus:      { x: 2250, y: 1950, group: 'spring' },
+  crux:           { x: 2300, y: 2100, group: 'spring' },
+  antlia:         { x: 2400, y: 1750, group: 'spring' },
+  pyxis:          { x: 2350, y: 1650, group: 'spring' },
+
+  // ====== 夏季（下方）======
+  cygnus:         { x: 1550, y: 2200, group: 'summer' },
+  aquila:         { x: 1700, y: 2400, group: 'summer' },
+  lyra:           { x: 1450, y: 2100, group: 'summer' },
+  hercules:       { x: 1380, y: 2050, group: 'summer' },
+  scorpius:       { x: 1850, y: 2300, group: 'summer' },
+  sagittarius:    { x: 1950, y: 2350, group: 'summer' },
+  ophiuchus:      { x: 1750, y: 2150, group: 'summer' },
+  serpens:        { x: 1680, y: 2100, group: 'summer' },
+  scutum:         { x: 1800, y: 2250, group: 'summer' },
+  sagitta:        { x: 1600, y: 2180, group: 'summer' },
+  delphinus:      { x: 1620, y: 2250, group: 'summer' },
+  equuleus:       { x: 1650, y: 2280, group: 'summer' },
+  vulpecula:      { x: 1580, y: 2120, group: 'summer' },
+  corona_borealis:{ x: 1420, y: 1980, group: 'summer' },
+  corona_australis:{ x: 1900, y: 2400, group: 'summer' },
+  libra:          { x: 2000, y: 1900, group: 'summer' },
+  lupus:          { x: 2100, y: 2200, group: 'summer' },
+  ara:            { x: 2000, y: 2450, group: 'summer' },
+  norma:          { x: 2150, y: 2300, group: 'summer' },
+  circinus:       { x: 2180, y: 2250, group: 'summer' },
+  triangulum_australe:{ x: 2200, y: 2350, group: 'summer' },
+  apus:           { x: 2300, y: 2550, group: 'summer' },
+  pavo:           { x: 2150, y: 2550, group: 'summer' },
+  musca:          { x: 2350, y: 2250, group: 'summer' },
+
+  // ====== 秋季（左侧）======
+  pegasus:        { x: 950,  y: 1500, group: 'autumn' },
+  andromeda:      { x: 900,  y: 1250, group: 'autumn' },
+  pisces:         { x: 850,  y: 1550, group: 'autumn' },
+  aquarius:       { x: 900,  y: 1750, group: 'autumn' },
+  capricornus:    { x: 950,  y: 1950, group: 'autumn' },
+  perseus:        { x: 1050, y: 1100, group: 'autumn' },
+  triangulum:     { x: 950,  y: 1200, group: 'autumn' },
+  aries:          { x: 900,  y: 1350, group: 'autumn' },
+  cetus:          { x: 800,  y: 1650, group: 'autumn' },
+  piscis_austrinus:{ x: 850, y: 1850, group: 'autumn' },
+  sculptor:       { x: 750,  y: 1850, group: 'autumn' },
+  fornax:         { x: 720,  y: 1750, group: 'autumn' },
+  grus:           { x: 700,  y: 2100, group: 'autumn' },
+  phoenix:        { x: 750,  y: 2200, group: 'autumn' },
+  tucana:         { x: 650,  y: 2350, group: 'autumn' },
+  microscopium:   { x: 880,  y: 2000, group: 'autumn' },
+  telescopium:    { x: 930,  y: 2100, group: 'autumn' },
+  indus:          { x: 780,  y: 2300, group: 'autumn' },
+
+  // ====== 冬季（上方）======
+  orion:          { x: 1500, y: 500,  group: 'winter' },
+  taurus:         { x: 1650, y: 450,  group: 'winter' },
+  gemini:         { x: 1400, y: 400,  group: 'winter' },
+  canis_major:    { x: 1600, y: 680,  group: 'winter' },
+  canis_minor:    { x: 1450, y: 580,  group: 'winter' },
+  auriga:         { x: 1700, y: 350,  group: 'winter' },
+  lepus:          { x: 1520, y: 650,  group: 'winter' },
+  monoceros:      { x: 1550, y: 600,  group: 'winter' },
+  eridanus:       { x: 1350, y: 700,  group: 'winter' },
+  columba:        { x: 1300, y: 800,  group: 'winter' },
+  caelum:         { x: 1200, y: 850,  group: 'winter' },
+  horologium:     { x: 1180, y: 900,  group: 'winter' },
+  reticulum:      { x: 1250, y: 920,  group: 'winter' },
+  dorado:         { x: 1350, y: 950,  group: 'winter' },
+  pictor:         { x: 1280, y: 980,  group: 'winter' },
+
+  // ====== 南天极附近（底部边缘）======
+  carina:         { x: 1950, y: 680,  group: 'southern' },
+  vela:           { x: 2050, y: 750,  group: 'southern' },
+  puppis:         { x: 1950, y: 780,  group: 'southern' },
+  chamaeleon:     { x: 2400, y: 2600, group: 'southern' },
+  volans:         { x: 2300, y: 2450, group: 'southern' },
+  hydrus:         { x: 2200, y: 2600, group: 'southern' },
+  mensa:          { x: 2100, y: 2650, group: 'southern' },
+  octans:         { x: 2050, y: 2600, group: 'southern' },
+};
+
+const GROUP_COLORS = {
+  polar:    { fill: 'rgba(147, 197, 253, 0.5)',  stroke: '#93c5fd', dot: '#93c5fd', bg: 'rgba(147,197,253,0.08)' },
+  spring:   { fill: 'rgba(134, 239, 172, 0.5)',  stroke: '#86efac', dot: '#86efac', bg: 'rgba(134,239,172,0.08)' },
+  summer:   { fill: 'rgba(252, 165, 165, 0.5)',  stroke: '#fca5a5', dot: '#fca5a5', bg: 'rgba(252,165,165,0.08)' },
+  autumn:   { fill: 'rgba(253, 224, 71, 0.5)',   stroke: '#fde047', dot: '#fde047', bg: 'rgba(253,224,71,0.06)' },
+  winter:   { fill: 'rgba(196, 181, 253, 0.5)',  stroke: '#c4b5fd', dot: '#c4b5fd', bg: 'rgba(196,181,253,0.08)' },
+  southern: { fill: 'rgba(94, 234, 212, 0.5)',   stroke: '#5eead4', dot: '#5eead4', bg: 'rgba(94,234,212,0.08)' },
+};
+
+function initSkyMap() {
+  const container = document.getElementById('sky-map-container');
+  const canvas = document.getElementById('sky-map-canvas');
+  if (!container || !canvas) return;
+
+  SKY_MAP.canvas = canvas;
+  SKY_MAP.ctx = canvas.getContext('2d');
+
+  // 重置视口
+  SKY_MAP.offsetX = 0;
+  SKY_MAP.offsetY = 0;
+  SKY_MAP.scale = 0.38;
+
+  // 确保容器有尺寸（可能需要等待布局完成）
+  if (!container.clientWidth || !container.clientHeight) {
+    setTimeout(() => initSkyMap(), 100);
+    return;
+  }
+
+  resizeSkyMap();
+  renderSkyMap();
+
+  // 返回按钮
+  const backBtn = document.getElementById('btn-sky-map-back');
+  if (backBtn) {
+    backBtn.onclick = () => { playSound('navigate'); if (state.ttsSpeaking) stopStoryAudio(); switchScreen('home'); };
+  }
+
+  // 缩放按钮
+  document.getElementById('btn-sky-zoomin').onclick = () => {
+    SKY_MAP.scale = Math.min(SKY_MAP.maxScale, SKY_MAP.scale * 1.3);
+    renderSkyMap();
+  };
+  document.getElementById('btn-sky-zoomout').onclick = () => {
+    SKY_MAP.scale = Math.max(SKY_MAP.minScale, SKY_MAP.scale / 1.3);
+    renderSkyMap();
+  };
+  document.getElementById('btn-sky-reset').onclick = () => {
+    SKY_MAP.offsetX = 0;
+    SKY_MAP.offsetY = 0;
+    SKY_MAP.scale = 0.38;
+    renderSkyMap();
+  };
+
+  // 事件绑定（避免重复绑定）
+  if (!canvas._skyEventsBound) {
+    canvas._skyEventsBound = true;
+
+    // 鼠标拖拽
+    canvas.addEventListener('mousedown', (e) => {
+      SKY_MAP.dragging = true;
+      SKY_MAP.dragStartX = e.clientX;
+      SKY_MAP.dragStartY = e.clientY;
+      SKY_MAP.dragMoved = false;
+      e.preventDefault();
+    });
+    window.addEventListener('mousemove', (e) => {
+      if (!SKY_MAP.dragging) return;
+      const dx = e.clientX - SKY_MAP.dragStartX;
+      const dy = e.clientY - SKY_MAP.dragStartY;
+      if (Math.abs(dx) > 2 || Math.abs(dy) > 2) SKY_MAP.dragMoved = true;
+      SKY_MAP.offsetX += dx;
+      SKY_MAP.offsetY += dy;
+      SKY_MAP.dragStartX = e.clientX;
+      SKY_MAP.dragStartY = e.clientY;
+      renderSkyMap();
+    });
+    window.addEventListener('mouseup', () => { SKY_MAP.dragging = false; });
+
+    // 触摸拖拽
+    canvas.addEventListener('touchstart', (e) => {
+      if (e.touches.length === 1) {
+        SKY_MAP.dragging = true;
+        SKY_MAP.dragStartX = e.touches[0].clientX;
+        SKY_MAP.dragStartY = e.touches[0].clientY;
+        SKY_MAP.dragMoved = false;
+      }
+    }, { passive: false });
+    canvas.addEventListener('touchmove', (e) => {
+      if (!SKY_MAP.dragging || e.touches.length !== 1) return;
+      const dx = e.touches[0].clientX - SKY_MAP.dragStartX;
+      const dy = e.touches[0].clientY - SKY_MAP.dragStartY;
+      if (Math.abs(dx) > 3 || Math.abs(dy) > 3) SKY_MAP.dragMoved = true;
+      SKY_MAP.offsetX += dx;
+      SKY_MAP.offsetY += dy;
+      SKY_MAP.dragStartX = e.touches[0].clientX;
+      SKY_MAP.dragStartY = e.touches[0].clientY;
+      renderSkyMap();
+      e.preventDefault();
+    }, { passive: false });
+    canvas.addEventListener('touchend', () => { SKY_MAP.dragging = false; });
+
+    // 滚轮缩放
+    canvas.addEventListener('wheel', (e) => {
+      e.preventDefault();
+      const factor = e.deltaY > 0 ? 0.9 : 1.1;
+      const newScale = SKY_MAP.scale * factor;
+      if (newScale < SKY_MAP.minScale || newScale > SKY_MAP.maxScale) return;
+
+      // 以鼠标位置为中心缩放
+      const rect = canvas.getBoundingClientRect();
+      const mx = e.clientX - rect.left;
+      const my = e.clientY - rect.top;
+      SKY_MAP.offsetX = mx - (mx - SKY_MAP.offsetX) * factor;
+      SKY_MAP.offsetY = my - (my - SKY_MAP.offsetY) * factor;
+      SKY_MAP.scale = newScale;
+      renderSkyMap();
+    }, { passive: false });
+
+    // 点击星座跳转
+    canvas.addEventListener('click', (e) => {
+      if (SKY_MAP.dragMoved) return;
+      const rect = canvas.getBoundingClientRect();
+      const mx = e.clientX - rect.left;
+      const my = e.clientY - rect.top;
+
+      // 转换为画布坐标
+      const cx = (mx - SKY_MAP.offsetX) / SKY_MAP.scale;
+      const cy = (my - SKY_MAP.offsetY) / SKY_MAP.scale;
+
+      // 查找点击的星座
+      const hitRadius = 50 / SKY_MAP.scale;
+      let best = null;
+      let bestDist = Infinity;
+      for (const [id, pos] of Object.entries(SKY_POSITIONS)) {
+        const dx = cx - pos.x;
+        const dy = cy - pos.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < hitRadius && dist < bestDist) {
+          const c = CONSTELLATION_MAP[id];
+          if (c && isConstellationUnlocked(id)) {
+            best = c;
+            bestDist = dist;
+          }
+        }
+      }
+      if (best) {
+        state.currentConstellation = best.id;
+        playSound('select');
+        switchScreen('detail');
+      }
+    });
+  }
+
+  window.addEventListener('resize', () => {
+    if (state.currentScreen !== 'sky-map') return;
+    resizeSkyMap();
+    renderSkyMap();
+  });
+}
+
+function resizeSkyMap() {
+  const container = document.getElementById('sky-map-container');
+  if (!container || !SKY_MAP.canvas) return;
+  const w = container.clientWidth;
+  const h = container.clientHeight;
+  const dpr = window.devicePixelRatio || 1;
+  SKY_MAP.canvas.width = w * dpr;
+  SKY_MAP.canvas.height = h * dpr;
+  SKY_MAP.canvas.style.width = w + 'px';
+  SKY_MAP.canvas.style.height = h + 'px';
+  SKY_MAP.ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  SKY_MAP.displayWidth = w;
+  SKY_MAP.displayHeight = h;
+}
+
+function renderSkyMap() {
+  const { ctx } = SKY_MAP;
+  const dw = SKY_MAP.displayWidth;
+  const dh = SKY_MAP.displayHeight;
+  if (!ctx || !dw || !dh) return;
+
+  ctx.clearRect(0, 0, dw, dh);
+
+  // 深空背景
+  const bgGrad = ctx.createRadialGradient(dw/2, dh/2, 0, dw/2, dh/2, Math.max(dw, dh) * 0.7);
+  bgGrad.addColorStop(0, '#0a0a2e');
+  bgGrad.addColorStop(0.5, '#060622');
+  bgGrad.addColorStop(1, '#020212');
+  ctx.fillStyle = bgGrad;
+  ctx.fillRect(0, 0, dw, dh);
+
+  ctx.save();
+
+  // 应用变换
+  ctx.translate(SKY_MAP.offsetX, SKY_MAP.offsetY);
+  ctx.scale(SKY_MAP.scale, SKY_MAP.scale);
+
+  const s = SKY_MAP;
+
+  // 绘制星空背景小星星
+  drawStarfield(ctx, s.width, s.height);
+
+  // 绘制季节区域背景圈
+  drawSeasonZones(ctx);
+
+  // 绘制所有星座
+  drawAllConstellations(ctx);
+
+  // 绘制中心十字标记（北天极）
+  drawPolarMark(ctx);
+
+  ctx.restore();
+
+  // 绘制图例
+  drawLegend(ctx, dw);
+}
+
+function drawStarfield(ctx, w, h) {
+  // 使用伪随机保证每次渲染一致
+  const seed = 42;
+  const random = (i) => {
+    let x = Math.sin(i * 127.1 + seed) * 43758.5453;
+    return x - Math.floor(x);
+  };
+
+  for (let i = 0; i < 800; i++) {
+    const x = random(i * 2) * w;
+    const y = random(i * 2 + 1) * h;
+    const size = random(i * 3) * 2.2 + 0.3;
+    const alpha = random(i * 4) * 0.5 + 0.3;
+    ctx.fillStyle = `rgba(255, 255, 255, ${alpha})`;
+    ctx.beginPath();
+    ctx.arc(x, y, size, 0, Math.PI * 2);
+    ctx.fill();
+  }
+
+  // 银河带（从左上到右下）
+  ctx.save();
+  ctx.globalAlpha = 0.06;
+  const mwGrad = ctx.createRadialGradient(w * 0.45, h * 0.55, 50, w * 0.5, h * 0.5, w * 0.35);
+  mwGrad.addColorStop(0, 'rgba(180, 200, 255, 0.8)');
+  mwGrad.addColorStop(1, 'rgba(100, 140, 220, 0)');
+  ctx.fillStyle = mwGrad;
+  ctx.beginPath();
+  ctx.ellipse(w * 0.5, h * 0.5, w * 0.35, h * 0.5, -0.4, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.restore();
+}
+
+function drawSeasonZones(ctx) {
+  // 绘制季节区域标记
+  const zones = [
+    { name: '冬季星空', cx: 1550, cy: 520, rx: 380, ry: 280, color: 'rgba(196,181,253,0.03)', label: '❄️ 冬季' },
+    { name: '春季星空', cx: 2150, cy: 1550, rx: 320, ry: 380, color: 'rgba(134,239,172,0.03)', label: '🌸 春季' },
+    { name: '夏季星空', cx: 1800, cy: 2300, rx: 420, ry: 280, color: 'rgba(252,165,165,0.03)', label: '☀️ 夏季' },
+    { name: '秋季星空', cx: 850,  cy: 1700, rx: 320, ry: 380, color: 'rgba(253,224,71,0.03)',  label: '🍂 秋季' },
+  ];
+
+  zones.forEach(zone => {
+    ctx.fillStyle = zone.color;
+    ctx.beginPath();
+    ctx.ellipse(zone.cx, zone.cy, zone.rx, zone.ry, 0, 0, Math.PI * 2);
+    ctx.fill();
+
+    ctx.fillStyle = 'rgba(255,255,255,0.25)';
+    ctx.font = 'bold 26px "Nunito", sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText(zone.label, zone.cx, zone.cy - zone.ry - 15);
+  });
+}
+
+function drawPolarMark(ctx) {
+  const cx = 1500, cy = 1500;
+  // 北天极标记
+  ctx.strokeStyle = 'rgba(255,255,255,0.08)';
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.arc(cx, cy, 400, 0, Math.PI * 2);
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.arc(cx, cy, 800, 0, Math.PI * 2);
+  ctx.stroke();
+
+  ctx.fillStyle = 'rgba(255,255,255,0.5)';
+  ctx.font = '13px "Nunito", sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillText('北天极 ⭐', cx, cy - 420);
+}
+
+function drawAllConstellations(ctx) {
+  for (const [id, pos] of Object.entries(SKY_POSITIONS)) {
+    const c = CONSTELLATION_MAP[id];
+    if (!c) continue;
+    drawConstellationOnMap(ctx, c, pos);
+  }
+}
+
+function drawConstellationOnMap(ctx, c, pos) {
+  const scale = 0.55;
+  const unlocked = isConstellationUnlocked(c.id);
+  const explored = isExplored(c.id);
+  const group = SKY_POSITIONS[c.id] ? SKY_POSITIONS[c.id].group : 'polar';
+  const colors = GROUP_COLORS[group];
+
+  // 计算星座星点中心点
+  let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+  c.stars.forEach(s => {
+    if (s.x < minX) minX = s.x;
+    if (s.y < minY) minY = s.y;
+    if (s.x > maxX) maxX = s.x;
+    if (s.y > maxY) maxY = s.y;
+  });
+  const cx = (minX + maxX) / 2;
+  const cy = (minY + maxY) / 2;
+
+  // 计算每个星点的画布位置（以星座自身中心为基准）
+  const starPositions = c.stars.map(s => ({
+    x: pos.x + (s.x - cx) * scale,
+    y: pos.y + (s.y - cy) * scale,
+  }));
+
+  // 绘制连线
+  ctx.strokeStyle = unlocked ? (explored ? 'rgba(255,255,255,0.4)' : 'rgba(255,255,255,0.2)') : 'rgba(255,255,255,0.08)';
+  ctx.lineWidth = unlocked ? 0.8 : 0.4;
+  c.lines.forEach(([a, b]) => {
+    ctx.beginPath();
+    ctx.moveTo(starPositions[a].x, starPositions[a].y);
+    ctx.lineTo(starPositions[b].x, starPositions[b].y);
+    ctx.stroke();
+  });
+
+  // 绘制星点
+  starPositions.forEach((sp, i) => {
+    ctx.beginPath();
+    if (i === 0) {
+      // 主星更大
+      ctx.fillStyle = unlocked ? (explored ? '#fde047' : colors.dot) : 'rgba(100,100,120,0.4)';
+      ctx.arc(sp.x, sp.y, unlocked ? 4 : 2, 0, Math.PI * 2);
+    } else {
+      ctx.fillStyle = unlocked ? (explored ? 'rgba(253,224,71,0.7)' : colors.fill) : 'rgba(80,80,100,0.3)';
+      ctx.arc(sp.x, sp.y, unlocked ? 2.5 : 1.5, 0, Math.PI * 2);
+    }
+    ctx.fill();
+  });
+
+  // 星座标签
+  const labelSize = unlocked ? 13 : 10;
+  ctx.font = `${unlocked ? 'bold ' : ''}${labelSize}px "Nunito", "PingFang SC", sans-serif`;
+  ctx.textAlign = 'center';
+  ctx.fillStyle = unlocked ? (explored ? '#fde047' : 'rgba(255,255,255,0.8)') : 'rgba(150,150,170,0.5)';
+  ctx.fillText(c.name, pos.x, pos.y + 28);
+}
+
+function drawLegend(ctx, dw) {
+  // 不再重新绘制，因为 HTML legend 已存在
 }
 
 /* -------- 初始化 -------- */

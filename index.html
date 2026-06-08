@@ -37,6 +37,7 @@
       <div class="hero-section">
         <h1 class="hero-title">探索宇宙的<br>88个星座</h1>
         <p class="hero-subtitle">在星空地图中发现神话与科学的秘密</p>
+        <button class="sky-map-entry" id="btn-sky-map-entry" onclick="switchScreen('sky-map');playSound('click');">🗺️ 查看全景星图</button>
       </div>
 
       <!-- 难度进度指示器 -->
@@ -83,7 +84,32 @@
       </div>
     </div>
 
-    <!-- ========== 屏幕2：星座详情页 ========== -->
+    <!-- ========== 屏幕2：星图全景 ========== -->
+    <div class="screen" id="screen-sky-map">
+      <div class="top-bar sky-map-bar">
+        <div class="back-btn" id="btn-sky-map-back">←</div>
+        <div class="detail-title">🗺️ 星图全景</div>
+        <div class="sky-map-tools">
+          <button class="sky-map-tool-btn" id="btn-sky-zoomin" title="放大">🔍+</button>
+          <button class="sky-map-tool-btn" id="btn-sky-zoomout" title="缩小">🔍−</button>
+          <button class="sky-map-tool-btn" id="btn-sky-reset" title="重置">🏠</button>
+        </div>
+      </div>
+      <div class="sky-map-container" id="sky-map-container">
+        <canvas id="sky-map-canvas"></canvas>
+        <div class="sky-map-hint">🖐️ 拖拽平移 · 双指缩放 · 点击星座查看详情</div>
+        <div class="sky-map-legend" id="sky-map-legend">
+          <span class="legend-item"><span class="legend-dot spring"></span>春季</span>
+          <span class="legend-item"><span class="legend-dot summer"></span>夏季</span>
+          <span class="legend-item"><span class="legend-dot autumn"></span>秋季</span>
+          <span class="legend-item"><span class="legend-dot winter"></span>冬季</span>
+          <span class="legend-item"><span class="legend-dot polar"></span>拱极</span>
+          <span class="legend-item"><span class="legend-dot southern"></span>南天</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== 屏幕3：星座详情页 ========== -->
     <div class="screen" id="screen-detail">
       <div class="top-bar">
         <div class="back-btn" id="btn-detail-back">←</div>
@@ -111,7 +137,7 @@
       </div>
     </div>
 
-    <!-- ========== 屏幕3：连线游戏页 ========== -->
+    <!-- ========== 屏幕4：连线游戏页 ========== -->
     <div class="screen" id="screen-game">
       <div class="top-bar">
         <div class="back-btn" id="btn-game-back">←</div>
@@ -139,7 +165,7 @@
       <div class="game-complete-btn" id="btn-game-complete">✅ 完成连线</div>
     </div>
 
-    <!-- ========== 屏幕4：星座图鉴 / 成就收集 ========== -->
+    <!-- ========== 屏幕5：星座图鉴 / 成就收集 ========== -->
     <div class="screen" id="screen-achievement">
       <div class="top-bar">
         <div class="back-btn" id="btn-achievement-back">←</div>
