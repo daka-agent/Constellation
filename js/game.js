@@ -54,6 +54,7 @@ function initNav() {
       if (target === state.currentScreen) return;
       document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
       item.classList.add('active');
+      playSound('navigate');
       switchScreen(target);
     });
   });
@@ -103,6 +104,7 @@ function createConstellationCard(c, size = 'grid') {
   `;
   card.addEventListener('click', () => {
     state.currentConstellation = c.id;
+    playSound('click');
     switchScreen('detail');
   });
   return card;
@@ -150,6 +152,7 @@ function renderDetail() {
   if (btn) {
     btn.onclick = () => {
       state.currentConstellation = c.id;
+      playSound('start');
       switchScreen('game');
     };
   }
@@ -157,7 +160,7 @@ function renderDetail() {
   // 返回按钮
   const backBtn = document.getElementById('btn-detail-back');
   if (backBtn) {
-    backBtn.onclick = () => switchScreen('home');
+    backBtn.onclick = () => { playSound('navigate'); switchScreen('home'); };
   }
 }
 
@@ -243,6 +246,7 @@ function initDetailTabs() {
       document.querySelectorAll('#detail-tab-bar .tab-item').forEach(t => t.classList.remove('active'));
       tab.classList.add('active');
       state.currentDetailTab = tab.dataset.tab;
+      playSound('click');
       const c = CONSTELLATION_MAP[state.currentConstellation];
       renderTabContent(c);
     };
@@ -379,7 +383,7 @@ function initGame() {
   // 返回按钮
   const backBtn = document.getElementById('btn-game-back');
   if (backBtn) {
-    backBtn.onclick = () => switchScreen('detail');
+    backBtn.onclick = () => { playSound('navigate'); switchScreen('detail'); };
   }
 
   // 完成按钮
@@ -593,6 +597,7 @@ function initGameInteraction(c) {
     const starIdx = findStar(pos);
     if (starIdx >= 0) {
       dragging = starIdx;
+      playSound('select');
     }
   };
 
@@ -632,6 +637,7 @@ function initGameInteraction(c) {
           state.gameConnected.push([dragging, targetIdx]);
           state.gameProgress++;
           playSound('correct');
+          playSound('score');
           addScore(20);
           updateGameProgress();
           drawGameCanvas(c);
@@ -677,7 +683,9 @@ function finishGame() {
 
   // 标记已探索
   markExplored(state.currentConstellation);
+  playSound('win');
   addScore(50); // 通关奖励
+  playSound('score');
 
   // 重绘最终连线（自动连完所有线）
   const c = CONSTELLATION_MAP[state.currentConstellation];
@@ -789,6 +797,7 @@ function showStarLabel(canvas, starIdx, c) {
 function animateSilhouette(c) {
   // 优先方案：SVG 图片叠加（方案 B）
   if (c.imageFile) {
+    playSound('reveal');
     animateSilhouetteImg(c);
     return;
   }
@@ -873,11 +882,14 @@ function removeSilhouetteImg() {
   if (img) img.remove();
 }
 
-/* -------- 音效（Web Audio API） -------- */
+/* -------- 音效（Web Audio API 合成，无需外部文件） -------- */
 let audioCtx = null;
 function getAudioContext() {
   if (!audioCtx) {
     audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  }
+  if (audioCtx.state === 'suspended') {
+    audioCtx.resume();
   }
   return audioCtx;
 }
@@ -885,26 +897,120 @@ function getAudioContext() {
 function playSound(type) {
   try {
     const ctx = getAudioContext();
-    const osc = ctx.createOscillator();
-    const gain = ctx.createGain();
-    osc.connect(gain);
-    gain.connect(ctx.destination);
+    const t = ctx.currentTime;
+    let osc, gain;
 
-    if (type === 'correct') {
-      osc.frequency.setValueAtTime(523, ctx.currentTime);
-      osc.frequency.setValueAtTime(659, ctx.currentTime + 0.1);
-      osc.frequency.setValueAtTime(784, ctx.currentTime + 0.2);
-      gain.gain.setValueAtTime(0.15, ctx.currentTime);
-      gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.4);
-      osc.start(ctx.currentTime);
-      osc.stop(ctx.currentTime + 0.4);
-    } else if (type === 'wrong') {
-      osc.frequency.setValueAtTime(200, ctx.currentTime);
-      osc.frequency.setValueAtTime(150, ctx.currentTime + 0.15);
-      gain.gain.setValueAtTime(0.12, ctx.currentTime);
-      gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.3);
-      osc.start(ctx.currentTime);
-      osc.stop(ctx.currentTime + 0.3);
+    // 工具：单音
+    const tone = (freq, startT, dur, vol, wavetype) => {
+      const o = ctx.createOscillator();
+      const g = ctx.createGain();
+      o.type = wavetype || 'sine';
+      o.frequency.setValueAtTime(freq, startT);
+      g.gain.setValueAtTime(vol, startT);
+      g.gain.exponentialRampToValueAtTime(0.001, startT + dur);
+      o.connect(g).connect(ctx.destination);
+      o.start(startT);
+      o.stop(startT + dur);
+    };
+
+    // 工具：频率滑动音
+    const sweep = (f0, f1, startT, dur, vol, wavetype) => {
+      const o = ctx.createOscillator();
+      const g = ctx.createGain();
+      o.type = wavetype || 'sine';
+      o.frequency.setValueAtTime(f0, startT);
+      o.frequency.exponentialRampToValueAtTime(f1, startT + dur);
+      g.gain.setValueAtTime(vol, startT);
+      g.gain.exponentialRampToValueAtTime(0.001, startT + dur);
+      o.connect(g).connect(ctx.destination);
+      o.start(startT);
+      o.stop(startT + dur);
+    };
+
+    // 工具：琶音序列
+    const arpeggio = (notes, startT, noteDur, vol, wavetype) => {
+      notes.forEach((freq, i) => {
+        const st = startT + i * noteDur;
+        tone(freq, st, noteDur * 2.5, vol, wavetype);
+      });
+    };
+
+    switch (type) {
+      case 'click':
+        // 轻点击 — 短促 blip，带轻微噪声感
+        osc = ctx.createOscillator();
+        gain = ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(900, t);
+        osc.frequency.exponentialRampToValueAtTime(600, t + 0.05);
+        gain.gain.setValueAtTime(0.06, t);
+        gain.gain.exponentialRampToValueAtTime(0.001, t + 0.07);
+        osc.connect(gain).connect(ctx.destination);
+        osc.start(t); osc.stop(t + 0.07);
+        break;
+
+      case 'navigate':
+        // 页面/导航切换 — 柔和上行
+        sweep(400, 650, t, 0.13, 0.05, 'sine');
+        break;
+
+      case 'select':
+        // 星点选中 — 明亮叮咚，双音叠加
+        tone(880, t, 0.1, 0.09, 'sine');
+        tone(1320, t + 0.04, 0.1, 0.06, 'sine');
+        break;
+
+      case 'start':
+        // 游戏开始 — C-E-G-C 上行琶音
+        arpeggio([523, 659, 784, 1047], t, 0.1, 0.1, 'triangle');
+        break;
+
+      case 'correct':
+        // 正确连线 — C-E-G 大三和弦上行（triangle 波更柔和）
+        osc = ctx.createOscillator();
+        gain = ctx.createGain();
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(523, t);
+        osc.frequency.setValueAtTime(659, t + 0.1);
+        osc.frequency.setValueAtTime(784, t + 0.2);
+        gain.gain.setValueAtTime(0.14, t);
+        gain.gain.exponentialRampToValueAtTime(0.01, t + 0.45);
+        osc.connect(gain).connect(ctx.destination);
+        osc.start(t); osc.stop(t + 0.45);
+        break;
+
+      case 'wrong':
+        // 错误连线 — 低沉嗡鸣 + 噪声感
+        osc = ctx.createOscillator();
+        gain = ctx.createGain();
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(220, t);
+        osc.frequency.exponentialRampToValueAtTime(120, t + 0.25);
+        gain.gain.setValueAtTime(0.05, t);
+        gain.gain.exponentialRampToValueAtTime(0.001, t + 0.3);
+        osc.connect(gain).connect(ctx.destination);
+        osc.start(t); osc.stop(t + 0.3);
+        break;
+
+      case 'win':
+        // 通关庆祝 — 胜利号角（C 大调上行）
+        arpeggio([523, 659, 784, 1047, 784, 1047, 1319, 1568], t, 0.09, 0.12, 'triangle');
+        // 叠加一个低音垫
+        tone(262, t, 1.0, 0.04, 'sine');
+        break;
+
+      case 'reveal':
+        // 轮廓魔法揭示 — 星光闪烁琶音
+        arpeggio([660, 880, 1100, 1320, 1760], t, 0.12, 0.07, 'sine');
+        // 叠加 shimmer
+        sweep(2000, 4000, t + 0.1, 0.5, 0.03, 'sine');
+        break;
+
+      case 'score':
+        // 分数获得 — 清脆双音
+        tone(1200, t, 0.08, 0.1, 'sine');
+        tone(1600, t + 0.06, 0.12, 0.08, 'sine');
+        break;
     }
   } catch (e) { /* 静默失败 */ }
 }
@@ -923,7 +1029,7 @@ function renderAchievement() {
   // 返回按钮
   const backBtn = document.getElementById('btn-achievement-back');
   if (backBtn) {
-    backBtn.onclick = () => switchScreen('home');
+    backBtn.onclick = () => { playSound('navigate'); switchScreen('home'); };
   }
 }
 
