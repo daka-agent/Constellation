@@ -1,0 +1,31 @@
+{
+  "name": "星座探索 - 儿童星座科普互动",
+  "short_name": "星座探索",
+  "description": "为小朋友打造的星空探索之旅！通过连线游戏认识88个星座。",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0f0f23",
+  "theme_color": "#1a1a3e",
+  "icons": [
+    {
+      "src": "imgs/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "imgs/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "imgs/icons/icon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    }
+  ],
+  "screenshots": [],
+  "categories": ["education", "kids", "science"],
+  "lang": "zh-CN",
+  "dir": "ltr"
+}

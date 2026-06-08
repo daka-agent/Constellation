@@ -8,6 +8,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700;800;900&family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#1a1a3e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="星座探索">
+  <link rel="apple-touch-icon" href="imgs/icons/icon-192x192.png">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="192x192" href="imgs/icons/icon-192x192.png">
 </head>
 <body>
   <div id="app">
@@ -146,10 +154,85 @@
       </div>
 
       <div class="bottom-spacer"></div>
+
+      <!-- PWA 安装提示 -->
+      <div class="pwa-install-banner" id="pwa-install-banner" style="display:none;">
+        <div class="pwa-banner-content">
+          <span class="pwa-icon">🌟</span>
+          <div class="pwa-text">
+            <div class="pwa-title">安装「星座探索」</div>
+            <div class="pwa-desc">安装到桌面，离线也能玩！</div>
+          </div>
+          <button class="pwa-install-btn" id="pwa-install-btn">安装</button>
+          <button class="pwa-dismiss-btn" id="pwa-dismiss-btn">✕</button>
+        </div>
+      </div>
     </div>
   </div>
 
   <script src="js/data.js"></script>
   <script src="js/game.js"></script>
+
+  <!-- PWA Service Worker 注册 + 安装提示 -->
+  <script>
+    // ── Service Worker 注册 ─────────────────────
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./service-worker.js')
+          .then(reg => {
+            console.log('[PWA] Service Worker 注册成功:', reg.scope);
+            reg.addEventListener('updatefound', () => {
+              const newWorker = reg.installing;
+              newWorker.addEventListener('statechange', () => {
+                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                  if (confirm('发现新版本！是否立即刷新页面？')) {
+                    newWorker.postMessage({ type: 'SKIP_WAITING' });
+                    window.location.reload();
+                  }
+                }
+              });
+            });
+          })
+          .catch(err => console.log('[PWA] Service Worker 注册失败:', err));
+      });
+    }
+
+    // ── PWA 安装提示 ──────────────────────────
+    let deferredPrompt = null;
+    const banner = document.getElementById('pwa-install-banner');
+    const installBtn = document.getElementById('pwa-install-btn');
+    const dismissBtn = document.getElementById('pwa-dismiss-btn');
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      // 显示安装横幅
+      if (banner) banner.style.display = 'block';
+    });
+
+    if (installBtn) {
+      installBtn.addEventListener('click', async () => {
+        if (!deferredPrompt) return;
+        deferredPrompt.prompt();
+        const { outcome } = await deferredPrompt.userChoice;
+        console.log('[PWA] 安装选择:', outcome);
+        deferredPrompt = null;
+        if (banner) banner.style.display = 'none';
+      });
+    }
+
+    if (dismissBtn) {
+      dismissBtn.addEventListener('click', () => {
+        if (banner) banner.style.display = 'none';
+        deferredPrompt = null;
+      });
+    }
+
+    window.addEventListener('appinstalled', () => {
+      console.log('[PWA] 应用已安装！');
+      if (banner) banner.style.display = 'none';
+      deferredPrompt = null;
+    });
+  </script>
 </body>
 </html>
