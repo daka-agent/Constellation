@@ -595,6 +595,8 @@ body {
 
 #screen-game {
   background: var(--bg-primary);
+  overflow: hidden;
+  touch-action: none;
 }
 
 .game-title {
@@ -649,11 +651,15 @@ body {
   position: relative;
   min-height: 380px;
   flex-shrink: 0;
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .game-area canvas {
   width: 100%;
   height: 100%;
+  touch-action: none;
 }
 
 /* 进度条 */

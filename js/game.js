@@ -651,6 +651,9 @@ function initGame() {
 
   drawGameCanvas(c, 0);
 
+  // 保存画布快照，供 handleMove 快速恢复（避免每帧全量重绘）
+  saveCanvasSnapshot();
+
   // 返回按钮
   const backBtn = document.getElementById('btn-game-back');
   if (backBtn) {
@@ -828,6 +831,40 @@ function drawSilhouette(ctx, c, scale, offsetX, offsetY, minX, minY, alpha) {
   ctx.restore();
 }
 
+/* -------- 画布快照（移动端性能优化） -------- */
+let _gameSnapshot = null; // 保存游戏画布的 ImageData 快照
+let _snapshotW = 0;
+let _snapshotH = 0;
+
+function saveCanvasSnapshot() {
+  const canvas = document.getElementById('game-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  _snapshotW = canvas.width;
+  _snapshotH = canvas.height;
+  try {
+    _gameSnapshot = ctx.getImageData(0, 0, canvas.width, canvas.height);
+  } catch (e) {
+    _gameSnapshot = null;
+  }
+}
+
+function restoreCanvasSnapshot() {
+  const canvas = document.getElementById('game-canvas');
+  if (!canvas || !_gameSnapshot) return;
+  const ctx = canvas.getContext('2d');
+  if (canvas.width === _snapshotW && canvas.height === _snapshotH) {
+    ctx.putImageData(_gameSnapshot, 0, 0);
+  } else {
+    // 尺寸变了（极少见），退回到全量重绘
+    _gameSnapshot = null;
+  }
+}
+
+function invalidateSnapshot() {
+  _gameSnapshot = null;
+}
+
 function initGameInteraction(c) {
   const canvas = document.getElementById('game-canvas');
   if (!canvas) return;
@@ -837,8 +874,11 @@ function initGameInteraction(c) {
 
   function getPos(e) {
     const rect = canvas.getBoundingClientRect();
-    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-    const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+    // touchend 时 e.touches 为空数组（length=0），需改用 e.changedTouches
+    const touchList = (e.touches && e.touches.length > 0) ? e.touches
+      : (e.changedTouches && e.changedTouches.length > 0) ? e.changedTouches : null;
+    const clientX = touchList ? touchList[0].clientX : e.clientX;
+    const clientY = touchList ? touchList[0].clientY : e.clientY;
     return { x: clientX - rect.left, y: clientY - rect.top };
   }
 
@@ -861,7 +901,7 @@ function initGameInteraction(c) {
     );
   }
 
-  canvas.ontouchstart = canvas.onmousedown = function(e) {
+  function handleStart(e) {
     if (state.gameFinished) return;
     e.preventDefault();
     const pos = getPos(e);
@@ -870,16 +910,21 @@ function initGameInteraction(c) {
       dragging = starIdx;
       playSound('select');
     }
-  };
+  }
 
-  canvas.ontouchmove = canvas.onmousemove = function(e) {
+  function handleMove(e) {
     if (dragging === null || state.gameFinished) return;
     e.preventDefault();
     const pos = getPos(e);
     const targetIdx = findStar(pos);
 
-    // 实时重绘
-    drawGameCanvas(c, 0);
+    // 从快照恢复 + 画拖拽线（避免每帧全量重绘，移动端性能关键）
+    restoreCanvasSnapshot();
+    if (!_gameSnapshot) {
+      // 快照失效，退回到全量重绘
+      drawGameCanvas(c, 0);
+      saveCanvasSnapshot();
+    }
     const ctx = canvas.getContext('2d');
     const dpr = window.devicePixelRatio || 1;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
@@ -894,9 +939,9 @@ function initGameInteraction(c) {
     ctx.lineTo(pos.x, pos.y);
     ctx.stroke();
     ctx.setLineDash([]);
-  };
+  }
 
-  canvas.ontouchend = canvas.onmouseup = function(e) {
+  function handleEnd(e) {
     if (dragging === null || state.gameFinished) return;
     const pos = getPos(e);
     const targetIdx = findStar(pos);
@@ -912,6 +957,7 @@ function initGameInteraction(c) {
           addScore(20);
           updateGameProgress();
           drawGameCanvas(c);
+          saveCanvasSnapshot();
 
           // 弹出部位标签气泡
           showStarLabel(canvas, targetIdx, c);
@@ -930,7 +976,18 @@ function initGameInteraction(c) {
 
     dragging = null;
     drawGameCanvas(c, 0);
-  };
+    saveCanvasSnapshot();
+  }
+
+  // 鼠标事件（桌面端）
+  canvas.onmousedown = handleStart;
+  canvas.onmousemove = handleMove;
+  canvas.onmouseup = handleEnd;
+
+  // 触摸事件（移动端，必须 passive: false 才能阻止默认行为）
+  canvas.addEventListener('touchstart', handleStart, { passive: false });
+  canvas.addEventListener('touchmove', handleMove, { passive: false });
+  canvas.addEventListener('touchend', handleEnd, { passive: false });
 }
 
 function updateGameProgress() {
