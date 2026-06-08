@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 420">
+  <!-- 大犬座（天狼星）卡通形象 — 儿童友好风格 -->
+
+  <!-- 尾巴（高高翘起） -->
+  <path d="M190 220 Q225 180 235 145 Q240 128 230 118 Q220 110 210 120 Q205 132 215 138"
+        fill="none" stroke="#B45309" stroke-width="10" stroke-linecap="round"/>
+  <!-- 尾巴毛 -->
+  <ellipse cx="218" cy="113" rx="12" ry="18" fill="#92400E" transform="rotate(20 218 113)"/>
+
+  <!-- 身体 -->
+  <ellipse cx="128" cy="268" rx="65" ry="78" fill="#F59E0B" stroke="#B45309" stroke-width="3"/>
+
+  <!-- 后腿 -->
+  <path d="M80 316 Q72 350 68 385 Q66 395 78 395 Q88 395 88 383 Q90 368 96 340" fill="#F59E0B" stroke="#B45309" stroke-width="2.5"/>
+  <path d="M176 316 Q184 350 188 385 Q190 395 178 395 Q168 395 168 383 Q166 368 160 340" fill="#F59E0B" stroke="#B45309" stroke-width="2.5"/>
+
+  <!-- 前腿 -->
+  <path d="M95 290 Q88 325 84 358 Q82 368 93 368 Q102 368 102 357 Q104 342 108 315" fill="#F59E0B" stroke="#B45309" stroke-width="2.5"/>
+  <path d="M165 290 Q172 325 176 358 Q178 368 167 368 Q158 368 158 357 Q156 342 152 315" fill="#F59E0B" stroke="#B45309" stroke-width="2.5"/>
+
+  <!-- 爪子 -->
+  <ellipse cx="76"  cy="391" rx="14" ry="8" fill="#FCD34D" stroke="#B45309" stroke-width="2"/>
+  <ellipse cx="180" cy="391" rx="14" ry="8" fill="#FCD34D" stroke="#B45309" stroke-width="2"/>
+  <ellipse cx="92"  cy="365" rx="13" ry="8" fill="#FCD34D" stroke="#B45309" stroke-width="2"/>
+  <ellipse cx="164" cy="365" rx="13" ry="8" fill="#FCD34D" stroke="#B45309" stroke-width="2"/>
+
+  <!-- 脖子 -->
+  <ellipse cx="128" cy="210" rx="40" ry="30" fill="#F59E0B" stroke="#B45309" stroke-width="2.5"/>
+
+  <!-- 头部 -->
+  <circle cx="128" cy="168" r="60" fill="#FCD34D" stroke="#B45309" stroke-width="3"/>
+
+  <!-- 耳朵（垂下来的长耳） -->
+  <ellipse cx="80"  cy="178" rx="20" ry="38" fill="#F59E0B" stroke="#B45309" stroke-width="2.5" transform="rotate(-15 80 178)"/>
+  <ellipse cx="176" cy="178" rx="20" ry="38" fill="#F59E0B" stroke="#B45309" stroke-width="2.5" transform="rotate(15 176 178)"/>
+
+  <!-- 眼睛 -->
+  <ellipse cx="110" cy="158" rx="14" ry="14" fill="white"/>
+  <ellipse cx="146" cy="158" rx="14" ry="14" fill="white"/>
+  <circle cx="112" cy="159" r="9" fill="#1C1917"/>
+  <circle cx="148" cy="159" r="9" fill="#1C1917"/>
+  <!-- 高光 -->
+  <circle cx="115" cy="156" r="3.5" fill="white"/>
+  <circle cx="151" cy="156" r="3.5" fill="white"/>
+
+  <!-- 鼻子（大而圆） -->
+  <ellipse cx="128" cy="180" rx="13" ry="10" fill="#92400E"/>
+  <!-- 鼻孔 -->
+  <circle cx="123" cy="181" r="3" fill="#78350F"/>
+  <circle cx="133" cy="181" r="3" fill="#78350F"/>
+
+  <!-- 嘴 + 舌头 -->
+  <path d="M115 192 Q128 204 141 192" fill="none" stroke="#92400E" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- 舌头 -->
+  <ellipse cx="128" cy="202" rx="10" ry="8" fill="#F87171"/>
+
+  <!-- 天狼星星标（胸口发光星） -->
+  <circle cx="128" cy="258" r="10" fill="white" opacity="0.9"/>
+  <path d="M128 245 L130 253 L138 253 L132 258 L134 266 L128 261 L122 266 L124 258 L118 253 L126 253 Z" fill="#FBBF24"/>
+
+  <!-- 项圈 -->
+  <path d="M92 210 Q128 222 164 210" fill="none" stroke="#EF4444" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="128" cy="218" r="5" fill="#B91C1C"/>
+
+  <!-- 星座符号 -->
+  <text x="128" y="318" text-anchor="middle" font-size="16" fill="#7C3AED" font-family="serif" font-weight="bold">CMa</text>
+</svg>

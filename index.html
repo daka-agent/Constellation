@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>星座探索</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700;800;900&family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="app">
+    <!-- ========== 屏幕1：首页 / 星空地图 ========== -->
+    <div class="screen" id="screen-home">
+      <div class="top-bar">
+        <div class="app-logo">🌟 星座</div>
+        <div class="settings-btn" id="btn-settings">⚙️</div>
+      </div>
+
+      <div class="hero-section">
+        <h1 class="hero-title">探索宇宙的<br>88个星座</h1>
+        <p class="hero-subtitle">在星空地图中发现神话与科学的秘密</p>
+      </div>
+
+      <div class="search-wrap">
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input type="text" class="search-input" id="search-input" placeholder="搜索星座...">
+        </div>
+      </div>
+
+      <div class="featured-section">
+        <h2 class="section-title">✨ 精选星座</h2>
+        <div class="card-row" id="featured-row1"></div>
+        <div class="card-row" id="featured-row2"></div>
+      </div>
+
+      <div class="all-constellations-section">
+        <h2 class="section-title">🌌 全部星座</h2>
+        <div class="constellation-grid" id="constellation-grid"></div>
+      </div>
+
+      <div class="bottom-nav">
+        <div class="nav-item active" data-screen="home">
+          <span class="nav-icon">🌌</span>
+          <span class="nav-label">星空地图</span>
+        </div>
+        <div class="nav-item" data-screen="collection">
+          <span class="nav-icon">⭐</span>
+          <span class="nav-label">收藏</span>
+        </div>
+        <div class="nav-item" data-screen="game">
+          <span class="nav-icon">🎮</span>
+          <span class="nav-label">游戏</span>
+        </div>
+        <div class="nav-item" data-screen="achievement">
+          <span class="nav-icon">👤</span>
+          <span class="nav-label">我的</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== 屏幕2：星座详情页 ========== -->
+    <div class="screen" id="screen-detail">
+      <div class="top-bar">
+        <div class="back-btn" id="btn-detail-back">←</div>
+        <div class="detail-title" id="detail-name">猎户座</div>
+        <div class="placeholder-right"></div>
+      </div>
+
+      <div class="illustration-area" id="illustration-area">
+        <div class="pinyin-label" id="detail-pinyin">liè hù zuò</div>
+        <canvas class="star-canvas" id="detail-star-canvas" width="343" height="180"></canvas>
+      </div>
+
+      <div class="tab-bar" id="detail-tab-bar">
+        <div class="tab-item active" data-tab="story">神话故事</div>
+        <div class="tab-item" data-tab="knowledge">趣味知识</div>
+        <div class="tab-item" data-tab="star-map">星图</div>
+      </div>
+
+      <div class="detail-content" id="detail-content">
+        <!-- 动态内容区 -->
+      </div>
+
+      <div class="game-launch-btn" id="btn-launch-game">
+        🎮 开始连线游戏
+      </div>
+    </div>
+
+    <!-- ========== 屏幕3：连线游戏页 ========== -->
+    <div class="screen" id="screen-game">
+      <div class="top-bar">
+        <div class="back-btn" id="btn-game-back">←</div>
+        <div class="game-title">⚡ 连线游戏</div>
+        <div class="score-badge">
+          <span>⭐</span>
+          <span id="game-score">0</span>
+        </div>
+      </div>
+
+      <div class="game-constellation-name" id="game-constellation-name">✦ 猎户座</div>
+      <div class="game-instruction" id="game-instruction">把这些星星连起来，还原星座形状！</div>
+
+      <div class="game-area" id="game-area">
+        <canvas id="game-canvas" width="343" height="380"></canvas>
+      </div>
+
+      <div class="game-progress-wrap">
+        <div class="game-progress-label" id="game-progress-label">进度 0/5</div>
+        <div class="game-progress-bar-bg">
+          <div class="game-progress-bar-fill" id="game-progress-fill"></div>
+        </div>
+      </div>
+
+      <div class="game-complete-btn" id="btn-game-complete">✅ 完成连线</div>
+    </div>
+
+    <!-- ========== 屏幕4：星座图鉴 / 成就收集 ========== -->
+    <div class="screen" id="screen-achievement">
+      <div class="top-bar">
+        <div class="back-btn" id="btn-achievement-back">←</div>
+        <div class="achievement-title">📑 星座图鉴</div>
+        <div class="placeholder-right"></div>
+      </div>
+
+      <div class="progress-overview">
+        <div class="progress-card">
+          <div class="progress-num" id="achievement-count">0 / 88</div>
+          <div class="progress-label">已探索星座</div>
+        </div>
+      </div>
+
+      <div class="achievement-section">
+        <h2 class="section-title">🌟 已解锁</h2>
+        <div class="achievement-grid" id="achieved-grid"></div>
+      </div>
+
+      <div class="achievement-section">
+        <h2 class="section-title locked-title">🔒 未解锁</h2>
+        <div class="achievement-grid" id="locked-grid"></div>
+      </div>
+
+      <div class="bottom-spacer"></div>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/game.js"></script>
+</body>
+</html>

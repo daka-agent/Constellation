@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 420">
+  <!-- 仙后座：头戴王冠的女王，W形王冠是特色 -->
+  
+  <!-- 裙子 -->
+  <path d="M 90 300 Q 80 360 70 400 L 210 400 Q 200 360 190 300 Z" 
+        fill="#9333EA" stroke="#7C22D4" stroke-width="2"/>
+  <!-- 裙摆花纹 -->
+  <path d="M 70 400 Q 100 385 140 390 Q 180 395 210 400" 
+        stroke="#FBBF24" stroke-width="2" fill="none"/>
+  <path d="M 78 380 Q 110 368 140 372 Q 170 376 202 380" 
+        stroke="#FBBF24" stroke-width="1.5" fill="none" opacity="0.6"/>
+  
+  <!-- 腰部装饰腰带 -->
+  <rect x="108" y="295" width="64" height="14" rx="7" fill="#FBBF24"/>
+  <circle cx="140" cy="302" r="6" fill="#F97316"/>
+  
+  <!-- 身体 -->
+  <rect x="110" y="230" width="60" height="75" rx="15" fill="#C084FC"/>
+  
+  <!-- 服装领口装饰 -->
+  <path d="M 115 235 Q 140 248 165 235" stroke="#FBBF24" stroke-width="2.5" fill="none"/>
+  
+  <!-- 手臂 -->
+  <path d="M 110 245 Q 85 260 78 290" stroke="#F7C48B" stroke-width="16" fill="none" stroke-linecap="round"/>
+  <path d="M 170 245 Q 195 260 202 290" stroke="#F7C48B" stroke-width="16" fill="none" stroke-linecap="round"/>
+  <!-- 手 -->
+  <circle cx="77" cy="292" r="12" fill="#F7C48B"/>
+  <circle cx="203" cy="292" r="12" fill="#F7C48B"/>
+  
+  <!-- 头部 -->
+  <circle cx="140" cy="185" r="46" fill="#F7C48B" stroke="#E0A060" stroke-width="2.5"/>
+  
+  <!-- 颈部 -->
+  <rect x="126" y="225" width="28" height="20" rx="10" fill="#F7C48B"/>
+  
+  <!-- 头发 -->
+  <path d="M 96 175 Q 94 140 110 125 Q 130 108 140 108 Q 150 108 170 125 Q 186 140 184 175" 
+        fill="#D97706" stroke="#B45309" stroke-width="1.5"/>
+  <!-- 头发细节 -->
+  <path d="M 96 175 Q 98 155 108 145" stroke="#B45309" stroke-width="1" fill="none"/>
+  <path d="M 184 175 Q 182 155 172 145" stroke="#B45309" stroke-width="1" fill="none"/>
+  
+  <!-- W形王冠（仙后座标志！） -->
+  <!-- 王冠底座 -->
+  <rect x="100" y="110" width="80" height="12" rx="6" fill="#FBBF24" stroke="#F59E0B" stroke-width="1.5"/>
+  <!-- W形5个尖峰 -->
+  <polygon points="103,110 108,88 113,110" fill="#FBBF24" stroke="#F59E0B" stroke-width="1.5"/>
+  <polygon points="116,110 121,98 126,110" fill="#FBBF24" stroke="#F59E0B" stroke-width="1.5"/>
+  <polygon points="130,110 140,80 150,110" fill="#FBBF24" stroke="#F59E0B" stroke-width="1.5"/><!-- 中间最高 -->
+  <polygon points="154,110 159,98 164,110" fill="#FBBF24" stroke="#F59E0B" stroke-width="1.5"/>
+  <polygon points="167,110 172,88 177,110" fill="#FBBF24" stroke="#F59E0B" stroke-width="1.5"/>
+  <!-- 王冠上的宝石 -->
+  <circle cx="140" cy="84" r="5" fill="#EF4444"/>
+  <circle cx="121" cy="101" r="4" fill="#3B82F6"/>
+  <circle cx="159" cy="101" r="4" fill="#10B981"/>
+  <circle cx="108" cy="91" r="3.5" fill="#F97316"/>
+  <circle cx="172" cy="91" r="3.5" fill="#A855F7"/>
+  
+  <!-- W标注 -->
+  <text x="140" y="68" font-family="Fredoka One, sans-serif" font-size="11" fill="#FBBF24" text-anchor="middle" font-weight="bold">W形王冠</text>
+  
+  <!-- 脸部 -->
+  <circle cx="125" cy="182" r="7.5" fill="#2D1A0E"/><!-- 左眼 -->
+  <circle cx="155" cy="182" r="7.5" fill="#2D1A0E"/><!-- 右眼 -->
+  <circle cx="127" cy="180" r="2.5" fill="white"/>
+  <circle cx="157" cy="180" r="2.5" fill="white"/>
+  <!-- 睫毛 -->
+  <path d="M 118 176 Q 119 172 121 171" stroke="#2D1A0E" stroke-width="1.5" fill="none"/>
+  <path d="M 124 174 Q 126 170 128 170" stroke="#2D1A0E" stroke-width="1.5" fill="none"/>
+  <path d="M 149 174 Q 151 170 153 170" stroke="#2D1A0E" stroke-width="1.5" fill="none"/>
+  <path d="M 155 176 Q 157 172 159 171" stroke="#2D1A0E" stroke-width="1.5" fill="none"/>
+  
+  <!-- 腮红 -->
+  <circle cx="115" cy="192" r="10" fill="#F9A8D4" opacity="0.6"/>
+  <circle cx="165" cy="192" r="10" fill="#F9A8D4" opacity="0.6"/>
+  
+  <!-- 鼻子 -->
+  <ellipse cx="140" cy="195" rx="5" ry="4" fill="#E0A060"/>
+  <!-- 嘴巴（微笑） -->
+  <path d="M 131 206 Q 140 214 149 206" stroke="#C2825A" stroke-width="2" fill="none" stroke-linecap="round"/>
+  
+  <!-- 项链 -->
+  <path d="M 108 226 Q 140 238 172 226" stroke="#FBBF24" stroke-width="2.5" fill="none"/>
+  <circle cx="140" cy="236" r="5" fill="#FBBF24"/>
+</svg>

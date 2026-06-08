@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 420">
+  <!-- 天鹅座卡通形象 — 可爱的大白天鹅 -->
+
+  <!-- 水面倒影（淡蓝色椭圆） -->
+  <ellipse cx="140" cy="400" rx="100" ry="18" fill="#BFDBFE" opacity="0.5"/>
+
+  <!-- 翅膀（左，收拢） -->
+  <path d="M80 220 Q45 195 28 175 Q18 162 25 152 Q32 143 45 150 Q58 158 68 175 Q78 192 88 210"
+        fill="white" stroke="#BAE6FD" stroke-width="2.5"/>
+  <!-- 翅羽细节 -->
+  <path d="M40 155 Q50 148 56 158" fill="#E0F2FE" stroke="#BAE6FD" stroke-width="1.5"/>
+  <path d="M55 165 Q65 157 70 168" fill="#E0F2FE" stroke="#BAE6FD" stroke-width="1.5"/>
+
+  <!-- 翅膀（右，半展开） -->
+  <path d="M200 220 Q240 185 258 162 Q268 148 258 138 Q248 130 236 140 Q222 152 210 172 Q198 192 192 212"
+        fill="white" stroke="#BAE6FD" stroke-width="2.5"/>
+  <!-- 翅羽细节 -->
+  <path d="M252 148 Q242 140 237 152" fill="#E0F2FE" stroke="#BAE6FD" stroke-width="1.5"/>
+  <path d="M238 162 Q228 153 223 165" fill="#E0F2FE" stroke="#BAE6FD" stroke-width="1.5"/>
+
+  <!-- 身体（优雅椭圆） -->
+  <ellipse cx="140" cy="300" rx="65" ry="80" fill="white" stroke="#BAE6FD" stroke-width="2.5"/>
+
+  <!-- 翅膀折叠部分（覆在身体两侧） -->
+  <path d="M80 255 Q65 280 70 320 Q74 350 92 365" fill="white" stroke="#BAE6FD" stroke-width="2"/>
+  <path d="M200 255 Q215 280 210 320 Q206 350 188 365" fill="white" stroke="#BAE6FD" stroke-width="2"/>
+
+  <!-- 尾羽 -->
+  <path d="M118 372 Q108 392 105 408 Q104 415 115 414 Q122 413 122 406 Q124 396 126 380" fill="white" stroke="#BAE6FD" stroke-width="1.5"/>
+  <path d="M133 376 Q132 398 132 412 Q132 418 140 418 Q148 418 148 412 Q148 398 147 376" fill="white" stroke="#BAE6FD" stroke-width="1.5"/>
+  <path d="M155 372 Q164 392 168 408 Q169 415 158 414 Q151 413 151 406 Q149 396 148 380" fill="white" stroke="#BAE6FD" stroke-width="1.5"/>
+
+  <!-- 脖子（S形优雅长颈） -->
+  <path d="M140 225 Q155 205 158 185 Q160 165 148 148 Q138 133 125 132"
+        fill="none" stroke="white" stroke-width="32" stroke-linecap="round"/>
+  <path d="M140 225 Q155 205 158 185 Q160 165 148 148 Q138 133 125 132"
+        fill="none" stroke="#BAE6FD" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- 头部 -->
+  <circle cx="120" cy="122" r="36" fill="white" stroke="#BAE6FD" stroke-width="2.5"/>
+
+  <!-- 眼睛（大而温柔） -->
+  <ellipse cx="110" cy="116" rx="12" ry="12" fill="#BAE6FD"/>
+  <circle cx="112" cy="117" r="8" fill="#1C1917"/>
+  <circle cx="115" cy="114" r="3" fill="white"/>
+
+  <!-- 嘴（橙黄色扁嘴） -->
+  <ellipse cx="92" cy="128" rx="22" ry="10" fill="#FBBF24" stroke="#D97706" stroke-width="1.5"/>
+  <!-- 嘴分界线 -->
+  <line x1="72" y1="128" x2="112" y2="128" stroke="#D97706" stroke-width="1.5"/>
+  <!-- 嘴上方黑纹（天鹅特征） -->
+  <ellipse cx="104" cy="122" rx="10" ry="6" fill="#1C1917"/>
+
+  <!-- 皇冠（喜气） -->
+  <path d="M100 92 L106 78 L112 88 L120 72 L128 88 L134 78 L140 92"
+        fill="#FBBF24" stroke="#D97706" stroke-width="2"/>
+  <circle cx="106" cy="78" r="4" fill="#EF4444"/>
+  <circle cx="120" cy="72" r="5" fill="#8B5CF6"/>
+  <circle cx="134" cy="78" r="4" fill="#EF4444"/>
+
+  <!-- 天津四（天鹅座最亮星，胸口） -->
+  <path d="M140 295 L143 304 L152 304 L145 309 L148 318 L140 313 L132 318 L135 309 L128 304 L137 304 Z"
+        fill="#FBBF24"/>
+
+  <!-- 水波纹 -->
+  <path d="M85 385 Q100 380 115 385 Q130 390 145 385 Q160 380 175 385 Q190 390 195 385"
+        fill="none" stroke="#93C5FD" stroke-width="2" opacity="0.6"/>
+</svg>

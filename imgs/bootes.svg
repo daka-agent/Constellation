@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 420" fill="none">
+  <!-- 背景光晕 -->
+  <ellipse cx="140" cy="210" rx="115" ry="175" fill="rgba(139,92,246,0.07)"/>
+
+  <!-- 左脚 -->
+  <ellipse cx="112" cy="393" rx="22" ry="12" fill="#FFDBB4" stroke="#F59E0B" stroke-width="2"/>
+  <!-- 右脚 -->
+  <ellipse cx="168" cy="393" rx="22" ry="12" fill="#FFDBB4" stroke="#F59E0B" stroke-width="2"/>
+
+  <!-- 腿 -->
+  <rect x="101" y="300" width="24" height="95" rx="12" fill="#FFDBB4" stroke="#F59E0B" stroke-width="2"/>
+  <rect x="155" y="300" width="24" height="95" rx="12" fill="#FFDBB4" stroke="#F59E0B" stroke-width="2"/>
+
+  <!-- 下裳（长袍） -->
+  <path d="M94 265 Q86 308 86 370 Q112 355 140 360 Q168 355 194 370 Q194 308 186 265 Z"
+        fill="#7C3AED" stroke="#6D28D9" stroke-width="2"/>
+  <!-- 长袍花纹 -->
+  <path d="M105 295 Q118 290 130 295 Q143 290 155 295 Q168 290 175 295" stroke="#A78BFA" stroke-width="1.5" fill="none"/>
+  <path d="M100 320 Q115 315 130 320 Q145 315 160 320 Q172 315 180 320" stroke="#A78BFA" stroke-width="1.5" fill="none"/>
+  <path d="M96 345 Q112 340 130 345 Q148 340 165 345 Q178 340 184 345" stroke="#A78BFA" stroke-width="1.5" fill="none"/>
+
+  <!-- 腰带+大角座（arcturus的象征） -->
+  <rect x="96" y="258" width="88" height="14" rx="7" fill="#FBBF24" stroke="#F59E0B" stroke-width="1.5"/>
+  <!-- 中心装饰：大角星（橙色大星） -->
+  <circle cx="140" cy="265" r="7" fill="#F97316" stroke="#EA580C" stroke-width="1.5"/>
+  <path d="M140 255 L141.5 261 L148 261 L142.5 265 L144.5 271 L140 267 L135.5 271 L137.5 265 L132 261 L138.5 261 Z"
+        fill="#FBBF24"/>
+
+  <!-- 上衣 -->
+  <path d="M98 178 Q88 220 94 260 L186 260 Q192 220 182 178 Z"
+        fill="#8B5CF6" stroke="#7C3AED" stroke-width="2"/>
+  <!-- 上衣条纹 -->
+  <path d="M116 200 Q140 205 164 200" stroke="#A78BFA" stroke-width="1.5" fill="none"/>
+  <path d="M112 220 Q140 226 168 220" stroke="#A78BFA" stroke-width="1.5" fill="none"/>
+
+  <!-- 左手臂（持权杖） -->
+  <path d="M98 182 Q72 195 62 222" stroke="#FFDBB4" stroke-width="14" stroke-linecap="round" fill="none"/>
+  <!-- 权杖 -->
+  <line x1="62" y1="224" x2="38" y2="310" stroke="#A16207" stroke-width="7" stroke-linecap="round"/>
+  <!-- 权杖顶部装饰（星形） -->
+  <path d="M38 310 L40 320 L38 330" stroke="#A16207" stroke-width="5" stroke-linecap="round"/>
+  <path d="M62 222 L60 210 L58 198" stroke="#A16207" stroke-width="7" stroke-linecap="round"/>
+  <!-- 权杖顶 -->
+  <path d="M58 196 L60 186 L62 196 L72 196 L64 202 L67 212 L60 206 L53 212 L56 202 L48 196 Z"
+        fill="#FBBF24" stroke="#F59E0B" stroke-width="1.2"/>
+
+  <!-- 右手臂（伸出，指向天空） -->
+  <path d="M182 180 Q208 172 220 158" stroke="#FFDBB4" stroke-width="14" stroke-linecap="round" fill="none"/>
+  <!-- 右手指向天空 -->
+  <ellipse cx="222" cy="155" rx="11" ry="11" fill="#FFDBB4" stroke="#F59E0B" stroke-width="1.5"/>
+  <!-- 手指指向的星星 -->
+  <path d="M228 130 L230 120 L232 130 L242 130 L234 136 L237 146 L230 140 L223 146 L226 136 L218 130 Z"
+        fill="#FBBF24" stroke="#F59E0B" stroke-width="1"/>
+  <line x1="226" y1="148" x2="224" y2="154" stroke="#FBBF24" stroke-width="1.5" stroke-dasharray="3,2"/>
+
+  <!-- 手 -->
+  <ellipse cx="62" cy="224" rx="11" ry="11" fill="#FFDBB4" stroke="#F59E0B" stroke-width="1.5"/>
+
+  <!-- 头发（宽帽）——牧夫戴草帽 -->
+  <!-- 草帽帽沿 -->
+  <ellipse cx="140" cy="95" rx="62" ry="18" fill="#D97706" stroke="#B45309" stroke-width="2.5"/>
+  <!-- 草帽帽身 -->
+  <path d="M100 95 Q102 60 140 52 Q178 60 180 95 Z"
+        fill="#FBBF24" stroke="#D97706" stroke-width="2"/>
+  <!-- 草帽纹路 -->
+  <path d="M108 90 Q120 72 140 68 Q160 72 172 90" stroke="#D97706" stroke-width="1.5" fill="none"/>
+  <path d="M112 85 Q124 70 140 67 Q156 70 168 85" stroke="#D97706" stroke-width="1" fill="none"/>
+  <!-- 帽带 -->
+  <path d="M100 95 Q90 105 85 118" stroke="#92400E" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <path d="M180 95 Q190 105 195 118" stroke="#92400E" stroke-width="3" stroke-linecap="round" fill="none"/>
+
+  <!-- 脸 -->
+  <ellipse cx="140" cy="135" rx="36" ry="40" fill="#FFDBB4" stroke="#F59E0B" stroke-width="2"/>
+  <!-- 腮红（农夫晒黑的脸） -->
+  <ellipse cx="117" cy="146" rx="11" ry="8" fill="rgba(239,148,68,0.45)"/>
+  <ellipse cx="163" cy="146" rx="11" ry="8" fill="rgba(239,148,68,0.45)"/>
+  <!-- 眼睛 -->
+  <ellipse cx="124" cy="132" rx="8" ry="8" fill="#fff" stroke="#7C3AED" stroke-width="1.5"/>
+  <ellipse cx="156" cy="132" rx="8" ry="8" fill="#fff" stroke="#7C3AED" stroke-width="1.5"/>
+  <circle cx="126" cy="133" r="5" fill="#451A03"/>
+  <circle cx="158" cy="133" r="5" fill="#451A03"/>
+  <circle cx="128" cy="131" r="2" fill="#fff"/>
+  <circle cx="160" cy="131" r="2" fill="#fff"/>
+  <!-- 眉毛 -->
+  <path d="M116 122 Q125 117 134 122" stroke="#92400E" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  <path d="M146 122 Q155 117 164 122" stroke="#92400E" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  <!-- 胡须（大叔牧夫） -->
+  <path d="M120 160 Q125 172 132 175 Q140 178 148 175 Q155 172 160 160" stroke="#92400E" stroke-width="3" fill="rgba(146,64,14,0.3)" stroke-linecap="round"/>
+  <!-- 嘴 -->
+  <path d="M130 157 Q140 163 150 157" stroke="#92400E" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <!-- 鼻子 -->
+  <ellipse cx="140" cy="145" rx="5" ry="4" fill="rgba(245,158,11,0.5)"/>
+
+  <!-- 背景：北斗七星小图（左下角提示牧夫与大熊相邻） -->
+  <g opacity="0.4">
+    <circle cx="30" cy="370" r="2" fill="#FBBF24"/>
+    <circle cx="40" cy="362" r="2" fill="#FBBF24"/>
+    <circle cx="52" cy="360" r="2" fill="#FBBF24"/>
+    <circle cx="62" cy="368" r="2" fill="#FBBF24"/>
+    <circle cx="56" cy="378" r="2" fill="#FBBF24"/>
+    <circle cx="44" cy="378" r="2" fill="#FBBF24"/>
+    <circle cx="36" cy="385" r="2" fill="#FBBF24"/>
+    <path d="M30 370 L40 362 L52 360 L62 368 M52 360 L56 378 L44 378 L36 385"
+          stroke="#FBBF24" stroke-width="1" fill="none"/>
+  </g>
+
+  <!-- 大角星（Arcturus）高亮 -->
+  <path d="M250 380 L253 370 L256 380 L266 380 L258 386 L261 396 L254 390 L247 396 L250 386 L242 380 Z"
+        fill="#F97316" stroke="#EA580C" stroke-width="1"/>
+  <text x="254" y="408" text-anchor="middle" font-size="9" fill="#F97316" font-family="sans-serif">大角星</text>
+</svg>

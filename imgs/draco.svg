@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 420" fill="none">
+  <!-- 背景光晕 -->
+  <ellipse cx="140" cy="220" rx="120" ry="175" fill="rgba(139,92,246,0.07)"/>
+
+  <!-- 尾巴（最后面） -->
+  <path d="M225 380 Q255 355 260 320 Q258 295 240 305 Q225 315 230 340 Q235 360 225 380"
+        fill="#5B21B6" stroke="#7C3AED" stroke-width="2"/>
+  <!-- 尾尖 -->
+  <path d="M258 310 Q268 295 262 282 Q255 292 248 305" fill="#7C3AED" stroke="#8B5CF6" stroke-width="1.5"/>
+
+  <!-- 身体（大龙，S形） -->
+  <!-- 龙尾段 -->
+  <path d="M55 350 Q80 380 115 375 Q145 370 155 345" stroke="#6D28D9" stroke-width="42" stroke-linecap="round" fill="none"/>
+  <path d="M55 350 Q80 380 115 375 Q145 370 155 345" stroke="#8B5CF6" stroke-width="34" stroke-linecap="round" fill="none"/>
+  <path d="M55 350 Q80 380 115 375 Q145 370 155 345" stroke="#A78BFA" stroke-width="24" stroke-linecap="round" fill="none"/>
+
+  <!-- 龙中段 -->
+  <path d="M155 345 Q175 320 180 280 Q182 248 160 235" stroke="#6D28D9" stroke-width="46" stroke-linecap="round" fill="none"/>
+  <path d="M155 345 Q175 320 180 280 Q182 248 160 235" stroke="#7C3AED" stroke-width="38" stroke-linecap="round" fill="none"/>
+  <path d="M155 345 Q175 320 180 280 Q182 248 160 235" stroke="#A78BFA" stroke-width="26" stroke-linecap="round" fill="none"/>
+
+  <!-- 龙上段 -->
+  <path d="M160 235 Q140 215 100 210 Q68 208 50 228" stroke="#6D28D9" stroke-width="44" stroke-linecap="round" fill="none"/>
+  <path d="M160 235 Q140 215 100 210 Q68 208 50 228" stroke="#7C3AED" stroke-width="36" stroke-linecap="round" fill="none"/>
+  <path d="M160 235 Q140 215 100 210 Q68 208 50 228" stroke="#A78BFA" stroke-width="24" stroke-linecap="round" fill="none"/>
+
+  <!-- 龙鳞纹（身体上） -->
+  <path d="M80 375 Q88 368 96 375" stroke="#C4B5FD" stroke-width="2" fill="none"/>
+  <path d="M100 378 Q108 371 116 378" stroke="#C4B5FD" stroke-width="2" fill="none"/>
+  <path d="M164 335 Q172 328 180 335" stroke="#C4B5FD" stroke-width="2" fill="none"/>
+  <path d="M170 308 Q178 301 186 308" stroke="#C4B5FD" stroke-width="2" fill="none"/>
+  <path d="M174 280 Q182 273 190 280" stroke="#C4B5FD" stroke-width="2" fill="none"/>
+  <path d="M92 215 Q100 208 108 215" stroke="#C4B5FD" stroke-width="2" fill="none"/>
+  <path d="M114 210 Q122 203 130 210" stroke="#C4B5FD" stroke-width="2" fill="none"/>
+
+  <!-- 龙颈 -->
+  <path d="M50 228 Q42 185 58 155 Q72 128 100 120" stroke="#6D28D9" stroke-width="36" stroke-linecap="round" fill="none"/>
+  <path d="M50 228 Q42 185 58 155 Q72 128 100 120" stroke="#7C3AED" stroke-width="28" stroke-linecap="round" fill="none"/>
+  <path d="M50 228 Q42 185 58 155 Q72 128 100 120" stroke="#A78BFA" stroke-width="18" stroke-linecap="round" fill="none"/>
+
+  <!-- 翅膀（左） -->
+  <path d="M60 195 Q30 155 18 115 Q40 130 62 165 Q50 140 54 110 Q68 135 72 172"
+        fill="#7C3AED" stroke="#6D28D9" stroke-width="2"/>
+  <path d="M60 195 Q30 155 18 115" stroke="#A78BFA" stroke-width="1.5" fill="none"/>
+
+  <!-- 翅膀（右） -->
+  <path d="M88 215 Q100 165 122 135 Q108 158 120 185 Q112 160 130 148 Q124 172 118 200"
+        fill="#7C3AED" stroke="#6D28D9" stroke-width="2"/>
+
+  <!-- 龙头 -->
+  <ellipse cx="115" cy="105" rx="45" ry="38" fill="#6D28D9" stroke="#8B5CF6" stroke-width="3"/>
+  <ellipse cx="115" cy="105" rx="38" ry="31" fill="#7C3AED"/>
+
+  <!-- 龙角 -->
+  <path d="M98 72 Q88 50 82 35" stroke="#FBBF24" stroke-width="6" stroke-linecap="round" fill="none"/>
+  <path d="M128 68 Q132 44 138 30" stroke="#FBBF24" stroke-width="6" stroke-linecap="round" fill="none"/>
+  <circle cx="82" cy="32" r="5" fill="#FBBF24"/>
+  <circle cx="140" cy="28" r="5" fill="#FBBF24"/>
+
+  <!-- 耳鳍 -->
+  <path d="M72 96 Q58 82 60 68 Q70 76 78 92" fill="#8B5CF6" stroke="#6D28D9" stroke-width="1.5"/>
+  <path d="M155 96 Q168 82 166 68 Q156 76 148 92" fill="#8B5CF6" stroke="#6D28D9" stroke-width="1.5"/>
+
+  <!-- 眼睛（龙眼，黄色竖瞳） -->
+  <ellipse cx="100" cy="104" rx="11" ry="13" fill="#FBBF24" stroke="#D97706" stroke-width="2"/>
+  <ellipse cx="130" cy="104" rx="11" ry="13" fill="#FBBF24" stroke="#D97706" stroke-width="2"/>
+  <ellipse cx="100" cy="104" rx="4" ry="8" fill="#1E1B4B"/>
+  <ellipse cx="130" cy="104" rx="4" ry="8" fill="#1E1B4B"/>
+  <circle cx="102" cy="100" r="2" fill="#fff" opacity="0.7"/>
+  <circle cx="132" cy="100" r="2" fill="#fff" opacity="0.7"/>
+
+  <!-- 鼻孔 -->
+  <ellipse cx="105" cy="122" rx="4" ry="3" fill="#4C1D95" opacity="0.7"/>
+  <ellipse cx="125" cy="122" rx="4" ry="3" fill="#4C1D95" opacity="0.7"/>
+
+  <!-- 龙口（微张，露牙） -->
+  <path d="M88 130 Q105 145 140 138 Q145 130 140 122" fill="#4C1D95" stroke="#6D28D9" stroke-width="2"/>
+  <!-- 牙齿 -->
+  <path d="M95 132 L98 140 L101 132" fill="#E2E8F0" stroke="none"/>
+  <path d="M108 135 L112 143 L116 135" fill="#E2E8F0" stroke="none"/>
+  <path d="M122 135 L126 142 L130 135" fill="#E2E8F0" stroke="none"/>
+  <!-- 舌头 -->
+  <path d="M100 142 Q114 152 128 142 Q118 148 114 144" fill="#EF4444" stroke="none"/>
+
+  <!-- 火焰（龙口吐火） -->
+  <path d="M140 130 Q158 112 168 90 Q162 102 172 88 Q166 105 178 98 Q168 115 165 130"
+        fill="#F97316" stroke="#EF4444" stroke-width="1.5" opacity="0.85"/>
+  <path d="M145 128 Q158 118 164 104 Q160 112 166 104 Q162 116 168 126"
+        fill="#FBBF24" stroke="none" opacity="0.75"/>
+
+  <!-- 北极星（天龙座包围北极星） -->
+  <path d="M245 55 L248 45 L251 55 L261 55 L253 61 L256 71 L248 65 L240 71 L243 61 L235 55 Z"
+        fill="#FBBF24" stroke="#F59E0B" stroke-width="1.2"/>
+  <text x="248" y="85" text-anchor="middle" font-size="9" fill="#FBBF24" font-family="sans-serif">北极星</text>
+</svg>

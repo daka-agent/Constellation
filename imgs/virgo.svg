@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 420" fill="none">
+  <!-- 背景光晕 -->
+  <ellipse cx="140" cy="210" rx="115" ry="175" fill="rgba(251,191,36,0.07)"/>
+
+  <!-- 裙摆（最底层） -->
+  <ellipse cx="140" cy="355" rx="72" ry="28" fill="rgba(139,92,246,0.18)"/>
+  <!-- 裙身 -->
+  <path d="M88 260 Q80 330 68 370 Q104 360 140 365 Q176 360 212 370 Q200 330 192 260 Z"
+        fill="#C4B5FD" stroke="#8B5CF6" stroke-width="2.5" stroke-linejoin="round"/>
+  <!-- 裙子花边 -->
+  <path d="M72 370 Q86 358 100 370 Q114 358 128 370 Q142 358 156 370 Q170 358 184 370 Q198 358 212 370"
+        stroke="#FBBF24" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+  <!-- 腰带 -->
+  <rect x="100" y="255" width="80" height="14" rx="7" fill="#FBBF24" stroke="#F59E0B" stroke-width="1.5"/>
+  <circle cx="140" cy="262" r="5" fill="#8B5CF6"/>
+
+  <!-- 上衣 -->
+  <path d="M100 180 Q90 220 88 258 L192 258 Q190 220 180 180 Z"
+        fill="#A78BFA" stroke="#8B5CF6" stroke-width="2" stroke-linejoin="round"/>
+  <!-- 上衣装饰纹 -->
+  <path d="M120 195 Q140 200 160 195" stroke="#FBBF24" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M115 215 Q140 220 165 215" stroke="#FBBF24" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+  <!-- 左手臂（拿麦穗） -->
+  <path d="M100 185 Q78 200 68 230" stroke="#FFDBB4" stroke-width="12" stroke-linecap="round" fill="none"/>
+  <!-- 右手臂 -->
+  <path d="M180 185 Q202 200 210 225" stroke="#FFDBB4" stroke-width="12" stroke-linecap="round" fill="none"/>
+
+  <!-- 麦穗（左手持） -->
+  <line x1="68" y1="230" x2="55" y2="190" stroke="#FBBF24" stroke-width="3" stroke-linecap="round"/>
+  <ellipse cx="52" cy="183" rx="7" ry="13" fill="#FBBF24" stroke="#F59E0B" stroke-width="1.5" transform="rotate(-15 52 183)"/>
+  <line x1="52" y1="182" x2="44" y2="172" stroke="#F59E0B" stroke-width="1.5"/>
+  <ellipse cx="41" cy="167" rx="5" ry="9" fill="#FBBF24" stroke="#F59E0B" stroke-width="1.5" transform="rotate(-20 41 167)"/>
+  <line x1="55" y1="188" x2="62" y2="175" stroke="#F59E0B" stroke-width="1.5"/>
+  <ellipse cx="65" cy="169" rx="5" ry="9" fill="#FBBF24" stroke="#F59E0B" stroke-width="1.5" transform="rotate(15 65 169)"/>
+
+  <!-- 头发 -->
+  <ellipse cx="140" cy="118" rx="46" ry="50" fill="#F59E0B"/>
+  <!-- 头发刘海 -->
+  <path d="M96 108 Q105 85 140 82 Q175 85 184 108" fill="#D97706" stroke="none"/>
+  <!-- 花冠 -->
+  <g>
+    <circle cx="108" cy="90" r="8" fill="#EC4899" stroke="#fff" stroke-width="1.5"/>
+    <circle cx="122" cy="78" r="7" fill="#F472B6" stroke="#fff" stroke-width="1.5"/>
+    <circle cx="140" cy="74" r="9" fill="#EC4899" stroke="#fff" stroke-width="1.5"/>
+    <circle cx="158" cy="78" r="7" fill="#F472B6" stroke="#fff" stroke-width="1.5"/>
+    <circle cx="172" cy="90" r="8" fill="#EC4899" stroke="#fff" stroke-width="1.5"/>
+    <circle cx="140" cy="74" r="5" fill="#FBBF24"/>
+    <circle cx="122" cy="78" r="4" fill="#FBBF24"/>
+    <circle cx="158" cy="78" r="4" fill="#FBBF24"/>
+  </g>
+
+  <!-- 脸 -->
+  <ellipse cx="140" cy="138" rx="36" ry="38" fill="#FFDBB4" stroke="#F59E0B" stroke-width="2"/>
+  <!-- 腮红 -->
+  <ellipse cx="118" cy="148" rx="10" ry="7" fill="rgba(252,165,165,0.5)"/>
+  <ellipse cx="162" cy="148" rx="10" ry="7" fill="rgba(252,165,165,0.5)"/>
+  <!-- 眼睛 -->
+  <ellipse cx="126" cy="136" rx="7" ry="8" fill="#fff" stroke="#8B5CF6" stroke-width="1.5"/>
+  <ellipse cx="154" cy="136" rx="7" ry="8" fill="#fff" stroke="#8B5CF6" stroke-width="1.5"/>
+  <circle cx="128" cy="137" r="4" fill="#5B21B6"/>
+  <circle cx="156" cy="137" r="4" fill="#5B21B6"/>
+  <circle cx="130" cy="135" r="1.5" fill="#fff"/>
+  <circle cx="158" cy="135" r="1.5" fill="#fff"/>
+  <!-- 睫毛 -->
+  <path d="M119 128 L116 123 M123 127 L121 121 M127 127 L126 121" stroke="#5B21B6" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M147 127 L146 121 M151 127 L153 121 M155 127 L158 122" stroke="#5B21B6" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- 嘴巴 -->
+  <path d="M130 154 Q140 162 150 154" stroke="#E879A0" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <!-- 鼻子 -->
+  <ellipse cx="140" cy="148" rx="4" ry="3" fill="rgba(245,158,11,0.4)"/>
+
+  <!-- 手 -->
+  <ellipse cx="210" cy="230" rx="10" ry="10" fill="#FFDBB4" stroke="#F59E0B" stroke-width="1.5"/>
+  <ellipse cx="68" cy="230" rx="10" ry="10" fill="#FFDBB4" stroke="#F59E0B" stroke-width="1.5"/>
+
+  <!-- ♍ 符号 -->
+  <text x="140" y="244" text-anchor="middle" font-size="18" fill="#8B5CF6" font-family="serif" font-weight="bold">♍</text>
+
+  <!-- 右手小星 -->
+  <path d="M216 220 L218 214 L220 220 L226 220 L221 224 L223 230 L218 226 L213 230 L215 224 L210 220 Z"
+        fill="#FBBF24" stroke="#F59E0B" stroke-width="1"/>
+</svg>

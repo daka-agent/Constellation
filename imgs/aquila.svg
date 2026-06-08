@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 420">
+  <!-- 天鹰座卡通形象 — 威武的老鹰（对应牛郎星） -->
+
+  <!-- 翅膀（展开） -->
+  <!-- 左翼 -->
+  <path d="M100 200 Q60 160 20 145 Q8 142 10 155 Q12 165 28 168 Q50 172 70 185 Q88 196 100 205"
+        fill="#D97706" stroke="#92400E" stroke-width="2"/>
+  <!-- 左翼羽毛 -->
+  <path d="M28 168 Q35 155 45 165" fill="#B45309" stroke="#92400E" stroke-width="1.5"/>
+  <path d="M48 172 Q58 158 68 168" fill="#B45309" stroke="#92400E" stroke-width="1.5"/>
+  <path d="M70 185 Q80 170 90 180" fill="#B45309" stroke="#92400E" stroke-width="1.5"/>
+
+  <!-- 右翼 -->
+  <path d="M180 200 Q220 160 260 145 Q272 142 270 155 Q268 165 252 168 Q230 172 210 185 Q192 196 180 205"
+        fill="#D97706" stroke="#92400E" stroke-width="2"/>
+  <!-- 右翼羽毛 -->
+  <path d="M252 168 Q245 155 235 165" fill="#B45309" stroke="#92400E" stroke-width="1.5"/>
+  <path d="M232 172 Q222 158 212 168" fill="#B45309" stroke="#92400E" stroke-width="1.5"/>
+  <path d="M210 185 Q200 170 190 180" fill="#B45309" stroke="#92400E" stroke-width="1.5"/>
+
+  <!-- 身体 -->
+  <ellipse cx="140" cy="255" rx="48" ry="65" fill="#D97706" stroke="#92400E" stroke-width="3"/>
+
+  <!-- 胸部（米色） -->
+  <ellipse cx="140" cy="258" rx="30" ry="44" fill="#FEF3C7"/>
+
+  <!-- 尾羽 -->
+  <path d="M115 308 Q100 340 90 368 Q88 376 98 377 Q106 377 108 368 Q115 350 120 328" fill="#B45309" stroke="#92400E" stroke-width="1.5"/>
+  <path d="M133 312 Q130 345 128 372 Q127 380 138 380 Q148 380 147 372 Q145 345 142 312" fill="#D97706" stroke="#92400E" stroke-width="1.5"/>
+  <path d="M155 308 Q162 340 168 368 Q170 376 160 377 Q152 377 150 368 Q146 350 140 328" fill="#B45309" stroke="#92400E" stroke-width="1.5"/>
+
+  <!-- 脖子 -->
+  <ellipse cx="140" cy="198" rx="30" ry="22" fill="#D97706" stroke="#92400E" stroke-width="2"/>
+
+  <!-- 头部 -->
+  <circle cx="140" cy="158" r="42" fill="#D97706" stroke="#92400E" stroke-width="2.5"/>
+
+  <!-- 白色头冠 -->
+  <ellipse cx="140" cy="125" rx="28" ry="18" fill="white" stroke="#92400E" stroke-width="1.5"/>
+
+  <!-- 眼睛（锐利） -->
+  <ellipse cx="122" cy="152" rx="13" ry="11" fill="#FEF3C7"/>
+  <ellipse cx="158" cy="152" rx="13" ry="11" fill="#FEF3C7"/>
+  <circle cx="124" cy="153" r="8" fill="#1C1917"/>
+  <circle cx="160" cy="153" r="8" fill="#1C1917"/>
+  <!-- 高光 -->
+  <circle cx="127" cy="150" r="3" fill="white"/>
+  <circle cx="163" cy="150" r="3" fill="white"/>
+  <!-- 鹰眉（粗黑眉让眼神犀利） -->
+  <path d="M113 144 Q122 140 130 144" fill="none" stroke="#1C1917" stroke-width="3" stroke-linecap="round"/>
+  <path d="M150 144 Q158 140 167 144" fill="none" stroke="#1C1917" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- 鹰嘴（弯钩） -->
+  <path d="M128 170 Q140 165 150 170 Q152 176 145 182 Q140 186 134 182 Q128 176 128 170 Z"
+        fill="#FBBF24" stroke="#D97706" stroke-width="1.5"/>
+  <!-- 嘴尖钩 -->
+  <path d="M140 182 Q138 190 132 192" fill="none" stroke="#D97706" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- 牛郎星（胸口亮星） -->
+  <path d="M140 248 L143 257 L152 257 L145 262 L148 271 L140 266 L132 271 L135 262 L128 257 L137 257 Z"
+        fill="#FBBF24"/>
+
+  <!-- 爪子 -->
+  <path d="M118 318 Q108 340 100 360" fill="none" stroke="#D97706" stroke-width="8" stroke-linecap="round"/>
+  <path d="M100 360 Q92 368 85 366 M100 360 Q98 370 92 372 M100 360 Q106 370 104 376"
+        fill="none" stroke="#B45309" stroke-width="4" stroke-linecap="round"/>
+  <path d="M162 318 Q172 340 180 360" fill="none" stroke="#D97706" stroke-width="8" stroke-linecap="round"/>
+  <path d="M180 360 Q188 368 195 366 M180 360 Q182 370 188 372 M180 360 Q174 370 176 376"
+        fill="none" stroke="#B45309" stroke-width="4" stroke-linecap="round"/>
+</svg>

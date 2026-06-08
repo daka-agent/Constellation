@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 420" fill="none">
+  <!-- 背景光晕 -->
+  <ellipse cx="140" cy="220" rx="115" ry="170" fill="rgba(251,191,36,0.07)"/>
+
+  <!-- 右脚 -->
+  <ellipse cx="165" cy="392" rx="20" ry="11" fill="#FFDBB4" stroke="#F59E0B" stroke-width="2"/>
+  <!-- 左脚 -->
+  <ellipse cx="108" cy="392" rx="20" ry="11" fill="#FFDBB4" stroke="#F59E0B" stroke-width="2"/>
+  <!-- 腿 -->
+  <rect x="155" y="302" width="22" height="92" rx="11" fill="#FFDBB4" stroke="#F59E0B" stroke-width="2"/>
+  <rect x="100" y="302" width="22" height="92" rx="11" fill="#FFDBB4" stroke="#F59E0B" stroke-width="2"/>
+
+  <!-- 短裤（勇士风格） -->
+  <path d="M95 268 Q90 295 98 305 L122 305 L122 268 Z" fill="#7C3AED" stroke="#6D28D9" stroke-width="1.5"/>
+  <path d="M185 268 Q190 295 182 305 L158 305 L158 268 Z" fill="#7C3AED" stroke="#6D28D9" stroke-width="1.5"/>
+
+  <!-- 腰带 -->
+  <rect x="94" y="258" width="92" height="14" rx="7" fill="#FBBF24" stroke="#F59E0B" stroke-width="2"/>
+  <!-- 腰带扣 -->
+  <rect x="132" y="260" width="16" height="10" rx="3" fill="#8B5CF6" stroke="#7C3AED" stroke-width="1.5"/>
+
+  <!-- 肌肉上衣 -->
+  <path d="M96 172 Q86 215 94 260 L186 260 Q194 215 184 172 Z"
+        fill="#FEF3C7" stroke="#FBBF24" stroke-width="2"/>
+  <!-- 腹肌纹 -->
+  <path d="M120 210 Q140 215 160 210" stroke="#F59E0B" stroke-width="1.5" fill="none"/>
+  <path d="M118 228 Q140 234 162 228" stroke="#F59E0B" stroke-width="1.5" fill="none"/>
+  <line x1="140" y1="200" x2="140" y2="255" stroke="#F59E0B" stroke-width="1.5"/>
+
+  <!-- 左手（持棍棒） -->
+  <path d="M96 175 Q68 168 56 148" stroke="#FFDBB4" stroke-width="16" stroke-linecap="round" fill="none"/>
+  <!-- 棍棒 -->
+  <path d="M56 148 Q48 128 42 95 Q44 88 50 95 Q54 125 62 148" stroke="#92400E" stroke-width="10" stroke-linecap="round" fill="none"/>
+  <!-- 棍棒顶（锤头） -->
+  <ellipse cx="46" cy="90" rx="16" ry="12" fill="#A16207" stroke="#92400E" stroke-width="2"/>
+  <ellipse cx="46" cy="88" rx="12" ry="8" fill="#B45309"/>
+
+  <!-- 右手（持蛇！） -->
+  <path d="M184 172 Q210 162 222 148" stroke="#FFDBB4" stroke-width="16" stroke-linecap="round" fill="none"/>
+  <!-- 蛇 -->
+  <path d="M222 148 Q235 128 228 108 Q220 90 232 78 Q244 68 240 50"
+        stroke="#16A34A" stroke-width="6" stroke-linecap="round" fill="none"/>
+  <!-- 蛇头 -->
+  <ellipse cx="238" cy="46" rx="10" ry="7" fill="#16A34A" stroke="#15803D" stroke-width="1.5" transform="rotate(-20 238 46)"/>
+  <!-- 蛇舌 -->
+  <path d="M244 42 L250 38 M244 42 L250 45" stroke="#EF4444" stroke-width="2" stroke-linecap="round"/>
+  <!-- 蛇眼 -->
+  <circle cx="242" cy="43" r="2.5" fill="#FBBF24"/>
+  <circle cx="242" cy="43" r="1" fill="#000"/>
+  <!-- 蛇纹 -->
+  <path d="M228 120 Q236 115 228 110" stroke="#4ADE80" stroke-width="2" fill="none"/>
+  <path d="M230 95 Q238 90 230 85" stroke="#4ADE80" stroke-width="2" fill="none"/>
+
+  <!-- 头部（英雄圆脸） -->
+  <ellipse cx="140" cy="138" rx="42" ry="44" fill="#FFDBB4" stroke="#F59E0B" stroke-width="2.5"/>
+
+  <!-- 头带（武仙头带） -->
+  <path d="M98 130 Q110 118 140 115 Q170 118 182 130" stroke="#8B5CF6" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <!-- 头带中央宝石 -->
+  <circle cx="140" cy="115" r="7" fill="#FBBF24" stroke="#F59E0B" stroke-width="1.5"/>
+
+  <!-- 眼睛 -->
+  <ellipse cx="122" cy="134" rx="9" ry="9" fill="#fff" stroke="#7C3AED" stroke-width="1.5"/>
+  <ellipse cx="158" cy="134" rx="9" ry="9" fill="#fff" stroke="#7C3AED" stroke-width="1.5"/>
+  <circle cx="124" cy="135" r="5.5" fill="#1E3A5F"/>
+  <circle cx="160" cy="135" r="5.5" fill="#1E3A5F"/>
+  <circle cx="126" cy="133" r="2" fill="#fff"/>
+  <circle cx="162" cy="133" r="2" fill="#fff"/>
+  <!-- 眉毛（英雄眉） -->
+  <path d="M113 124 Q122 118 131 124" stroke="#92400E" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <path d="M149 124 Q158 118 167 124" stroke="#92400E" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <!-- 腮红 -->
+  <ellipse cx="106" cy="147" rx="11" ry="7" fill="rgba(252,165,165,0.4)"/>
+  <ellipse cx="174" cy="147" rx="11" ry="7" fill="rgba(252,165,165,0.4)"/>
+  <!-- 鼻子 -->
+  <ellipse cx="140" cy="146" rx="5" ry="4" fill="rgba(245,158,11,0.4)"/>
+  <!-- 嘴（笑容） -->
+  <path d="M128 156 Q140 165 152 156" stroke="#E879A0" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+
+  <!-- 头发（深色短发） -->
+  <path d="M100 128 Q104 98 140 90 Q176 98 180 128" fill="#92400E" stroke="none"/>
+
+  <!-- 手 -->
+  <ellipse cx="56" cy="150" rx="11" ry="11" fill="#FFDBB4" stroke="#F59E0B" stroke-width="1.5"/>
+  <ellipse cx="222" cy="150" rx="11" ry="11" fill="#FFDBB4" stroke="#F59E0B" stroke-width="1.5"/>
+</svg>

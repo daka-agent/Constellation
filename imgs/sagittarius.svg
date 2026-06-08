@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 420">
+  <!-- 射手座（人马座）卡通形象 — 儿童友好风格 -->
+
+  <!-- 马身体 -->
+  <ellipse cx="130" cy="310" rx="85" ry="60" fill="#D97706" stroke="#B45309" stroke-width="3"/>
+
+  <!-- 马尾巴 -->
+  <path d="M212 300 Q242 280 252 255 Q258 240 248 232 Q238 228 232 238 Q228 248 236 252"
+        fill="none" stroke="#92400E" stroke-width="8" stroke-linecap="round"/>
+  <ellipse cx="238" cy="228" rx="10" ry="15" fill="#78350F" transform="rotate(15 238 228)"/>
+
+  <!-- 四条马腿 -->
+  <rect x="62"  y="348" width="26" height="65" rx="13" fill="#D97706" stroke="#B45309" stroke-width="2.5"/>
+  <rect x="96"  y="352" width="26" height="62" rx="13" fill="#D97706" stroke="#B45309" stroke-width="2.5"/>
+  <rect x="154" y="352" width="26" height="62" rx="13" fill="#D97706" stroke="#B45309" stroke-width="2.5"/>
+  <rect x="188" y="348" width="26" height="65" rx="13" fill="#D97706" stroke="#B45309" stroke-width="2.5"/>
+  <!-- 马蹄 -->
+  <ellipse cx="75"  cy="415" rx="15" ry="8" fill="#1C1917"/>
+  <ellipse cx="109" cy="414" rx="15" ry="8" fill="#1C1917"/>
+  <ellipse cx="167" cy="414" rx="15" ry="8" fill="#1C1917"/>
+  <ellipse cx="201" cy="415" rx="15" ry="8" fill="#1C1917"/>
+
+  <!-- 人体上半身（连接处） -->
+  <ellipse cx="88" cy="268" rx="38" ry="25" fill="#FBBF24" stroke="#B45309" stroke-width="2"/>
+
+  <!-- 上半身躯干 -->
+  <ellipse cx="88" cy="220" rx="34" ry="48" fill="#FCD34D" stroke="#B45309" stroke-width="2.5"/>
+
+  <!-- 左臂（拿弓） -->
+  <path d="M58 215 Q35 210 22 205" fill="none" stroke="#FCD34D" stroke-width="16" stroke-linecap="round"/>
+  <path d="M58 215 Q35 210 22 205" fill="none" stroke="#D97706" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- 右臂（拉弓弦） -->
+  <path d="M118 215 Q140 195 148 180" fill="none" stroke="#FCD34D" stroke-width="16" stroke-linecap="round"/>
+  <path d="M118 215 Q140 195 148 180" fill="none" stroke="#D97706" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- 弓 -->
+  <path d="M18 185 Q8 205 18 225" fill="none" stroke="#92400E" stroke-width="5" stroke-linecap="round"/>
+  <!-- 弓弦 -->
+  <line x1="18" y1="185" x2="18" y2="225" stroke="#78350F" stroke-width="2"/>
+  <!-- 箭 -->
+  <line x1="18" y1="205" x2="148" y2="178" stroke="#B45309" stroke-width="3"/>
+  <!-- 箭头 -->
+  <polygon points="150,177 142,172 142,183" fill="#EF4444"/>
+  <!-- 箭羽 -->
+  <path d="M24 203 Q28 198 32 200" fill="none" stroke="#7C3AED" stroke-width="2"/>
+  <path d="M24 207 Q28 212 32 208" fill="none" stroke="#7C3AED" stroke-width="2"/>
+
+  <!-- 头部 -->
+  <circle cx="88" cy="152" r="48" fill="#FCD34D" stroke="#B45309" stroke-width="3"/>
+
+  <!-- 头发 -->
+  <ellipse cx="88" cy="112" rx="42" ry="18" fill="#92400E"/>
+  <path d="M48 125 Q42 108 50 98 Q60 90 72 98" fill="#92400E"/>
+  <path d="M128 125 Q134 108 126 98 Q116 90 104 98" fill="#92400E"/>
+
+  <!-- 耳朵 -->
+  <ellipse cx="44" cy="155" rx="10" ry="13" fill="#FCD34D" stroke="#B45309" stroke-width="2"/>
+  <ellipse cx="132" cy="155" rx="10" ry="13" fill="#FCD34D" stroke="#B45309" stroke-width="2"/>
+
+  <!-- 眼睛 -->
+  <ellipse cx="72" cy="148" rx="13" ry="13" fill="white"/>
+  <ellipse cx="104" cy="148" rx="13" ry="13" fill="white"/>
+  <circle cx="74" cy="149" r="8" fill="#1C1917"/>
+  <circle cx="106" cy="149" r="8" fill="#1C1917"/>
+  <!-- 高光 -->
+  <circle cx="77" cy="146" r="3" fill="white"/>
+  <circle cx="109" cy="146" r="3" fill="white"/>
+
+  <!-- 鼻子 -->
+  <ellipse cx="88" cy="165" rx="8" ry="6" fill="#D97706"/>
+
+  <!-- 嘴巴（咬牙专注表情） -->
+  <path d="M76 175 Q88 182 100 175" fill="none" stroke="#92400E" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- 头盔装饰 -->
+  <path d="M55 118 Q88 95 121 118" fill="none" stroke="#7C3AED" stroke-width="4"/>
+  <circle cx="88" cy="98" r="7" fill="#FBBF24"/>
+
+  <!-- 星座符号 -->
+  <text x="165" cy="310" x="165" y="315" text-anchor="middle" font-size="18" fill="#7C3AED" font-family="serif" font-weight="bold">♐</text>
+</svg>

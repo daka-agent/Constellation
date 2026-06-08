@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 420">
+  <!-- 天秤座：正义天平，黄金天平，两盘平衡 -->
+  
+  <!-- 天平底座 -->
+  <rect x="105" y="370" width="70" height="18" rx="9" fill="#FBBF24" stroke="#F59E0B" stroke-width="2.5"/>
+  <!-- 底柱 -->
+  <rect x="132" y="240" width="16" height="135" rx="8" fill="#FBBF24" stroke="#F59E0B" stroke-width="2"/>
+  <!-- 底柱装饰 -->
+  <rect x="122" y="310" width="36" height="10" rx="5" fill="#FCD34D"/>
+  <rect x="125" y="335" width="30" height="8" rx="4" fill="#FCD34D"/>
+  
+  <!-- 横梁 -->
+  <rect x="55" y="188" width="170" height="14" rx="7" fill="#FBBF24" stroke="#F59E0B" stroke-width="2.5"/>
+  <!-- 横梁装饰纹 -->
+  <line x1="75" y1="195" x2="205" y2="195" stroke="#F59E0B" stroke-width="1.5" opacity="0.5"/>
+  
+  <!-- 支点圆 -->
+  <circle cx="140" cy="195" r="14" fill="#FCD34D" stroke="#F59E0B" stroke-width="2.5"/>
+  <circle cx="140" cy="195" r="7" fill="#FBBF24"/>
+  
+  <!-- 左链条 -->
+  <line x1="75" y1="202" x2="78" y2="290" stroke="#FBBF24" stroke-width="3"/>
+  <line x1="85" y1="202" x2="82" y2="290" stroke="#FBBF24" stroke-width="3"/>
+  <!-- 右链条 -->
+  <line x1="195" y1="202" x2="198" y2="290" stroke="#FBBF24" stroke-width="3"/>
+  <line x1="205" y1="202" x2="202" y2="290" stroke="#FBBF24" stroke-width="3"/>
+  
+  <!-- 左盘（略低一点，有物品） -->
+  <ellipse cx="80" cy="300" rx="42" ry="14" fill="#FCD34D" stroke="#F59E0B" stroke-width="2.5"/>
+  <ellipse cx="80" cy="296" rx="42" ry="14" fill="#FDE68A" stroke="#F59E0B" stroke-width="2.5"/>
+  <!-- 左盘内：羽毛（代表公正审判） -->
+  <path d="M 66 296 Q 72 280 80 275 Q 88 280 94 296" fill="#10B981" opacity="0.8" stroke="#059669" stroke-width="1.5"/>
+  <path d="M 80 275 L 80 295" stroke="#059669" stroke-width="2"/>
+  <path d="M 68 289 Q 72 284 80 281 Q 88 284 92 289" stroke="#059669" stroke-width="1.5" fill="none" opacity="0.6"/>
+  
+  <!-- 右盘（略高，较轻） -->
+  <ellipse cx="200" cy="292" rx="42" ry="14" fill="#FCD34D" stroke="#F59E0B" stroke-width="2.5"/>
+  <ellipse cx="200" cy="288" rx="42" ry="14" fill="#FDE68A" stroke="#F59E0B" stroke-width="2.5"/>
+  <!-- 右盘内：心形（代表心灵） -->
+  <path d="M 200 292 Q 188 282 188 276 Q 188 268 196 268 Q 200 268 200 272 Q 200 268 204 268 Q 212 268 212 276 Q 212 282 200 292 Z" 
+        fill="#EF4444" stroke="#DC2626" stroke-width="1.5"/>
+  
+  <!-- 星星（两盘外侧各一颗，代表两个最亮星） -->
+  <circle cx="42" cy="296" r="9" fill="#FBBF24"/>
+  <text x="42" y="300" font-family="Fredoka One, sans-serif" font-size="11" fill="#7C3AED" text-anchor="middle">★</text>
+  <circle cx="238" cy="288" r="9" fill="#FBBF24"/>
+  <text x="238" y="292" font-family="Fredoka One, sans-serif" font-size="11" fill="#7C3AED" text-anchor="middle">★</text>
+  
+  <!-- 头顶正义女神像（简化版） -->
+  <!-- 头部 -->
+  <circle cx="140" cy="105" r="38" fill="#F5C67A" stroke="#E0A060" stroke-width="2"/>
+  <!-- 头发 -->
+  <path d="M 103 100 Q 102 70 116 55 Q 130 42 140 42 Q 150 42 164 55 Q 178 70 177 100" 
+        fill="#D97706" stroke="#B45309" stroke-width="1.5"/>
+  <!-- 眼睛（蒙眼布——正义女神是蒙眼的！） -->
+  <rect x="108" y="100" width="64" height="14" rx="7" fill="#8B5CF6" stroke="#7C3AED" stroke-width="1.5"/>
+  <text x="140" y="111" font-family="Fredoka One, sans-serif" font-size="8" fill="white" text-anchor="middle" font-weight="bold">公平正义</text>
+  <!-- 嘴巴（庄重） -->
+  <path d="M 128 122 Q 140 126 152 122" stroke="#C2825A" stroke-width="2" fill="none"/>
+  <!-- 鼻子 -->
+  <ellipse cx="140" cy="115" rx="5" ry="4" fill="#E0A060"/>
+  
+  <!-- 月桂冠 -->
+  <path d="M 104 92 Q 115 82 128 78 Q 140 75 152 78 Q 165 82 176 92" 
+        stroke="#22C55E" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <ellipse cx="116" cy="86" rx="7" ry="3.5" fill="#16A34A" transform="rotate(-25,116,86)"/>
+  <ellipse cx="128" cy="79" rx="7" ry="3.5" fill="#22C55E" transform="rotate(-10,128,79)"/>
+  <ellipse cx="140" cy="77" rx="7" ry="3.5" fill="#16A34A"/>
+  <ellipse cx="152" cy="79" rx="7" ry="3.5" fill="#22C55E" transform="rotate(10,152,79)"/>
+  <ellipse cx="164" cy="86" rx="7" ry="3.5" fill="#16A34A" transform="rotate(25,164,86)"/>
+  
+  <!-- ♎符号 -->
+  <text x="140" y="170" font-family="Georgia, serif" font-size="25" fill="#FBBF24" text-anchor="middle" opacity="0.8">♎</text>
+  
+  <!-- 标注 -->
+  <text x="80" y="360" font-family="Fredoka One, sans-serif" font-size="9.5" fill="#FBBF24" text-anchor="middle">善的羽毛</text>
+  <text x="200" y="352" font-family="Fredoka One, sans-serif" font-size="9.5" fill="#FBBF24" text-anchor="middle">心灵</text>
+</svg>

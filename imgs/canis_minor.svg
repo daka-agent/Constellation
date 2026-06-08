@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 420">
+  <!-- 小犬座：小型猎犬，比大犬座更可爱萌，胸口南河三 -->
+  
+  <!-- 尾巴（向上翘） -->
+  <path d="M 188 252 Q 215 235 222 210 Q 228 190 218 178" 
+        stroke="#DEB887" stroke-width="14" fill="none" stroke-linecap="round"/>
+  
+  <!-- 身体（比大犬座小一圈） -->
+  <ellipse cx="140" cy="272" rx="62" ry="46" fill="#DEB887" stroke="#B8964A" stroke-width="2.5"/>
+  
+  <!-- 四条腿 -->
+  <rect x="96" y="305" width="20" height="52" rx="10" fill="#DEB887" stroke="#B8964A" stroke-width="2"/>
+  <rect x="164" y="305" width="20" height="52" rx="10" fill="#DEB887" stroke="#B8964A" stroke-width="2"/>
+  <!-- 小爪子 -->
+  <ellipse cx="106" cy="358" rx="12" ry="7" fill="#B8964A"/>
+  <ellipse cx="174" cy="358" rx="12" ry="7" fill="#B8964A"/>
+  <!-- 小爪趾 -->
+  <line x1="100" y1="358" x2="98" y2="365" stroke="#8A6A30" stroke-width="2"/>
+  <line x1="106" y1="360" x2="106" y2="368" stroke="#8A6A30" stroke-width="2"/>
+  <line x1="112" y1="358" x2="114" y2="365" stroke="#8A6A30" stroke-width="2"/>
+  
+  <!-- 颈部 -->
+  <ellipse cx="140" cy="230" rx="28" ry="22" fill="#DEB887" stroke="#B8964A" stroke-width="2"/>
+  
+  <!-- 南河三星标（胸口） -->
+  <circle cx="140" cy="268" r="20" fill="none" stroke="#FBBF24" stroke-width="2" opacity="0.6" stroke-dasharray="3,3"/>
+  <polygon points="140,252 143,263 155,263 145,270 149,281 140,274 131,281 135,270 125,263 137,263" 
+           fill="#FBBF24" transform="scale(0.7) translate(60,95)"/>
+  <!-- 五角星 -->
+  <polygon points="140,255 142.5,262 150,262 144,267 146.5,274 140,269.5 133.5,274 136,267 130,262 137.5,262" 
+           fill="#FBBF24"/>
+  <text x="140" y="290" font-family="Fredoka One, sans-serif" font-size="9" fill="#FBBF24" text-anchor="middle" font-weight="bold">南河三</text>
+  
+  <!-- 项圈（橙色，比大犬更小巧） -->
+  <ellipse cx="140" cy="222" rx="28" ry="8" fill="#F97316" stroke="#EA580C" stroke-width="2"/>
+  <circle cx="140" cy="226" r="5" fill="#FCD34D"/>
+  
+  <!-- 头部 -->
+  <circle cx="140" cy="188" r="44" fill="#DEB887" stroke="#B8964A" stroke-width="2.5"/>
+  
+  <!-- 耳朵（下垂的软耳） -->
+  <ellipse cx="102" cy="195" rx="16" ry="28" fill="#C4A265" stroke="#B8964A" stroke-width="2" transform="rotate(-15,102,195)"/>
+  <ellipse cx="178" cy="195" rx="16" ry="28" fill="#C4A265" stroke="#B8964A" stroke-width="2" transform="rotate(15,178,195)"/>
+  
+  <!-- 眼睛（大圆眼，可爱） -->
+  <circle cx="125" cy="183" r="9" fill="#2D1A0E"/>
+  <circle cx="155" cy="183" r="9" fill="#2D1A0E"/>
+  <circle cx="127" cy="180" r="3" fill="white"/>
+  <circle cx="157" cy="180" r="3" fill="white"/>
+  
+  <!-- 鼻子（小心形鼻） -->
+  <path d="M 134 198 Q 140 194 146 198 Q 143 205 140 205 Q 137 205 134 198 Z" fill="#5D2E0C"/>
+  
+  <!-- 舌头（短小）-->
+  <ellipse cx="140" cy="210" rx="9" ry="7" fill="#EF4444"/>
+  <!-- 舌头中线 -->
+  <line x1="140" y1="204" x2="140" y2="216" stroke="#DC2626" stroke-width="1.5"/>
+  
+  <!-- 胡须 -->
+  <line x1="118" y1="200" x2="102" y2="197" stroke="#B8964A" stroke-width="1.5"/>
+  <line x1="118" y1="205" x2="100" y2="205" stroke="#B8964A" stroke-width="1.5"/>
+  <line x1="162" y1="200" x2="178" y2="197" stroke="#B8964A" stroke-width="1.5"/>
+  <line x1="162" y1="205" x2="180" y2="205" stroke="#B8964A" stroke-width="1.5"/>
+  
+  <!-- 腮红 -->
+  <circle cx="112" cy="192" r="10" fill="#F9A8D4" opacity="0.5"/>
+  <circle cx="168" cy="192" r="10" fill="#F9A8D4" opacity="0.5"/>
+  
+  <!-- 眉毛（表情可爱） -->
+  <path d="M 118 173 Q 125 170 130 173" stroke="#8B6020" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <path d="M 150 173 Q 155 170 162 173" stroke="#8B6020" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</svg>

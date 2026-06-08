@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 420">
+  <!-- 天猫座：山猫/猞猁，有斑点、尖耳毛簇和短尾 -->
+  
+  <!-- 尾巴（短粗） -->
+  <path d="M 185 285 Q 220 270 228 248 Q 232 230 222 220" 
+        stroke="#C4A265" stroke-width="14" fill="none" stroke-linecap="round"/>
+  <!-- 尾巴黑尖 -->
+  <circle cx="221" cy="220" r="10" fill="#3D2B1A"/>
+  
+  <!-- 身体 -->
+  <ellipse cx="140" cy="270" rx="68" ry="52" fill="#D4B483" stroke="#A0804A" stroke-width="2.5"/>
+  
+  <!-- 身体斑点 -->
+  <ellipse cx="115" cy="255" rx="10" ry="7" fill="#8B6020" opacity="0.5" transform="rotate(-15,115,255)"/>
+  <ellipse cx="145" cy="248" rx="9" ry="6" fill="#8B6020" opacity="0.5" transform="rotate(10,145,248)"/>
+  <ellipse cx="170" cy="262" rx="11" ry="7" fill="#8B6020" opacity="0.45" transform="rotate(-5,170,262)"/>
+  <ellipse cx="130" cy="278" rx="8" ry="6" fill="#8B6020" opacity="0.4"/>
+  <ellipse cx="158" cy="282" rx="9" ry="6" fill="#8B6020" opacity="0.45"/>
+  
+  <!-- 四条腿 -->
+  <rect x="94" y="305" width="24" height="48" rx="12" fill="#D4B483" stroke="#A0804A" stroke-width="2"/>
+  <rect x="162" y="305" width="24" height="48" rx="12" fill="#D4B483" stroke="#A0804A" stroke-width="2"/>
+  <!-- 爪子 -->
+  <ellipse cx="106" cy="356" rx="14" ry="9" fill="#A0804A"/>
+  <ellipse cx="174" cy="356" rx="14" ry="9" fill="#A0804A"/>
+  <!-- 爪子分叉 -->
+  <line x1="100" y1="356" x2="98" y2="364" stroke="#7A5030" stroke-width="2"/>
+  <line x1="106" y1="358" x2="106" y2="366" stroke="#7A5030" stroke-width="2"/>
+  <line x1="112" y1="356" x2="114" y2="364" stroke="#7A5030" stroke-width="2"/>
+  
+  <!-- 颈部 -->
+  <ellipse cx="140" cy="215" rx="30" ry="22" fill="#D4B483" stroke="#A0804A" stroke-width="2"/>
+  
+  <!-- 头部 -->
+  <ellipse cx="140" cy="178" rx="52" ry="46" fill="#D4B483" stroke="#A0804A" stroke-width="2.5"/>
+  
+  <!-- 耳朵（猞猁特色：长耳毛簇） -->
+  <!-- 左耳 -->
+  <polygon points="100,148 92,110 118,138" fill="#D4B483" stroke="#A0804A" stroke-width="2.5"/>
+  <polygon points="104,146 98,118 114,140" fill="#E8A090"/>
+  <!-- 左耳毛簇 -->
+  <line x1="94" y1="110" x2="88" y2="95" stroke="#3D2B1A" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="92" y1="112" x2="84" y2="98" stroke="#3D2B1A" stroke-width="2" stroke-linecap="round"/>
+  <line x1="96" y1="108" x2="91" y2="92" stroke="#3D2B1A" stroke-width="2" stroke-linecap="round"/>
+  <!-- 右耳 -->
+  <polygon points="180,148 188,110 162,138" fill="#D4B483" stroke="#A0804A" stroke-width="2.5"/>
+  <polygon points="176,146 182,118 166,140" fill="#E8A090"/>
+  <!-- 右耳毛簇 -->
+  <line x1="186" y1="110" x2="192" y2="95" stroke="#3D2B1A" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="188" y1="112" x2="196" y2="98" stroke="#3D2B1A" stroke-width="2" stroke-linecap="round"/>
+  <line x1="184" y1="108" x2="189" y2="92" stroke="#3D2B1A" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- 脸部白色内圈 -->
+  <ellipse cx="140" cy="182" rx="36" ry="32" fill="#EDD9A8"/>
+  
+  <!-- 脸部斑纹 -->
+  <path d="M 108 165 Q 115 172 110 180" stroke="#A0804A" stroke-width="2" fill="none" opacity="0.5"/>
+  <path d="M 172 165 Q 165 172 170 180" stroke="#A0804A" stroke-width="2" fill="none" opacity="0.5"/>
+  
+  <!-- 眼睛（猫眼，竖瞳孔） -->
+  <ellipse cx="124" cy="175" rx="9" ry="10" fill="#5B8C2A"/>
+  <ellipse cx="156" cy="175" rx="9" ry="10" fill="#5B8C2A"/>
+  <ellipse cx="124" cy="175" rx="3.5" ry="8" fill="#1A0A00"/><!-- 竖瞳 -->
+  <ellipse cx="156" cy="175" rx="3.5" ry="8" fill="#1A0A00"/>
+  <circle cx="122" cy="172" r="2.5" fill="white"/>
+  <circle cx="154" cy="172" r="2.5" fill="white"/>
+  
+  <!-- 鼻子 -->
+  <polygon points="140,192 134,200 146,200" fill="#C2825A"/>
+  
+  <!-- 胡须（猫须长而硬） -->
+  <line x1="118" y1="200" x2="90" y2="196" stroke="#8B6020" stroke-width="1.8"/>
+  <line x1="118" y1="204" x2="88" y2="204" stroke="#8B6020" stroke-width="1.8"/>
+  <line x1="118" y1="208" x2="91" y2="212" stroke="#8B6020" stroke-width="1.8"/>
+  <line x1="162" y1="200" x2="190" y2="196" stroke="#8B6020" stroke-width="1.8"/>
+  <line x1="162" y1="204" x2="192" y2="204" stroke="#8B6020" stroke-width="1.8"/>
+  <line x1="162" y1="208" x2="189" y2="212" stroke="#8B6020" stroke-width="1.8"/>
+  
+  <!-- 嘴 -->
+  <path d="M 134 202 Q 140 210 146 202" stroke="#C2825A" stroke-width="2" fill="none" stroke-linecap="round"/>
+  
+  <!-- 腮红 -->
+  <circle cx="112" cy="188" r="10" fill="#F9A8D4" opacity="0.5"/>
+  <circle cx="168" cy="188" r="10" fill="#F9A8D4" opacity="0.5"/>
+  
+  <!-- 标注：需要猫眼才能看到！ -->
+  <text x="140" y="52" font-family="Fredoka One, sans-serif" font-size="12" fill="#D4B483" text-anchor="middle" font-weight="bold">猫眼才能看到的星座！</text>
+  <circle cx="140" cy="65" r="5" fill="#5B8C2A"/>
+  <ellipse cx="140" cy="65" rx="2" ry="4" fill="#1A0A00"/>
+</svg>

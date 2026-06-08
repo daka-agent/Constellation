@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 420">
+  <!-- 大熊座（北斗）卡通形象 — 圆滚滚的大棕熊 -->
+
+  <!-- 尾巴（熊尾短且圆） -->
+  <circle cx="218" cy="255" r="16" fill="#92400E" stroke="#78350F" stroke-width="2"/>
+
+  <!-- 身体 -->
+  <ellipse cx="128" cy="285" rx="90" ry="82" fill="#A16207" stroke="#78350F" stroke-width="3"/>
+
+  <!-- 肚皮（米色） -->
+  <ellipse cx="128" cy="290" rx="58" ry="55" fill="#FEF3C7"/>
+
+  <!-- 四条腿（粗短） -->
+  <rect x="52"  y="342" width="36" height="56" rx="18" fill="#92400E" stroke="#78350F" stroke-width="2.5"/>
+  <rect x="96"  y="348" width="32" height="52" rx="16" fill="#92400E" stroke="#78350F" stroke-width="2.5"/>
+  <rect x="152" y="348" width="32" height="52" rx="16" fill="#92400E" stroke="#78350F" stroke-width="2.5"/>
+  <rect x="192" y="342" width="36" height="56" rx="18" fill="#92400E" stroke="#78350F" stroke-width="2.5"/>
+
+  <!-- 熊掌（有爪子） -->
+  <ellipse cx="70"  cy="400" rx="20" ry="11" fill="#78350F"/>
+  <ellipse cx="112" cy="402" rx="18" ry="10" fill="#78350F"/>
+  <ellipse cx="168" cy="402" rx="18" ry="10" fill="#78350F"/>
+  <ellipse cx="210" cy="400" rx="20" ry="11" fill="#78350F"/>
+  <!-- 爪子纹 -->
+  <line x1="62" y1="394" x2="60" y2="402" stroke="#4A2107" stroke-width="2"/>
+  <line x1="70" y1="392" x2="70" y2="402" stroke="#4A2107" stroke-width="2"/>
+  <line x1="78" y1="394" x2="80" y2="402" stroke="#4A2107" stroke-width="2"/>
+
+  <!-- 脖子 -->
+  <ellipse cx="105" cy="228" rx="45" ry="32" fill="#A16207" stroke="#78350F" stroke-width="2.5"/>
+
+  <!-- 头部 -->
+  <circle cx="105" cy="175" r="62" fill="#A16207" stroke="#78350F" stroke-width="3"/>
+
+  <!-- 耳朵（圆耳） -->
+  <circle cx="58"  cy="130" r="26" fill="#A16207" stroke="#78350F" stroke-width="2.5"/>
+  <circle cx="152" cy="130" r="26" fill="#A16207" stroke="#78350F" stroke-width="2.5"/>
+  <!-- 耳朵内 -->
+  <circle cx="58"  cy="130" r="15" fill="#D97706"/>
+  <circle cx="152" cy="130" r="15" fill="#D97706"/>
+
+  <!-- 脸部色块（米色大鼻吻部） -->
+  <ellipse cx="105" cy="190" rx="40" ry="32" fill="#FEF3C7"/>
+
+  <!-- 眼睛 -->
+  <ellipse cx="86"  cy="163" rx="14" ry="14" fill="white"/>
+  <ellipse cx="124" cy="163" rx="14" ry="14" fill="white"/>
+  <circle cx="88"  cy="164" r="9" fill="#1C1917"/>
+  <circle cx="126" cy="164" r="9" fill="#1C1917"/>
+  <circle cx="91"  cy="161" r="3.5" fill="white"/>
+  <circle cx="129" cy="161" r="3.5" fill="white"/>
+
+  <!-- 鼻子 -->
+  <ellipse cx="105" cy="190" rx="16" ry="11" fill="#78350F"/>
+  <circle cx="98"  cy="190" r="4" fill="#4A2107"/>
+  <circle cx="112" cy="190" r="4" fill="#4A2107"/>
+
+  <!-- 嘴巴（大嘴咧开） -->
+  <path d="M88 204 Q105 218 122 204" fill="none" stroke="#78350F" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- 北斗七星在身体上（小金星） -->
+  <circle cx="88"  cy="268" r="5" fill="#FBBF24"/>
+  <circle cx="105" cy="262" r="5" fill="#FBBF24"/>
+  <circle cx="122" cy="264" r="5" fill="#FBBF24"/>
+  <circle cx="138" cy="272" r="5" fill="#FBBF24"/>
+  <circle cx="155" cy="285" r="5" fill="#FBBF24"/>
+  <circle cx="168" cy="292" r="5" fill="#FBBF24"/>
+  <circle cx="182" cy="300" r="5" fill="#FBBF24"/>
+  <!-- 连线 -->
+  <polyline points="88,268 105,262 122,264 138,272 155,285 168,292 182,300"
+            fill="none" stroke="#FBBF24" stroke-width="1.5" opacity="0.6"/>
+
+  <!-- 星座符号 -->
+  <text x="55" y="310" text-anchor="middle" font-size="14" fill="#7C3AED" font-family="serif" font-weight="bold">UMa</text>
+</svg>

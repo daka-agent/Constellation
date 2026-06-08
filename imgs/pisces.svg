@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 420">
+  <!-- 双鱼座：两条可爱的鱼，用丝带相连，♓符号 -->
+  
+  <!-- 连接两条鱼的丝带 -->
+  <path d="M 85 265 Q 110 235 140 228 Q 168 222 190 238 Q 210 250 208 270" 
+        stroke="#F9A8D4" stroke-width="4" fill="none" stroke-dasharray="6,4" stroke-linecap="round"/>
+  <!-- 丝带蝴蝶结（中间） -->
+  <path d="M 134 228 Q 140 220 146 228" stroke="#F9A8D4" stroke-width="4" fill="none"/>
+  <circle cx="140" cy="224" r="6" fill="#F472B6"/>
+  
+  <!-- 第一条鱼（左下，蓝色，游向左下） -->
+  <!-- 鱼身 -->
+  <ellipse cx="68" cy="295" rx="45" ry="32" fill="#38BDF8" stroke="#0EA5E9" stroke-width="2.5" transform="rotate(-25,68,295)"/>
+  <!-- 鱼肚浅色 -->
+  <ellipse cx="65" cy="298" rx="28" ry="18" fill="#BAE6FD" transform="rotate(-25,65,298)"/>
+  <!-- 鱼鳞纹理 -->
+  <path d="M 50 288 Q 58 280 66 288" stroke="#0EA5E9" stroke-width="1.5" fill="none" opacity="0.6" transform="rotate(-25,68,295)"/>
+  <path d="M 60 295 Q 68 287 76 295" stroke="#0EA5E9" stroke-width="1.5" fill="none" opacity="0.6" transform="rotate(-25,68,295)"/>
+  <!-- 鱼尾 -->
+  <path d="M 106 278 Q 122 265 130 278 Q 122 292 106 280 Z" fill="#38BDF8" stroke="#0EA5E9" stroke-width="2" transform="rotate(-25,68,295)"/>
+  <!-- 鱼眼（左鱼） -->
+  <circle cx="46" cy="282" r="7" fill="white" stroke="#0EA5E9" stroke-width="1.5"/>
+  <circle cx="46" cy="282" r="4" fill="#1A0A00"/>
+  <circle cx="45" cy="280" r="1.5" fill="white"/>
+  <!-- 鱼嘴 -->
+  <path d="M 28 292 Q 26 296 30 298" stroke="#0EA5E9" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <!-- 鱼鳍 -->
+  <path d="M 60 270 Q 55 258 68 262 Q 72 268 65 272 Z" fill="#7DD3FC" stroke="#0EA5E9" stroke-width="1.5" transform="rotate(-25,68,295)"/>
+  
+  <!-- 第二条鱼（右上，粉色，游向右上） -->
+  <!-- 鱼身 -->
+  <ellipse cx="210" cy="232" rx="45" ry="32" fill="#F472B6" stroke="#EC4899" stroke-width="2.5" transform="rotate(25,210,232)"/>
+  <!-- 鱼肚浅色 -->
+  <ellipse cx="212" cy="228" rx="28" ry="18" fill="#FBCFE8" transform="rotate(25,210,232)"/>
+  <!-- 鱼鳞纹理 -->
+  <path d="M 196 238 Q 204 230 212 238" stroke="#EC4899" stroke-width="1.5" fill="none" opacity="0.6" transform="rotate(25,210,232)"/>
+  <path d="M 206 245 Q 214 237 222 245" stroke="#EC4899" stroke-width="1.5" fill="none" opacity="0.6" transform="rotate(25,210,232)"/>
+  <!-- 鱼尾 -->
+  <path d="M 172 248 Q 156 262 148 248 Q 156 234 172 246 Z" fill="#F472B6" stroke="#EC4899" stroke-width="2" transform="rotate(25,210,232)"/>
+  <!-- 鱼眼（右鱼） -->
+  <circle cx="232" cy="220" r="7" fill="white" stroke="#EC4899" stroke-width="1.5"/>
+  <circle cx="232" cy="220" r="4" fill="#1A0A00"/>
+  <circle cx="231" cy="218" r="1.5" fill="white"/>
+  <!-- 鱼嘴 -->
+  <path d="M 250 212 Q 253 208 250 205" stroke="#EC4899" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <!-- 鱼鳍 -->
+  <path d="M 205 214 Q 198 202 212 205 Q 218 212 212 218 Z" fill="#FBCFE8" stroke="#EC4899" stroke-width="1.5" transform="rotate(25,210,232)"/>
+  
+  <!-- 水泡装饰 -->
+  <circle cx="35" cy="330" r="6" fill="none" stroke="#38BDF8" stroke-width="1.5" opacity="0.7"/>
+  <circle cx="25" cy="315" r="4" fill="none" stroke="#38BDF8" stroke-width="1.5" opacity="0.6"/>
+  <circle cx="245" cy="185" r="6" fill="none" stroke="#F472B6" stroke-width="1.5" opacity="0.7"/>
+  <circle cx="255" cy="200" r="4" fill="none" stroke="#F472B6" stroke-width="1.5" opacity="0.6"/>
+  
+  <!-- ♓符号 -->
+  <text x="140" y="140" font-family="Georgia, serif" font-size="60" fill="#8B5CF6" text-anchor="middle" opacity="0.9">♓</text>
+  
+  <!-- 标注 -->
+  <text x="140" y="50" font-family="Fredoka One, sans-serif" font-size="13" fill="#F472B6" text-anchor="middle" font-weight="bold">两条鱼用丝带相连</text>
+  
+  <!-- 水波纹底部 -->
+  <path d="M 20 380 Q 50 370 80 380 Q 110 390 140 380 Q 170 370 200 380 Q 230 390 260 380" 
+        stroke="#38BDF8" stroke-width="2.5" fill="none" opacity="0.5"/>
+  <path d="M 20 395 Q 50 385 80 395 Q 110 405 140 395 Q 170 385 200 395 Q 230 405 260 395" 
+        stroke="#7DD3FC" stroke-width="2" fill="none" opacity="0.4"/>
+</svg>

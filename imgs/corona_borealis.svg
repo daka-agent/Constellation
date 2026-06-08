@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 420">
+  <!-- 北冕座：美丽的宝冠，7颗星排成弧形 -->
+  
+  <!-- 丝绒底座 -->
+  <rect x="60" y="300" width="160" height="90" rx="20" fill="#7C3AED" stroke="#6D28D9" stroke-width="2.5"/>
+  <!-- 底座装饰 -->
+  <rect x="70" y="310" width="140" height="70" rx="16" fill="#8B5CF6" opacity="0.5"/>
+  
+  <!-- 皇冠底环 -->
+  <ellipse cx="140" cy="200" rx="95" ry="28" fill="#FBBF24" stroke="#F59E0B" stroke-width="3"/>
+  <ellipse cx="140" cy="200" rx="85" ry="20" fill="#FCD34D" opacity="0.6"/>
+  
+  <!-- 王冠主体（弧形冠） -->
+  <path d="M 48 200 Q 50 170 65 155 Q 85 138 105 140 Q 122 142 130 155 Q 136 140 140 135 Q 144 140 150 155 Q 158 142 175 140 Q 195 138 215 155 Q 230 170 232 200" 
+        fill="#FBBF24" stroke="#F59E0B" stroke-width="3"/>
+  
+  <!-- 冠内填充渐变感 -->
+  <path d="M 55 198 Q 58 172 72 158 Q 90 142 108 144 Q 123 146 131 158 Q 137 144 140 140 Q 143 144 149 158 Q 157 146 172 144 Q 190 142 208 158 Q 222 172 225 198 Z" 
+        fill="#FDE68A" opacity="0.7"/>
+  
+  <!-- 七颗星（对应北冕座真实7颗星的弧形排列！） -->
+  <!-- 中间最亮的贯索四(Alphecca) -->
+  <circle cx="140" cy="138" r="16" fill="#FBBF24" opacity="0.3"/>
+  <circle cx="140" cy="138" r="11" fill="#FBBF24"/>
+  <line x1="140" y1="120" x2="140" y2="128" stroke="#FBBF24" stroke-width="3"/>
+  <line x1="140" y1="148" x2="140" y2="156" stroke="#FBBF24" stroke-width="3"/>
+  <line x1="122" y1="138" x2="130" y2="138" stroke="#FBBF24" stroke-width="3"/>
+  <line x1="150" y1="138" x2="158" y2="138" stroke="#FBBF24" stroke-width="3"/>
+  <text x="140" y="112" font-family="Fredoka One, sans-serif" font-size="10" fill="#FBBF24" text-anchor="middle" font-weight="bold">贯索四★</text>
+  
+  <!-- 左边3颗星 -->
+  <circle cx="110" cy="148" r="7" fill="#FCD34D"/>
+  <circle cx="82" cy="168" r="6" fill="#FCD34D"/>
+  <circle cx="63" cy="196" r="5.5" fill="#FCD34D" opacity="0.9"/>
+  
+  <!-- 右边3颗星 -->
+  <circle cx="170" cy="148" r="7" fill="#FCD34D"/>
+  <circle cx="198" cy="168" r="6" fill="#FCD34D"/>
+  <circle cx="217" cy="196" r="5.5" fill="#FCD34D" opacity="0.9"/>
+  
+  <!-- 王冠宝石装饰 -->
+  <ellipse cx="140" cy="195" rx="12" ry="9" fill="#EF4444"/>
+  <ellipse cx="110" cy="195" rx="9" ry="7" fill="#3B82F6"/>
+  <ellipse cx="170" cy="195" rx="9" ry="7" fill="#10B981"/>
+  <ellipse cx="80" cy="200" rx="7" ry="5.5" fill="#F97316"/>
+  <ellipse cx="200" cy="200" rx="7" ry="5.5" fill="#A855F7"/>
+  
+  <!-- 垂挂宝石链 -->
+  <line x1="140" y1="228" x2="140" y2="285" stroke="#FBBF24" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <circle cx="140" cy="290" r="8" fill="#EF4444" stroke="#FBBF24" stroke-width="2"/>
+  <line x1="105" y1="222" x2="100" y2="280" stroke="#FBBF24" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <circle cx="99" cy="285" r="7" fill="#3B82F6" stroke="#FBBF24" stroke-width="2"/>
+  <line x1="175" y1="222" x2="180" y2="280" stroke="#FBBF24" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <circle cx="181" cy="285" r="7" fill="#10B981" stroke="#FBBF24" stroke-width="2"/>
+  
+  <!-- 标注 -->
+  <text x="140" y="355" font-family="Fredoka One, sans-serif" font-size="13" fill="#FBBF24" text-anchor="middle" font-weight="bold">北冕座</text>
+  <text x="140" y="375" font-family="Fredoka One, sans-serif" font-size="10" fill="#C084FC" text-anchor="middle">7颗星连成皇冠弧</text>
+</svg>

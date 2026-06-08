@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 420">
+  <!-- 水瓶座：美少年倒水，水流从宝瓶中倾泻 -->
+  
+  <!-- 水流（从瓶口倾泻而下，波浪形） -->
+  <path d="M 162 155 Q 175 170 168 188 Q 160 206 172 222 Q 185 238 178 255 Q 170 272 182 288 Q 196 305 188 325 Q 180 345 190 365 Q 196 380 185 398" 
+        stroke="#38BDF8" stroke-width="8" fill="none" stroke-linecap="round" opacity="0.7"/>
+  <path d="M 168 158 Q 182 173 175 190 Q 168 207 180 224 Q 193 241 186 258 Q 178 275 190 292 Q 204 310 197 330 Q 188 350 198 370" 
+        stroke="#7DD3FC" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.5"/>
+  <!-- 水滴 -->
+  <circle cx="190" cy="340" r="5" fill="#38BDF8" opacity="0.7"/>
+  <circle cx="200" cy="360" r="4" fill="#7DD3FC" opacity="0.6"/>
+  <circle cx="185" cy="375" r="3.5" fill="#38BDF8" opacity="0.5"/>
+  
+  <!-- 人物 - 美少年伽倪墨得斯 -->
+  <!-- 衣袍 -->
+  <path d="M 86 295 Q 78 355 74 405 L 148 405 Q 148 380 142 295 Z" 
+        fill="#A78BFA" stroke="#8B5CF6" stroke-width="2"/>
+  <!-- 衣袍高亮 -->
+  <path d="M 90 295 Q 84 345 82 395" stroke="#C4B5FD" stroke-width="2" fill="none" opacity="0.5"/>
+  
+  <!-- 身体 -->
+  <rect x="90" y="230" width="58" height="72" rx="14" fill="#C4B5FD"/>
+  <!-- 衣领装饰 -->
+  <path d="M 95 236 Q 119 248 148 236" stroke="#FBBF24" stroke-width="2" fill="none"/>
+  
+  <!-- 腰带 -->
+  <rect x="100" y="296" width="50" height="12" rx="6" fill="#FBBF24"/>
+  <circle cx="125" cy="302" r="5" fill="#F97316"/>
+  
+  <!-- 宝瓶（举起在右肩上） -->
+  <!-- 瓶子 -->
+  <path d="M 148 118 Q 148 110 155 108 L 185 108 Q 192 110 192 118 L 188 155 Q 186 162 170 162 Q 154 162 152 155 Z" 
+        fill="#60A5FA" stroke="#3B82F6" stroke-width="2.5"/>
+  <!-- 瓶口 -->
+  <rect x="152" y="103" width="36" height="12" rx="6" fill="#93C5FD" stroke="#3B82F6" stroke-width="2"/>
+  <!-- 瓶身花纹 -->
+  <path d="M 158 125 Q 165 118 172 125 Q 179 132 186 125" stroke="#3B82F6" stroke-width="1.5" fill="none" opacity="0.7"/>
+  <path d="M 158 140 Q 165 133 172 140 Q 179 147 186 140" stroke="#3B82F6" stroke-width="1.5" fill="none" opacity="0.7"/>
+  
+  <!-- 手臂（举瓶姿势） -->
+  <path d="M 148 248 Q 148 220 155 195 Q 160 172 162 155" stroke="#F7C48B" stroke-width="18" fill="none" stroke-linecap="round"/>
+  <!-- 左臂放松下垂 -->
+  <path d="M 90 248 Q 72 265 68 292" stroke="#F7C48B" stroke-width="16" fill="none" stroke-linecap="round"/>
+  <circle cx="66" cy="295" r="11" fill="#F7C48B"/>
+  <!-- 举瓶的手 -->
+  <circle cx="160" cy="157" r="12" fill="#F7C48B"/>
+  
+  <!-- 颈部 -->
+  <rect x="110" y="218" width="22" height="22" rx="11" fill="#F7C48B"/>
+  
+  <!-- 头部 -->
+  <circle cx="121" cy="195" r="44" fill="#F7C48B" stroke="#E0A060" stroke-width="2.5"/>
+  
+  <!-- 金色卷发 -->
+  <path d="M 80 182 Q 78 148 92 130 Q 108 110 121 108 Q 134 108 148 125 Q 162 142 162 175" 
+        fill="#D97706" stroke="#B45309" stroke-width="1.5"/>
+  <path d="M 82 182 Q 84 162 90 148" stroke="#F59E0B" stroke-width="3" fill="none" opacity="0.6"/>
+  <path d="M 88 178 Q 90 160 95 148" stroke="#F59E0B" stroke-width="3" fill="none" opacity="0.5"/>
+  <!-- 侧边卷发 -->
+  <path d="M 78 185 Q 68 190 65 205" stroke="#D97706" stroke-width="8" fill="none" stroke-linecap="round"/>
+  
+  <!-- 脸部 -->
+  <circle cx="109" cy="190" r="7.5" fill="#2D1A0E"/>
+  <circle cx="133" cy="190" r="7.5" fill="#2D1A0E"/>
+  <circle cx="111" cy="187" r="2.5" fill="white"/>
+  <circle cx="135" cy="187" r="2.5" fill="white"/>
+  
+  <!-- 睫毛 -->
+  <path d="M 103 182 Q 104 178 107 177" stroke="#2D1A0E" stroke-width="1.5" fill="none"/>
+  <path d="M 108 180 Q 110 176 113 175" stroke="#2D1A0E" stroke-width="1.5" fill="none"/>
+  <path d="M 126 180 Q 128 176 131 175" stroke="#2D1A0E" stroke-width="1.5" fill="none"/>
+  <path d="M 130 182 Q 132 178 135 177" stroke="#2D1A0E" stroke-width="1.5" fill="none"/>
+  
+  <!-- 腮红 -->
+  <circle cx="98" cy="200" r="10" fill="#F9A8D4" opacity="0.55"/>
+  <circle cx="144" cy="200" r="10" fill="#F9A8D4" opacity="0.55"/>
+  
+  <!-- 鼻子 -->
+  <ellipse cx="121" cy="205" rx="5" ry="4" fill="#E0A060"/>
+  <!-- 嘴（微笑） -->
+  <path d="M 113 214 Q 121 222 129 214" stroke="#C2825A" stroke-width="2" fill="none" stroke-linecap="round"/>
+</svg>

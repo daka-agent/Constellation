@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 420" fill="none">
+  <!-- 背景星光 -->
+  <circle cx="50" cy="60" r="2" fill="#FBBF24" opacity="0.6"/>
+  <circle cx="230" cy="80" r="2.5" fill="#FBBF24" opacity="0.7"/>
+  <circle cx="40" cy="200" r="1.5" fill="#A78BFA" opacity="0.5"/>
+  <circle cx="250" cy="350" r="2" fill="#FBBF24" opacity="0.6"/>
+
+  <!-- 天琴（七弦竖琴） -->
+  <!-- 琴身外框（U形） -->
+  <path d="M80 160 Q60 220 70 290 Q80 340 140 350 Q200 340 210 290 Q220 220 200 160"
+        stroke="#FBBF24" stroke-width="6" stroke-linecap="round" fill="rgba(251,191,36,0.08)"/>
+  <!-- 琴身内壁 -->
+  <path d="M95 168 Q80 225 88 288 Q96 328 140 336 Q184 328 192 288 Q200 225 185 168"
+        stroke="#F59E0B" stroke-width="3" stroke-linecap="round" fill="rgba(251,191,36,0.12)"/>
+
+  <!-- 琴弦（7根，渐变间距） -->
+  <line x1="109" y1="162" x2="105" y2="335" stroke="#E2E8F0" stroke-width="1.8" opacity="0.9"/>
+  <line x1="120" y1="157" x2="116" y2="338" stroke="#E2E8F0" stroke-width="1.8" opacity="0.9"/>
+  <line x1="131" y1="155" x2="128" y2="340" stroke="#E2E8F0" stroke-width="1.8" opacity="0.9"/>
+  <line x1="140" y1="154" x2="140" y2="341" stroke="#fff" stroke-width="2.2" opacity="1"/>
+  <line x1="149" y1="155" x2="152" y2="340" stroke="#E2E8F0" stroke-width="1.8" opacity="0.9"/>
+  <line x1="160" y1="157" x2="164" y2="338" stroke="#E2E8F0" stroke-width="1.8" opacity="0.9"/>
+  <line x1="171" y1="162" x2="175" y2="335" stroke="#E2E8F0" stroke-width="1.8" opacity="0.9"/>
+
+  <!-- 琴横梁（上方） -->
+  <rect x="80" y="148" width="120" height="18" rx="9" fill="#FBBF24" stroke="#F59E0B" stroke-width="2"/>
+  <!-- 调弦钮 -->
+  <circle cx="95" cy="148" r="5" fill="#F59E0B" stroke="#D97706" stroke-width="1.5"/>
+  <circle cx="112" cy="144" r="5" fill="#F59E0B" stroke="#D97706" stroke-width="1.5"/>
+  <circle cx="130" cy="143" r="5" fill="#F59E0B" stroke="#D97706" stroke-width="1.5"/>
+  <circle cx="150" cy="143" r="5" fill="#F59E0B" stroke="#D97706" stroke-width="1.5"/>
+  <circle cx="168" cy="144" r="5" fill="#F59E0B" stroke="#D97706" stroke-width="1.5"/>
+  <circle cx="185" cy="148" r="5" fill="#F59E0B" stroke="#D97706" stroke-width="1.5"/>
+
+  <!-- 织女星（Vega）——天琴座最亮星，放在琴身中央发光 -->
+  <circle cx="140" cy="248" r="18" fill="rgba(251,191,36,0.2)" stroke="rgba(251,191,36,0.4)" stroke-width="1"/>
+  <circle cx="140" cy="248" r="10" fill="rgba(251,191,36,0.35)"/>
+  <!-- 五角星 -->
+  <path d="M140 232 L143 242 L153 242 L145 249 L148 259 L140 253 L132 259 L135 249 L127 242 L137 242 Z"
+        fill="#FBBF24" stroke="#F59E0B" stroke-width="1.2"/>
+  <!-- 织女星标签 -->
+  <text x="162" y="244" font-size="10" fill="#FBBF24" font-family="sans-serif" opacity="0.9">织女星</text>
+
+  <!-- 音符装饰 -->
+  <text x="42" y="155" font-size="22" fill="#A78BFA" opacity="0.7" font-family="serif">♪</text>
+  <text x="220" y="180" font-size="18" fill="#FBBF24" opacity="0.65" font-family="serif">♫</text>
+  <text x="34" y="310" font-size="16" fill="#C4B5FD" opacity="0.6" font-family="serif">♩</text>
+  <text x="235" y="290" font-size="20" fill="#FBBF24" opacity="0.55" font-family="serif">♬</text>
+
+  <!-- 光晕 -->
+  <ellipse cx="140" cy="248" rx="70" ry="50" fill="rgba(251,191,36,0.05)" stroke="rgba(251,191,36,0.12)" stroke-width="1" stroke-dasharray="6,4"/>
+
+  <!-- 说明文字 -->
+  <text x="140" y="390" text-anchor="middle" font-size="13" fill="#FBBF24" font-family="sans-serif" font-weight="bold">天 琴 座</text>
+  <text x="140" y="408" text-anchor="middle" font-size="10" fill="#A78BFA" font-family="sans-serif">织女星的家乡</text>
+</svg>

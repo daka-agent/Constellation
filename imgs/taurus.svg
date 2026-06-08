@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 420">
+  <!-- 金牛座卡通形象 — 圆滚滚的牛 -->
+
+  <!-- 尾巴 -->
+  <path d="M210 290 Q245 268 252 240 Q256 222 244 215 Q232 210 228 222 Q224 234 233 236"
+        fill="none" stroke="#B45309" stroke-width="9" stroke-linecap="round"/>
+  <ellipse cx="235" cy="211" rx="10" ry="14" fill="#78350F" transform="rotate(15 235 211)"/>
+
+  <!-- 身体 -->
+  <ellipse cx="130" cy="290" rx="88" ry="78" fill="#FEF3C7" stroke="#D97706" stroke-width="3"/>
+
+  <!-- 肚皮 -->
+  <ellipse cx="130" cy="295" rx="60" ry="52" fill="#FFFBEB"/>
+
+  <!-- 四条腿 -->
+  <rect x="60"  y="342" width="30" height="60" rx="15" fill="#FEF3C7" stroke="#D97706" stroke-width="2.5"/>
+  <rect x="98"  y="348" width="30" height="56" rx="15" fill="#FEF3C7" stroke="#D97706" stroke-width="2.5"/>
+  <rect x="152" y="348" width="30" height="56" rx="15" fill="#FEF3C7" stroke="#D97706" stroke-width="2.5"/>
+  <rect x="190" y="342" width="30" height="60" rx="15" fill="#FEF3C7" stroke="#D97706" stroke-width="2.5"/>
+  <!-- 牛蹄 -->
+  <ellipse cx="75"  cy="404" rx="17" ry="9" fill="#1C1917"/>
+  <ellipse cx="113" cy="406" rx="17" ry="9" fill="#1C1917"/>
+  <ellipse cx="167" cy="406" rx="17" ry="9" fill="#1C1917"/>
+  <ellipse cx="205" cy="404" rx="17" ry="9" fill="#1C1917"/>
+  <!-- 蹄子分叉纹 -->
+  <line x1="75"  y1="398" x2="75"  y2="408" stroke="#374151" stroke-width="2"/>
+  <line x1="113" y1="400" x2="113" y2="410" stroke="#374151" stroke-width="2"/>
+  <line x1="167" y1="400" x2="167" y2="410" stroke="#374151" stroke-width="2"/>
+  <line x1="205" y1="398" x2="205" y2="408" stroke="#374151" stroke-width="2"/>
+
+  <!-- 脖子 -->
+  <ellipse cx="100" cy="232" rx="40" ry="30" fill="#FEF3C7" stroke="#D97706" stroke-width="2.5"/>
+
+  <!-- 头部 -->
+  <ellipse cx="95" cy="175" rx="60" ry="52" fill="#FEF3C7" stroke="#D97706" stroke-width="3"/>
+
+  <!-- 牛角（金色） -->
+  <path d="M55 148 Q40 110 50 90 Q55 78 65 82 Q72 86 70 100 Q68 115 72 128" fill="#FBBF24" stroke="#D97706" stroke-width="2.5"/>
+  <path d="M135 148 Q150 110 140 90 Q135 78 125 82 Q118 86 120 100 Q122 115 118 128" fill="#FBBF24" stroke="#D97706" stroke-width="2.5"/>
+  <!-- 角尖 -->
+  <circle cx="50" cy="89" r="6" fill="#F59E0B"/>
+  <circle cx="140" cy="89" r="6" fill="#F59E0B"/>
+
+  <!-- 耳朵 -->
+  <ellipse cx="42" cy="170" rx="18" ry="26" fill="#FEF3C7" stroke="#D97706" stroke-width="2.5" transform="rotate(-20 42 170)"/>
+  <ellipse cx="148" cy="170" rx="18" ry="26" fill="#FEF3C7" stroke="#D97706" stroke-width="2.5" transform="rotate(20 148 170)"/>
+  <!-- 耳朵内粉色 -->
+  <ellipse cx="43" cy="170" rx="10" ry="17" fill="#FCA5A5" transform="rotate(-20 43 170)"/>
+  <ellipse cx="147" cy="170" rx="10" ry="17" fill="#FCA5A5" transform="rotate(20 147 170)"/>
+
+  <!-- 眼睛（大而温柔） -->
+  <ellipse cx="76" cy="165" rx="16" ry="16" fill="white"/>
+  <ellipse cx="114" cy="165" rx="16" ry="16" fill="white"/>
+  <circle cx="78" cy="166" r="10" fill="#1C1917"/>
+  <circle cx="116" cy="166" r="10" fill="#1C1917"/>
+  <!-- 高光 -->
+  <circle cx="81" cy="163" r="4" fill="white"/>
+  <circle cx="119" cy="163" r="4" fill="white"/>
+  <!-- 长睫毛（上面几根） -->
+  <line x1="66" y1="151" x2="62" y2="143" stroke="#1C1917" stroke-width="2"/>
+  <line x1="74" y1="148" x2="73" y2="140" stroke="#1C1917" stroke-width="2"/>
+  <line x1="82" y1="149" x2="83" y2="141" stroke="#1C1917" stroke-width="2"/>
+
+  <!-- 鼻子（大鼻头） -->
+  <ellipse cx="95" cy="192" rx="20" ry="14" fill="#FECACA"/>
+  <!-- 鼻孔 -->
+  <ellipse cx="87" cy="193" rx="5" ry="4" fill="#F87171"/>
+  <ellipse cx="103" cy="193" rx="5" ry="4" fill="#F87171"/>
+
+  <!-- 嘴巴 -->
+  <path d="M80 206 Q95 214 110 206" fill="none" stroke="#D97706" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- 铃铛项圈 -->
+  <path d="M58 218 Q95 232 132 218" fill="none" stroke="#EF4444" stroke-width="6" stroke-linecap="round"/>
+  <!-- 铃铛 -->
+  <ellipse cx="95" cy="230" rx="9" ry="11" fill="#FBBF24" stroke="#D97706" stroke-width="1.5"/>
+  <line x1="95" y1="237" x2="95" y2="241" stroke="#D97706" stroke-width="2"/>
+
+  <!-- 昂宿五（牛眼标志星） -->
+  <circle cx="76" cy="165" r="5" fill="#EF4444" opacity="0.7"/>
+
+  <!-- 星座符号 -->
+  <text x="180" y="300" text-anchor="middle" font-size="22" fill="#7C3AED" font-family="serif" font-weight="bold">♉</text>
+</svg>

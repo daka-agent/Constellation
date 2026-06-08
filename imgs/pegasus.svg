@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 420">
+  <!-- 飞马座：白色飞马，大翅膀，飞马四边形 -->
+  
+  <!-- 翅膀（左侧大翅膀） -->
+  <path d="M 105 200 Q 55 160 30 120 Q 45 140 50 170 Q 30 155 22 130 Q 40 175 45 200 Q 35 190 28 172 Q 50 210 80 215 Z" 
+        fill="white" stroke="#C0C0E0" stroke-width="2"/>
+  <!-- 翅膀羽毛纹理 -->
+  <path d="M 75 205 Q 50 175 35 140" stroke="#C0C0E0" stroke-width="1.5" fill="none" opacity="0.7"/>
+  <path d="M 82 208 Q 58 182 45 155" stroke="#C0C0E0" stroke-width="1.5" fill="none" opacity="0.7"/>
+  <path d="M 88 210 Q 68 188 55 165" stroke="#C0C0E0" stroke-width="1.5" fill="none" opacity="0.7"/>
+  
+  <!-- 翅膀（右侧） -->
+  <path d="M 175 200 Q 225 160 250 120 Q 235 140 230 170 Q 250 155 258 130 Q 240 175 235 200 Q 245 190 252 172 Q 230 210 200 215 Z" 
+        fill="white" stroke="#C0C0E0" stroke-width="2"/>
+  <!-- 右翅纹理 -->
+  <path d="M 205 205 Q 230 175 245 140" stroke="#C0C0E0" stroke-width="1.5" fill="none" opacity="0.7"/>
+  <path d="M 198 208 Q 222 182 235 155" stroke="#C0C0E0" stroke-width="1.5" fill="none" opacity="0.7"/>
+  <path d="M 192 210 Q 212 188 225 165" stroke="#C0C0E0" stroke-width="1.5" fill="none" opacity="0.7"/>
+  
+  <!-- 身体 -->
+  <ellipse cx="140" cy="270" rx="70" ry="45" fill="white" stroke="#C0C0E0" stroke-width="2.5"/>
+  
+  <!-- 四条腿 -->
+  <!-- 前蹄（折起飞行状） -->
+  <path d="M 108 305 Q 95 330 88 355 Q 85 370 92 378" stroke="white" stroke-width="18" fill="none" stroke-linecap="round"/>
+  <path d="M 108 305 Q 95 330 88 355 Q 85 370 92 378" stroke="#C0C0E0" stroke-width="18" fill="none" stroke-linecap="round" opacity="0.3"/>
+  <path d="M 172 305 Q 185 330 192 355 Q 195 370 188 378" stroke="white" stroke-width="18" fill="none" stroke-linecap="round"/>
+  <path d="M 172 305 Q 185 330 192 355 Q 195 370 188 378" stroke="#C0C0E0" stroke-width="18" fill="none" stroke-linecap="round" opacity="0.3"/>
+  <!-- 蹄子 -->
+  <ellipse cx="90" cy="378" rx="14" ry="8" fill="#8B8BAA"/>
+  <ellipse cx="190" cy="378" rx="14" ry="8" fill="#8B8BAA"/>
+  
+  <!-- 颈部 -->
+  <path d="M 120 228 Q 118 200 130 178" stroke="white" stroke-width="30" fill="none" stroke-linecap="round"/>
+  <path d="M 120 228 Q 118 200 130 178" stroke="#C0C0E0" stroke-width="30" fill="none" stroke-linecap="round" opacity="0.3"/>
+  
+  <!-- 头部 -->
+  <ellipse cx="136" cy="162" rx="38" ry="30" fill="white" stroke="#C0C0E0" stroke-width="2.5"/>
+  
+  <!-- 鬃毛 -->
+  <path d="M 140 135 Q 125 120 115 105 Q 120 118 112 130 Q 118 115 108 125 Q 116 112 110 98" 
+        stroke="#E8D5A0" stroke-width="8" fill="none" stroke-linecap="round"/>
+  <path d="M 132 138 Q 118 125 108 112" stroke="#E8D5A0" stroke-width="6" fill="none" stroke-linecap="round"/>
+  
+  <!-- 眼睛 -->
+  <circle cx="124" cy="158" r="8" fill="#4A3520"/>
+  <circle cx="124" cy="158" r="4" fill="#1A0A00"/>
+  <circle cx="122" cy="155" r="2.5" fill="white"/>
+  
+  <!-- 鼻孔 -->
+  <ellipse cx="148" cy="172" rx="5" ry="3.5" fill="#C0C0E0" transform="rotate(20,148,172)"/>
+  <ellipse cx="158" cy="168" rx="5" ry="3.5" fill="#C0C0E0" transform="rotate(-15,158,168)"/>
+  
+  <!-- 嘴巴 -->
+  <path d="M 148 178 Q 158 183 162 175" stroke="#8B8BAA" stroke-width="2" fill="none"/>
+  
+  <!-- 飞马四边形标志（胸口） -->
+  <rect x="116" y="250" width="48" height="38" rx="4" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-dasharray="4,3" opacity="0.8"/>
+  <text x="140" y="272" font-family="Fredoka One, sans-serif" font-size="9.5" fill="#8B5CF6" text-anchor="middle" font-weight="bold">四边形</text>
+  
+  <!-- 星星装饰（四边形四角） -->
+  <circle cx="116" cy="250" r="5" fill="#FBBF24"/>
+  <circle cx="164" cy="250" r="5" fill="#FBBF24"/>
+  <circle cx="164" cy="288" r="5" fill="#FBBF24"/>
+  <circle cx="116" cy="288" r="5" fill="#FBBF24"/>
+  
+  <!-- 标题 -->
+  <text x="140" y="40" font-family="Fredoka One, sans-serif" font-size="14" fill="white" text-anchor="middle" font-weight="bold">飞马佩加索斯</text>
+</svg>

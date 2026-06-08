@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 420" fill="none">
+  <!-- 背景光晕 -->
+  <ellipse cx="140" cy="240" rx="110" ry="150" fill="rgba(251,191,36,0.08)"/>
+
+  <!-- 身体 -->
+  <ellipse cx="140" cy="290" rx="70" ry="85" fill="#FEF3C7" stroke="#FBBF24" stroke-width="2.5"/>
+  <!-- 羊毛纹理 -->
+  <circle cx="112" cy="265" r="14" fill="#FFF7ED" stroke="#FBBF24" stroke-width="1.5"/>
+  <circle cx="140" cy="255" r="16" fill="#FFF7ED" stroke="#FBBF24" stroke-width="1.5"/>
+  <circle cx="168" cy="265" r="14" fill="#FFF7ED" stroke="#FBBF24" stroke-width="1.5"/>
+  <circle cx="104" cy="290" r="13" fill="#FFF7ED" stroke="#FBBF24" stroke-width="1.5"/>
+  <circle cx="176" cy="290" r="13" fill="#FFF7ED" stroke="#FBBF24" stroke-width="1.5"/>
+  <circle cx="120" cy="315" r="12" fill="#FFF7ED" stroke="#FBBF24" stroke-width="1.5"/>
+  <circle cx="160" cy="315" r="12" fill="#FFF7ED" stroke="#FBBF24" stroke-width="1.5"/>
+  <circle cx="140" cy="325" r="13" fill="#FFF7ED" stroke="#FBBF24" stroke-width="1.5"/>
+
+  <!-- 腿 -->
+  <rect x="106" y="360" width="20" height="50" rx="10" fill="#FFDBB4" stroke="#F59E0B" stroke-width="2"/>
+  <rect x="154" y="360" width="20" height="50" rx="10" fill="#FFDBB4" stroke="#F59E0B" stroke-width="2"/>
+  <!-- 蹄子 -->
+  <ellipse cx="116" cy="412" rx="13" ry="8" fill="#92400E" stroke="#78350F" stroke-width="1.5"/>
+  <ellipse cx="164" cy="412" rx="13" ry="8" fill="#92400E" stroke="#78350F" stroke-width="1.5"/>
+
+  <!-- 颈部 -->
+  <rect x="116" y="200" width="48" height="55" rx="22" fill="#FFDBB4" stroke="#F59E0B" stroke-width="2"/>
+
+  <!-- 头 -->
+  <ellipse cx="140" cy="175" rx="48" ry="45" fill="#FFDBB4" stroke="#F59E0B" stroke-width="2.5"/>
+
+  <!-- 大卷角（白羊座标志！） -->
+  <!-- 左角 -->
+  <path d="M96 155 Q68 130 72 108 Q76 86 96 92 Q114 98 110 118 Q106 138 96 155"
+        stroke="#D97706" stroke-width="7" stroke-linecap="round" fill="none"/>
+  <!-- 左角纹 -->
+  <path d="M84 130 Q76 118 80 106" stroke="#F59E0B" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <!-- 右角 -->
+  <path d="M184 155 Q212 130 208 108 Q204 86 184 92 Q166 98 170 118 Q174 138 184 155"
+        stroke="#D97706" stroke-width="7" stroke-linecap="round" fill="none"/>
+  <!-- 右角纹 -->
+  <path d="M196 130 Q204 118 200 106" stroke="#F59E0B" stroke-width="3" stroke-linecap="round" fill="none"/>
+
+  <!-- 耳朵 -->
+  <ellipse cx="94" cy="165" rx="12" ry="18" fill="#FFDBB4" stroke="#F59E0B" stroke-width="2" transform="rotate(-20 94 165)"/>
+  <ellipse cx="94" cy="165" rx="7" ry="11" fill="#FCA5A5" transform="rotate(-20 94 165)"/>
+  <ellipse cx="186" cy="165" rx="12" ry="18" fill="#FFDBB4" stroke="#F59E0B" stroke-width="2" transform="rotate(20 186 165)"/>
+  <ellipse cx="186" cy="165" rx="7" ry="11" fill="#FCA5A5" transform="rotate(20 186 165)"/>
+
+  <!-- 眼睛（圆萌大眼） -->
+  <ellipse cx="122" cy="172" rx="10" ry="11" fill="#fff" stroke="#7C3AED" stroke-width="1.5"/>
+  <ellipse cx="158" cy="172" rx="10" ry="11" fill="#fff" stroke="#7C3AED" stroke-width="1.5"/>
+  <circle cx="124" cy="173" r="6" fill="#451A03"/>
+  <circle cx="160" cy="173" r="6" fill="#451A03"/>
+  <circle cx="126" cy="170" r="2.5" fill="#fff"/>
+  <circle cx="162" cy="170" r="2.5" fill="#fff"/>
+  <!-- 腮红 -->
+  <ellipse cx="108" cy="184" rx="12" ry="8" fill="rgba(252,165,165,0.5)"/>
+  <ellipse cx="172" cy="184" rx="12" ry="8" fill="rgba(252,165,165,0.5)"/>
+  <!-- 鼻孔 -->
+  <ellipse cx="132" cy="194" rx="5" ry="4" fill="rgba(245,158,11,0.5)"/>
+  <ellipse cx="148" cy="194" rx="5" ry="4" fill="rgba(245,158,11,0.5)"/>
+  <!-- 嘴 -->
+  <path d="M128 200 Q140 208 152 200" stroke="#F59E0B" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+
+  <!-- 小尾巴 -->
+  <path d="M210 290 Q228 275 224 258 Q220 244 210 250" stroke="#FBBF24" stroke-width="6" stroke-linecap="round" fill="none"/>
+  <circle cx="208" cy="252" r="7" fill="#FFF7ED" stroke="#FBBF24" stroke-width="1.5"/>
+
+  <!-- ♈ 符号 -->
+  <text x="140" y="352" text-anchor="middle" font-size="20" fill="#D97706" font-family="serif" font-weight="bold">♈</text>
+</svg>

@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 420" fill="none">
+  <!-- 背景光晕 -->
+  <ellipse cx="140" cy="210" rx="115" ry="170" fill="rgba(251,191,36,0.07)"/>
+
+  <!-- 右脚 -->
+  <ellipse cx="165" cy="393" rx="20" ry="11" fill="#FFDBB4" stroke="#F59E0B" stroke-width="2"/>
+  <!-- 左脚 -->
+  <ellipse cx="108" cy="393" rx="20" ry="11" fill="#FFDBB4" stroke="#F59E0B" stroke-width="2"/>
+
+  <!-- 腿 -->
+  <rect x="155" y="300" width="22" height="95" rx="11" fill="#FFDBB4" stroke="#F59E0B" stroke-width="2"/>
+  <rect x="100" y="300" width="22" height="95" rx="11" fill="#FFDBB4" stroke="#F59E0B" stroke-width="2"/>
+
+  <!-- 飞马（珀修斯胯下） -->
+  <!-- 马身 -->
+  <ellipse cx="175" cy="340" rx="45" ry="28" fill="#E2E8F0" stroke="#CBD5E1" stroke-width="2" transform="rotate(-10 175 340)"/>
+  <!-- 马腿 -->
+  <rect x="170" y="355" width="10" height="35" rx="5" fill="#CBD5E1" stroke="#94A3B8" stroke-width="1.5" transform="rotate(5 175 355)"/>
+  <rect x="188" y="350" width="10" height="35" rx="5" fill="#CBD5E1" stroke="#94A3B8" stroke-width="1.5" transform="rotate(-5 193 350)"/>
+  <!-- 马头 -->
+  <ellipse cx="216" cy="320" rx="20" ry="15" fill="#E2E8F0" stroke="#CBD5E1" stroke-width="2" transform="rotate(20 216 320)"/>
+  <!-- 马耳 -->
+  <path d="M215 308 L210 296 L220 306" fill="#E2E8F0" stroke="#CBD5E1" stroke-width="1.5"/>
+  <!-- 马鬃 -->
+  <path d="M195 315 Q188 305 185 295 Q188 298 192 308 Q190 300 195 292" stroke="#94A3B8" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <!-- 翅膀 -->
+  <path d="M160 325 Q140 295 120 305 Q135 315 150 330" fill="#DBEAFE" stroke="#93C5FD" stroke-width="2"/>
+  <path d="M160 325 Q138 280 108 285 Q128 305 148 328" fill="#BFDBFE" stroke="#93C5FD" stroke-width="1.5"/>
+
+  <!-- 铠甲裙 -->
+  <path d="M96 262 Q90 285 90 300 L188 300 Q188 285 184 262 Z"
+        fill="#94A3B8" stroke="#64748B" stroke-width="2"/>
+  <!-- 铠甲裙鳞片 -->
+  <path d="M96 272 Q112 268 128 272 Q144 268 160 272 Q176 268 185 272" stroke="#64748B" stroke-width="1.5" fill="none"/>
+  <path d="M94 284 Q112 280 130 284 Q148 280 166 284 Q176 280 186 284" stroke="#64748B" stroke-width="1.5" fill="none"/>
+
+  <!-- 胸甲 -->
+  <path d="M98 175 Q90 218 92 262 L188 262 Q190 218 182 175 Z"
+        fill="#CBD5E1" stroke="#94A3B8" stroke-width="2.5"/>
+  <!-- 胸甲纹路 -->
+  <path d="M120 195 Q140 200 160 195" stroke="#64748B" stroke-width="1.5" fill="none"/>
+  <path d="M115 215 Q140 222 165 215" stroke="#64748B" stroke-width="1.5" fill="none"/>
+  <!-- 中心胸甲装饰 -->
+  <ellipse cx="140" cy="220" rx="12" ry="12" fill="#FBBF24" stroke="#F59E0B" stroke-width="2"/>
+  <path d="M140 210 L142 216 L148 216 L143 220 L145 226 L140 222 L135 226 L137 220 L132 216 L138 216 Z"
+        fill="#92400E"/>
+
+  <!-- 右手臂（持剑） -->
+  <path d="M182 178 Q210 170 222 155" stroke="#FFDBB4" stroke-width="14" stroke-linecap="round" fill="none"/>
+  <!-- 宝剑（飞马之剑） -->
+  <line x1="222" y1="155" x2="248" y2="80" stroke="#CBD5E1" stroke-width="5" stroke-linecap="round"/>
+  <ellipse cx="224" cy="152" rx="12" ry="5" fill="#FBBF24" stroke="#F59E0B" stroke-width="1.5" transform="rotate(-70 224 152)"/>
+  <ellipse cx="248" cy="80" rx="4" ry="4" fill="#FBBF24"/>
+
+  <!-- 左手臂（提美杜莎头） -->
+  <path d="M98 180 Q72 170 60 160" stroke="#FFDBB4" stroke-width="14" stroke-linecap="round" fill="none"/>
+  <!-- 美杜莎头（简化） -->
+  <circle cx="52" cy="148" r="20" fill="#6EE7B7" stroke="#059669" stroke-width="2"/>
+  <!-- 蛇发 -->
+  <path d="M38 138 Q32 128 36 118" stroke="#059669" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <path d="M44 130 Q40 118 46 110" stroke="#059669" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <path d="M52 128 Q52 115 55 108" stroke="#059669" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <path d="M60 130 Q66 120 64 110" stroke="#059669" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <path d="M66 138 Q74 130 70 120" stroke="#059669" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <circle cx="36" cy="115" r="3" fill="#10B981"/>
+  <circle cx="44" cy="107" r="3" fill="#10B981"/>
+  <circle cx="56" cy="105" r="3" fill="#10B981"/>
+  <circle cx="65" cy="108" r="3" fill="#10B981"/>
+  <circle cx="72" cy="118" r="3" fill="#10B981"/>
+  <!-- 美杜莎脸 -->
+  <circle cx="46" cy="148" r="3" fill="#fff"/>
+  <circle cx="58" cy="148" r="3" fill="#fff"/>
+  <path d="M44 156 Q52 162 60 156" stroke="#059669" stroke-width="2" fill="none"/>
+
+  <!-- 头盔 -->
+  <path d="M96 108 Q100 72 140 65 Q180 72 184 108 Q175 98 140 96 Q105 98 96 108 Z"
+        fill="#94A3B8" stroke="#64748B" stroke-width="2"/>
+  <!-- 头盔顶缨（红色） -->
+  <path d="M132 65 Q140 42 148 65" stroke="#EF4444" stroke-width="8" stroke-linecap="round" fill="none"/>
+  <!-- 头盔翼 -->
+  <path d="M96 108 Q82 102 76 90 Q88 96 100 106" fill="#CBD5E1" stroke="#94A3B8" stroke-width="1.5"/>
+  <path d="M184 108 Q198 102 204 90 Q192 96 180 106" fill="#CBD5E1" stroke="#94A3B8" stroke-width="1.5"/>
+
+  <!-- 脸 -->
+  <ellipse cx="140" cy="132" rx="36" ry="38" fill="#FFDBB4" stroke="#F59E0B" stroke-width="2"/>
+  <!-- 腮红 -->
+  <ellipse cx="118" cy="144" rx="10" ry="7" fill="rgba(252,165,165,0.4)"/>
+  <ellipse cx="162" cy="144" rx="10" ry="7" fill="rgba(252,165,165,0.4)"/>
+  <!-- 眼睛（英气） -->
+  <ellipse cx="125" cy="130" rx="8" ry="7" fill="#fff" stroke="#7C3AED" stroke-width="1.5"/>
+  <ellipse cx="155" cy="130" rx="8" ry="7" fill="#fff" stroke="#7C3AED" stroke-width="1.5"/>
+  <circle cx="127" cy="131" r="4.5" fill="#3730A3"/>
+  <circle cx="157" cy="131" r="4.5" fill="#3730A3"/>
+  <circle cx="129" cy="129" r="1.8" fill="#fff"/>
+  <circle cx="159" cy="129" r="1.8" fill="#fff"/>
+  <!-- 眉毛（英气） -->
+  <path d="M117 121 Q126 116 135 120" stroke="#92400E" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  <path d="M145 120 Q154 116 163 121" stroke="#92400E" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  <!-- 嘴 -->
+  <path d="M130 149 Q140 155 150 149" stroke="#E879A0" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <!-- 鼻子 -->
+  <ellipse cx="140" cy="143" rx="4" ry="3" fill="rgba(245,158,11,0.4)"/>
+
+  <!-- 手 -->
+  <ellipse cx="60" cy="162" rx="11" ry="11" fill="#FFDBB4" stroke="#F59E0B" stroke-width="1.5"/>
+  <ellipse cx="222" cy="156" rx="11" ry="11" fill="#FFDBB4" stroke="#F59E0B" stroke-width="1.5"/>
+</svg>

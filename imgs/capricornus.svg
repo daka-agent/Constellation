@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 420" fill="none">
+  <!-- 背景光晕 -->
+  <ellipse cx="140" cy="230" rx="115" ry="165" fill="rgba(139,92,246,0.07)"/>
+
+  <!-- 鱼尾（海蓝） -->
+  <path d="M85 295 Q60 330 50 370 Q90 350 115 360 Q130 300 140 295 Q150 300 165 360 Q190 350 230 370 Q220 330 195 295 Z"
+        fill="#38BDF8" stroke="#0EA5E9" stroke-width="2.5"/>
+  <!-- 鱼鳞纹 -->
+  <path d="M95 315 Q110 308 125 315" stroke="#7DD3FC" stroke-width="1.5" fill="none"/>
+  <path d="M88 335 Q108 328 128 335" stroke="#7DD3FC" stroke-width="1.5" fill="none"/>
+  <path d="M85 355 Q105 348 125 355" stroke="#7DD3FC" stroke-width="1.5" fill="none"/>
+  <path d="M155 315 Q170 308 185 315" stroke="#7DD3FC" stroke-width="1.5" fill="none"/>
+  <path d="M152 335 Q172 328 192 335" stroke="#7DD3FC" stroke-width="1.5" fill="none"/>
+  <path d="M155 355 Q175 348 195 355" stroke="#7DD3FC" stroke-width="1.5" fill="none"/>
+  <!-- 鱼尾尖 -->
+  <path d="M50 370 Q70 390 100 385 Q120 378 115 360" fill="#7DD3FC" stroke="#0EA5E9" stroke-width="1.5"/>
+  <path d="M230 370 Q210 390 180 385 Q160 378 165 360" fill="#7DD3FC" stroke="#0EA5E9" stroke-width="1.5"/>
+
+  <!-- 上半身（山羊） -->
+  <!-- 羊身 -->
+  <ellipse cx="140" cy="255" rx="55" ry="45" fill="#D1FAE5" stroke="#6EE7B7" stroke-width="2"/>
+  <!-- 羊毛纹 -->
+  <circle cx="115" cy="240" r="10" fill="#ECFDF5" stroke="#6EE7B7" stroke-width="1.5"/>
+  <circle cx="140" cy="234" r="11" fill="#ECFDF5" stroke="#6EE7B7" stroke-width="1.5"/>
+  <circle cx="165" cy="240" r="10" fill="#ECFDF5" stroke="#6EE7B7" stroke-width="1.5"/>
+  <circle cx="108" cy="262" r="9" fill="#ECFDF5" stroke="#6EE7B7" stroke-width="1.5"/>
+  <circle cx="172" cy="262" r="9" fill="#ECFDF5" stroke="#6EE7B7" stroke-width="1.5"/>
+
+  <!-- 前腿 -->
+  <rect x="104" y="285" width="17" height="32" rx="8" fill="#FFDBB4" stroke="#F59E0B" stroke-width="1.5"/>
+  <rect x="159" y="285" width="17" height="32" rx="8" fill="#FFDBB4" stroke="#F59E0B" stroke-width="1.5"/>
+  <!-- 蹄 -->
+  <ellipse cx="112" cy="318" rx="11" ry="7" fill="#92400E" stroke="#78350F" stroke-width="1.5"/>
+  <ellipse cx="167" cy="318" rx="11" ry="7" fill="#92400E" stroke="#78350F" stroke-width="1.5"/>
+
+  <!-- 颈部 -->
+  <rect x="122" y="188" width="36" height="48" rx="18" fill="#FFDBB4" stroke="#F59E0B" stroke-width="2"/>
+
+  <!-- 头 -->
+  <ellipse cx="140" cy="162" rx="44" ry="42" fill="#FFDBB4" stroke="#F59E0B" stroke-width="2.5"/>
+
+  <!-- 角（摩羯独特：向后弯的角） -->
+  <path d="M100 148 Q80 118 88 95 Q98 78 112 90 Q122 102 110 118 Q100 130 100 148"
+        stroke="#D97706" stroke-width="6" stroke-linecap="round" fill="none"/>
+  <path d="M180 148 Q200 118 192 95 Q182 78 168 90 Q158 102 170 118 Q180 130 180 148"
+        stroke="#D97706" stroke-width="6" stroke-linecap="round" fill="none"/>
+
+  <!-- 胡须（山羊胡） -->
+  <path d="M132 196 Q136 210 140 215 Q144 210 148 196" stroke="#6EE7B7" stroke-width="3" stroke-linecap="round" fill="none"/>
+
+  <!-- 耳朵 -->
+  <ellipse cx="98" cy="158" rx="10" ry="16" fill="#FFDBB4" stroke="#F59E0B" stroke-width="1.5" transform="rotate(-15 98 158)"/>
+  <ellipse cx="98" cy="158" rx="6" ry="10" fill="#FCA5A5" transform="rotate(-15 98 158)"/>
+  <ellipse cx="182" cy="158" rx="10" ry="16" fill="#FFDBB4" stroke="#F59E0B" stroke-width="1.5" transform="rotate(15 182 158)"/>
+  <ellipse cx="182" cy="158" rx="6" ry="10" fill="#FCA5A5" transform="rotate(15 182 158)"/>
+
+  <!-- 眼睛 -->
+  <ellipse cx="122" cy="160" rx="9" ry="10" fill="#fff" stroke="#0EA5E9" stroke-width="1.5"/>
+  <ellipse cx="158" cy="160" rx="9" ry="10" fill="#fff" stroke="#0EA5E9" stroke-width="1.5"/>
+  <circle cx="124" cy="161" r="5.5" fill="#164E63"/>
+  <circle cx="160" cy="161" r="5.5" fill="#164E63"/>
+  <circle cx="126" cy="159" r="2" fill="#fff"/>
+  <circle cx="162" cy="159" r="2" fill="#fff"/>
+  <!-- 腮红 -->
+  <ellipse cx="108" cy="172" rx="11" ry="7" fill="rgba(125,211,252,0.4)"/>
+  <ellipse cx="172" cy="172" rx="11" ry="7" fill="rgba(125,211,252,0.4)"/>
+  <!-- 鼻孔 -->
+  <ellipse cx="133" cy="180" rx="4.5" ry="3.5" fill="rgba(245,158,11,0.45)"/>
+  <ellipse cx="147" cy="180" rx="4.5" ry="3.5" fill="rgba(245,158,11,0.45)"/>
+  <!-- 嘴 -->
+  <path d="M128 186 Q140 194 152 186" stroke="#0EA5E9" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+
+  <!-- ♑ 符号 -->
+  <text x="225" y="260" text-anchor="middle" font-size="22" fill="#0EA5E9" font-family="serif" font-weight="bold">♑</text>
+</svg>
