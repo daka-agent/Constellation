@@ -8,7 +8,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700;800;900&family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#1a1a3e">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -16,6 +15,15 @@
   <link rel="apple-touch-icon" href="imgs/icons/icon-192x192.png">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/png" sizes="192x192" href="imgs/icons/icon-192x192.png">
+  <script>
+    // file:// 协议无法加载 manifest（CORS），仅在 http(s) 时添加
+    if (location.protocol !== 'file:') {
+      const link = document.createElement('link');
+      link.rel = 'manifest';
+      link.href = 'manifest.json';
+      document.head.appendChild(link);
+    }
+  </script>
 </head>
 <body>
   <div id="app">
@@ -175,8 +183,11 @@
 
   <!-- PWA Service Worker 注册 + 安装提示 -->
   <script>
+    // file:// 协议不支持 Service Worker / manifest，静默跳过
+    const isFileProtocol = location.protocol === 'file:';
+
     // ── Service Worker 注册 ─────────────────────
-    if ('serviceWorker' in navigator) {
+    if ('serviceWorker' in navigator && !isFileProtocol) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('./service-worker.js')
           .then(reg => {
@@ -203,12 +214,20 @@
     const installBtn = document.getElementById('pwa-install-btn');
     const dismissBtn = document.getElementById('pwa-dismiss-btn');
 
-    window.addEventListener('beforeinstallprompt', (e) => {
-      e.preventDefault();
-      deferredPrompt = e;
-      // 显示安装横幅
-      if (banner) banner.style.display = 'block';
-    });
+    // 仅在 http(s) 环境下响应安装提示（file:// 不支持）
+    if (!isFileProtocol) {
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        if (banner) banner.style.display = 'block';
+      });
+
+      window.addEventListener('appinstalled', () => {
+        console.log('[PWA] 应用已安装！');
+        if (banner) banner.style.display = 'none';
+        deferredPrompt = null;
+      });
+    }
 
     if (installBtn) {
       installBtn.addEventListener('click', async () => {
@@ -227,12 +246,6 @@
         deferredPrompt = null;
       });
     }
-
-    window.addEventListener('appinstalled', () => {
-      console.log('[PWA] 应用已安装！');
-      if (banner) banner.style.display = 'none';
-      deferredPrompt = null;
-    });
   </script>
 </body>
 </html>

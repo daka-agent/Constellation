@@ -1904,7 +1904,7 @@ function getTierEmoji(diff) {
   return ['', '🌟', '🌟🌟', '🌟🌟🌟', '🌟🌟🌟🌟'][diff] || '';
 }
 
-
+function getScore() {
   try {
     return parseInt(localStorage.getItem('xingzhuo_score') || '0', 10);
   } catch {
