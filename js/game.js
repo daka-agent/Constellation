@@ -1061,6 +1061,7 @@ function showTutorialStep1() {
   // 点击任意处也可以跳过
   const overlay = document.getElementById('tutorial-overlay');
   if (overlay) {
+    overlay.classList.remove('passthrough');
     overlay.onclick = function(e) {
       if (e.target === overlay || e.target.classList.contains('tutorial-mask')) {
         showTutorialStep2();
@@ -1124,8 +1125,12 @@ function showTutorialStep2() {
     }, 100);
   }
 
-  // 移除 click-to-advance
-  if (overlay) overlay.onclick = null;
+  // ★ 关键修复：让触摸事件穿透遮罩层到达 Canvas
+  // 否则移动端用户无法在画布上连线
+  if (overlay) {
+    overlay.classList.add('passthrough');
+    overlay.onclick = null;
+  }
 }
 
 function createSwipeStyle(dx, dy) {
@@ -1158,6 +1163,7 @@ function showTutorialStep3() {
 
   updateStepDots(2);
   if (hand) hand.classList.remove('visible', 'swiping');
+  if (overlay) overlay.classList.remove('passthrough');
 
   bubble.className = 'tutorial-bubble top';
   text.textContent = '🎉 太棒了！';
@@ -1177,7 +1183,10 @@ function endTutorial() {
   tutorial.firstStarPos = null;
 
   const overlay = document.getElementById('tutorial-overlay');
-  if (overlay) overlay.classList.remove('active');
+  if (overlay) {
+    overlay.classList.remove('active');
+    overlay.classList.remove('passthrough');
+  }
 
   const hand = document.getElementById('tutorial-hand');
   if (hand) hand.classList.remove('visible', 'swiping');

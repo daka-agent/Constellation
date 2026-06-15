@@ -1639,6 +1639,11 @@ body {
   z-index: 0;
 }
 
+/* 第二步时让触摸事件穿透遮罩，到达 Canvas */
+.tutorial-overlay.passthrough {
+  pointer-events: none !important;
+}
+
 /* 气泡 */
 .tutorial-bubble {
   position: absolute;
