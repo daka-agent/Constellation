@@ -76,11 +76,7 @@ function renderHome() {
   renderCardRow('featured-row1', featured.slice(0, 2));
   renderCardRow('featured-row2', featured.slice(2, 4));
 
-  // 全部星座网格（按难度排序：低难度在前）
-  const sorted = [...CONSTELLATIONS].sort((a, b) => a.difficulty - b.difficulty);
-  renderConstellationGrid('constellation-grid', sorted);
-
-  // 搜索功能
+  // 搜索 & 筛选（内部会渲染星座网格）
   initSearch();
 
   // 渲染难度进度指示器
@@ -194,24 +190,187 @@ function getLockHint(diff) {
   return `需先完成 ${remaining} 个${tierNames[diff - 1]}星座`;
 }
 
-/* -------- 搜索 -------- */
+/* -------- 搜索 & 筛选 -------- */
+const FILTER_STATE = {
+  diff: 'all',
+  season: 'all',
+  status: 'all',
+  sort: 'default',
+  query: '',
+};
+
+let _filterChipsBound = false;
+
+// 从 SKY_POSITIONS 构建星座→季节映射
+function getConstellationSeason(cId) {
+  const pos = SKY_POSITIONS[cId];
+  return pos ? pos.group : 'unknown';
+}
+
+const SEASON_LABELS = {
+  spring: '春季', summer: '夏季', autumn: '秋季',
+  winter: '冬季', polar: '拱极', southern: '南天',
+};
+
 function initSearch() {
   const input = document.getElementById('search-input');
   if (!input) return;
-  // 避免重复绑定
+
+  // 恢复输入框内容
+  input.value = FILTER_STATE.query;
+
+  // 搜索输入（防抖）
+  let debounceTimer = null;
   input.oninput = () => {
-    const q = input.value.trim().toLowerCase();
-    if (!q) {
-      renderConstellationGrid('constellation-grid', CONSTELLATIONS);
-      return;
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(() => {
+      FILTER_STATE.query = input.value.trim().toLowerCase();
+      applyFiltersAndRender();
+    }, 200);
+  };
+
+  // 筛选芯片点击（只绑定一次）
+  if (!_filterChipsBound) {
+    _filterChipsBound = true;
+    document.querySelectorAll('.filter-chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        const key = chip.dataset.key;
+        const val = chip.dataset.val;
+
+        // 同组切换 active
+        const siblings = chip.parentElement.querySelectorAll('.filter-chip');
+        siblings.forEach(s => s.classList.remove('active'));
+        chip.classList.add('active');
+
+        FILTER_STATE[key] = val;
+        playSound('click');
+        applyFiltersAndRender();
+      });
+    });
+  }
+
+  // 恢复筛选芯片的视觉状态
+  restoreFilterChipState();
+
+  applyFiltersAndRender();
+}
+
+function restoreFilterChipState() {
+  document.querySelectorAll('.filter-chip').forEach(chip => {
+    const key = chip.dataset.key;
+    const val = chip.dataset.val;
+    if (FILTER_STATE[key] === val) {
+      chip.classList.add('active');
+    } else {
+      chip.classList.remove('active');
     }
-    const filtered = CONSTELLATIONS.filter(c =>
+  });
+}
+
+function applyFiltersAndRender() {
+  let results = [...CONSTELLATIONS];
+
+  // 1. 搜索过滤
+  if (FILTER_STATE.query) {
+    const q = FILTER_STATE.query;
+    results = results.filter(c =>
       c.name.includes(q) ||
       c.pinyin.toLowerCase().includes(q) ||
       c.englishName.toLowerCase().includes(q)
     );
-    renderConstellationGrid('constellation-grid', filtered);
-  };
+  }
+
+  // 2. 难度过滤
+  if (FILTER_STATE.diff !== 'all') {
+    const diff = parseInt(FILTER_STATE.diff, 10);
+    results = results.filter(c => c.difficulty === diff);
+  }
+
+  // 3. 季节过滤
+  if (FILTER_STATE.season !== 'all') {
+    results = results.filter(c => getConstellationSeason(c.id) === FILTER_STATE.season);
+  }
+
+  // 4. 状态过滤
+  if (FILTER_STATE.status === 'unlocked') {
+    results = results.filter(c => isConstellationUnlocked(c.id));
+  } else if (FILTER_STATE.status === 'locked') {
+    results = results.filter(c => !isConstellationUnlocked(c.id));
+  } else if (FILTER_STATE.status === 'explored') {
+    results = results.filter(c => isExplored(c.id));
+  }
+
+  // 5. 排序
+  switch (FILTER_STATE.sort) {
+    case 'name-asc':
+      results.sort((a, b) => a.name.localeCompare(b.name, 'zh'));
+      break;
+    case 'name-desc':
+      results.sort((a, b) => b.name.localeCompare(a.name, 'zh'));
+      break;
+    case 'diff-asc':
+      results.sort((a, b) => a.difficulty - b.difficulty || a.name.localeCompare(b.name, 'zh'));
+      break;
+    case 'diff-desc':
+      results.sort((a, b) => b.difficulty - a.difficulty || a.name.localeCompare(b.name, 'zh'));
+      break;
+    default:
+      // 默认：难度优先，名称其次
+      results.sort((a, b) => a.difficulty - b.difficulty || a.name.localeCompare(b.name, 'zh'));
+  }
+
+  // 渲染结果
+  renderFilterResults(results);
+}
+
+function renderFilterResults(results) {
+  const grid = document.getElementById('constellation-grid');
+  const info = document.getElementById('search-result-info');
+  const countText = document.getElementById('result-count-text');
+  const featuredSection = document.querySelector('.featured-section');
+
+  const hasFilter = FILTER_STATE.query || FILTER_STATE.diff !== 'all' ||
+    FILTER_STATE.season !== 'all' || FILTER_STATE.status !== 'all';
+  const hasNonDefaultSort = FILTER_STATE.sort !== 'default';
+
+  // 筛选激活时隐藏精选区域，显示时恢复
+  if (hasFilter || hasNonDefaultSort) {
+    if (featuredSection) featuredSection.style.display = 'none';
+  } else {
+    if (featuredSection) featuredSection.style.display = '';
+  }
+
+  // 显示结果计数
+  if (info && countText) {
+    if (hasFilter || hasNonDefaultSort) {
+      info.style.display = 'block';
+      if (results.length === 0) {
+        countText.innerHTML = '没有找到匹配的星座';
+        countText.classList.remove('result-highlight');
+      } else {
+        countText.innerHTML = `找到 <span class="result-highlight">${results.length}</span> 个星座`;
+      }
+    } else {
+      info.style.display = 'none';
+    }
+  }
+
+  // 无结果时显示空状态
+  if (grid && results.length === 0) {
+    grid.innerHTML = `
+      <div class="filter-empty-state">
+        <div class="empty-emoji">🔭</div>
+        <div class="empty-text">没有找到匹配的星座</div>
+        <div class="empty-hint">试试调整筛选条件或搜索关键词</div>
+      </div>
+    `;
+    return;
+  }
+
+  // 正常渲染
+  if (grid) {
+    renderConstellationGrid('constellation-grid', results);
+  }
 }
 
 /* -------- 详情页渲染 -------- */
@@ -383,6 +542,9 @@ function startStoryAudio() {
   if (!c || !c.story) return;
 
   stopStoryAudio(); // 清除之前的状态
+
+  // 标记故事已收听
+  markStoryListened(state.currentConstellation);
 
   const text = c.story;
   state.ttsCurrentText = text;
@@ -645,6 +807,10 @@ function initGame() {
   document.getElementById('game-constellation-name').textContent = `✦ ${c.name}`;
   document.getElementById('game-score').textContent = getScore();
   updateGameProgress();
+  // 重置本局统计数据
+  state._wrongCount = 0;
+  state._totalAttempts = 0;
+  state._startTime = Date.now();
 
   // 清除上一局残留的轮廓图
   removeSilhouetteImg();
@@ -653,6 +819,9 @@ function initGame() {
 
   // 保存画布快照，供 handleMove 快速恢复（避免每帧全量重绘）
   saveCanvasSnapshot();
+
+  // 新手引导
+  startTutorial();
 
   // 返回按钮
   const backBtn = document.getElementById('btn-game-back');
@@ -836,6 +1005,389 @@ let _gameSnapshot = null; // 保存游戏画布的 ImageData 快照
 let _snapshotW = 0;
 let _snapshotH = 0;
 
+/* -------- 新手引导教程 -------- */
+let tutorial = {
+  active: false,
+  step: 0,              // 0=step1_welcome, 1=step2_guide, 2=step3_celebrate
+  targetEdge: null,     // 引导步骤中高亮的连线边 [fromIdx, toIdx]
+  firstStarPos: null,   // 起始星星的 canvas 坐标
+};
+
+function isTutorialDone() {
+  return localStorage.getItem('xingzhuo_tutorial_done') === 'true';
+}
+
+function markTutorialDone() {
+  localStorage.setItem('xingzhuo_tutorial_done', 'true');
+}
+
+function startTutorial() {
+  if (isTutorialDone()) return;
+  if (tutorial.active) return;
+
+  tutorial.active = true;
+  tutorial.step = 0;
+
+  const overlay = document.getElementById('tutorial-overlay');
+  if (!overlay) return;
+  overlay.classList.add('active');
+
+  // 跳过按钮
+  addTutorialSkipBtn();
+
+  showTutorialStep1();
+}
+
+function showTutorialStep1() {
+  tutorial.step = 0;
+  const bubble = document.getElementById('tutorial-bubble');
+  const text = document.getElementById('tutorial-text');
+  const hint = document.getElementById('tutorial-hint');
+  const dots = document.getElementById('tutorial-step-dots');
+  const hand = document.getElementById('tutorial-hand');
+
+  updateStepDots(0);
+  bubble.className = 'tutorial-bubble top';
+  text.innerHTML = '🌟 用手指连接<br>数字星星';
+  hint.textContent = '还原星座的真实形状';
+  if (hand) hand.classList.remove('visible', 'swiping');
+
+  // 2.8秒后自动进入第二步
+  clearTimeout(tutorial._timer);
+  tutorial._timer = setTimeout(() => {
+    showTutorialStep2();
+  }, 2800);
+
+  // 点击任意处也可以跳过
+  const overlay = document.getElementById('tutorial-overlay');
+  if (overlay) {
+    overlay.onclick = function(e) {
+      if (e.target === overlay || e.target.classList.contains('tutorial-mask')) {
+        showTutorialStep2();
+      }
+    };
+  }
+}
+
+function showTutorialStep2() {
+  tutorial.step = 1;
+  clearTimeout(tutorial._timer);
+
+  const canvas = document.getElementById('game-canvas');
+  const bubble = document.getElementById('tutorial-bubble');
+  const text = document.getElementById('tutorial-text');
+  const hint = document.getElementById('tutorial-hint');
+  const hand = document.getElementById('tutorial-hand');
+  const overlay = document.getElementById('tutorial-overlay');
+
+  updateStepDots(1);
+
+  // 找一个未连接的边作为引导目标
+  const c = CONSTELLATION_MAP[state.currentConstellation] || CONSTELLATIONS[0];
+  const firstEdge = c.lines.find(([i, j]) => {
+    return !state.gameConnected.some(([a, b]) => (a === i && b === j) || (a === j && b === i));
+  });
+
+  if (!firstEdge || !canvas._starPositions) {
+    endTutorial();
+    return;
+  }
+
+  tutorial.targetEdge = firstEdge;
+  const startPos = canvas._starPositions[firstEdge[0]];
+  const endPos = canvas._starPositions[firstEdge[1]];
+  tutorial.firstStarPos = startPos;
+
+  // 气泡放在底部
+  bubble.className = 'tutorial-bubble top';
+  text.textContent = '从这颗星开始连接';
+  hint.textContent = '👆 按住拖动到目标星星';
+
+  // 手势定位到起始星星上方
+  if (hand) {
+    const rect = canvas.getBoundingClientRect();
+    hand.style.left = (startPos.x + 10) + 'px';
+    hand.style.top = (startPos.y - 50) + 'px';
+    hand.classList.add('visible', 'swiping');
+
+    // 动态调整手势终点
+    setTimeout(() => {
+      const dx = endPos.x - startPos.x;
+      const dy = endPos.y - startPos.y;
+      if (Math.abs(dx) > 5 || Math.abs(dy) > 5) {
+        // 更新 keyframes 为当前边的方向
+        const styleEl = document.getElementById('tutorial-swipe-style') || createSwipeStyle(dx, dy);
+        hand.querySelector('.tutorial-hand-svg').style.animation = 'none';
+        hand.querySelector('.tutorial-hand-svg').offsetHeight; // force reflow
+        hand.querySelector('.tutorial-hand-svg').style.animation = 'tutorialSwipeCustom 2.2s ease-in-out infinite';
+      }
+    }, 100);
+  }
+
+  // 移除 click-to-advance
+  if (overlay) overlay.onclick = null;
+}
+
+function createSwipeStyle(dx, dy) {
+  const style = document.createElement('style');
+  style.id = 'tutorial-swipe-style';
+  style.textContent = `
+    @keyframes tutorialSwipeCustom {
+      0%   { transform: translate(0, 0); }
+      20%  { transform: translate(${dx*0.2}px, ${dy*0.2}px); }
+      40%  { transform: translate(${dx*0.5}px, ${dy*0.4}px); }
+      55%  { transform: translate(${dx*0.85}px, ${dy*0.8}px); }
+      70%  { transform: translate(${dx}px, ${dy}px); }
+      85%  { transform: translate(${dx*0.85}px, ${dy*0.8}px); }
+      100% { transform: translate(0, 0); }
+    }
+  `;
+  document.head.appendChild(style);
+  return style;
+}
+
+function showTutorialStep3() {
+  tutorial.step = 2;
+  clearTimeout(tutorial._timer);
+
+  const bubble = document.getElementById('tutorial-bubble');
+  const text = document.getElementById('tutorial-text');
+  const hint = document.getElementById('tutorial-hint');
+  const hand = document.getElementById('tutorial-hand');
+  const overlay = document.getElementById('tutorial-overlay');
+
+  updateStepDots(2);
+  if (hand) hand.classList.remove('visible', 'swiping');
+
+  bubble.className = 'tutorial-bubble top';
+  text.textContent = '🎉 太棒了！';
+  hint.textContent = '继续连接所有星星完成星座';
+
+  // 2秒后结束教程
+  tutorial._timer = setTimeout(() => {
+    endTutorial();
+  }, 2000);
+}
+
+function endTutorial() {
+  clearTimeout(tutorial._timer);
+  tutorial.active = false;
+  tutorial.step = 0;
+  tutorial.targetEdge = null;
+  tutorial.firstStarPos = null;
+
+  const overlay = document.getElementById('tutorial-overlay');
+  if (overlay) overlay.classList.remove('active');
+
+  const hand = document.getElementById('tutorial-hand');
+  if (hand) hand.classList.remove('visible', 'swiping');
+
+  removeTutorialSkipBtn();
+
+  // 清理动画样式
+  const style = document.getElementById('tutorial-swipe-style');
+  if (style) style.remove();
+
+  markTutorialDone();
+}
+
+function addTutorialSkipBtn() {
+  if (document.getElementById('tutorial-skip-btn')) return;
+  const gameArea = document.getElementById('game-area');
+  if (!gameArea) return;
+  const btn = document.createElement('div');
+  btn.id = 'tutorial-skip-btn';
+  btn.className = 'tutorial-skip';
+  btn.textContent = '跳过';
+  btn.onclick = function(e) {
+    e.stopPropagation();
+    endTutorial();
+  };
+  gameArea.appendChild(btn);
+}
+
+function removeTutorialSkipBtn() {
+  const btn = document.getElementById('tutorial-skip-btn');
+  if (btn) btn.remove();
+}
+
+function updateStepDots(activeIdx) {
+  const dots = document.querySelectorAll('#tutorial-step-dots .tutorial-dot');
+  dots.forEach((d, i) => {
+    d.classList.remove('active', 'done');
+    if (i < activeIdx) d.classList.add('done');
+    if (i === activeIdx) d.classList.add('active');
+  });
+}
+
+function isTutorialStep2() {
+  return tutorial.active && tutorial.step === 1;
+}
+
+/* -------- 成就徽章系统 -------- */
+const BADGES = [
+  // 连线类
+  { id: 'connect_1', name: '初出茅庐', emoji: '🌱', desc: '完成第 1 个星座连线', cat: 'connect', check: () => getExploredIds().length >= 1 },
+  { id: 'connect_10', name: '连线达人', emoji: '🌟', desc: '完成 10 个星座连线', cat: 'connect', check: () => getExploredIds().length >= 10 },
+  { id: 'connect_30', name: '星座大师', emoji: '👑', desc: '完成 30 个星座连线', cat: 'connect', check: () => getExploredIds().length >= 30 },
+  { id: 'connect_88', name: '星空征服者', emoji: '🏆', desc: '完成全部 88 个星座连线', cat: 'connect', check: () => getExploredIds().length >= 88 },
+  // 故事类
+  { id: 'story_1', name: '故事启蒙', emoji: '📖', desc: '听完第 1 个星座故事', cat: 'story', check: () => getStoryListenedCount() >= 1 },
+  { id: 'story_10', name: '故事收藏家', emoji: '📚', desc: '听完 10 个星座故事', cat: 'story', check: () => getStoryListenedCount() >= 10 },
+  // 连击类
+  { id: 'combo_5', name: '一箭双星', emoji: '🎯', desc: '连续正确连线 5 次', cat: 'combo', check: () => getMaxCombo() >= 5 },
+  { id: 'combo_10', name: '连击高手', emoji: '⚡', desc: '连续正确连线 10 次', cat: 'combo', check: () => getMaxCombo() >= 10 },
+  { id: 'perfect', name: '行云流水', emoji: '✨', desc: '一次不错就完成一个星座', cat: 'combo', check: () => getPerfectCount() >= 1 },
+  // 探索类
+  { id: 'explore_sky', name: '星图探索者', emoji: '🔭', desc: '打开过全景星图', cat: 'explore', check: () => localStorage.getItem('xingzhuo_visited_skymap') === 'true' },
+];
+
+function getUnlockedBadgeIds() {
+  try {
+    return JSON.parse(localStorage.getItem('xingzhuo_badges') || '[]');
+  } catch { return []; }
+}
+
+function unlockBadge(badgeId) {
+  const badges = getUnlockedBadgeIds();
+  if (badges.includes(badgeId)) return false;
+  badges.push(badgeId);
+  localStorage.setItem('xingzhuo_badges', JSON.stringify(badges));
+  return true;
+}
+
+function checkAndUnlockBadges() {
+  const unlocked = getUnlockedBadgeIds();
+  let newBadges = [];
+  BADGES.forEach(b => {
+    if (unlocked.includes(b.id)) return;
+    if (b.check()) {
+      if (unlockBadge(b.id)) {
+        newBadges.push(b);
+      }
+    }
+  });
+  return newBadges;
+}
+
+// 即时检测连击徽章（游戏中触发）
+function checkComboBadges() {
+  const unlocked = getUnlockedBadgeIds();
+  const comboBadges = BADGES.filter(b => b.cat === 'combo' && !unlocked.includes(b.id));
+  comboBadges.forEach(b => {
+    if (b.check() && unlockBadge(b.id)) {
+      showBadgeEarned(b);
+    }
+  });
+}
+
+// 故事收听计数
+function markStoryListened(constellationId) {
+  try {
+    const listened = JSON.parse(localStorage.getItem('xingzhuo_stories_listened') || '[]');
+    if (!listened.includes(constellationId)) {
+      listened.push(constellationId);
+      localStorage.setItem('xingzhuo_stories_listened', JSON.stringify(listened));
+    }
+  } catch(e) {}
+}
+
+function getStoryListenedCount() {
+  try {
+    return JSON.parse(localStorage.getItem('xingzhuo_stories_listened') || '[]').length;
+  } catch { return 0; }
+}
+
+// 连击计数
+function getCurrentCombo() {
+  try { return parseInt(localStorage.getItem('xingzhuo_current_combo') || '0', 10); } catch { return 0; }
+}
+
+function setCurrentCombo(n) {
+  localStorage.setItem('xingzhuo_current_combo', n);
+}
+
+function getMaxCombo() {
+  try { return parseInt(localStorage.getItem('xingzhuo_max_combo') || '0', 10); } catch { return 0; }
+}
+
+function incrementCombo() {
+  const c = getCurrentCombo() + 1;
+  setCurrentCombo(c);
+  const max = getMaxCombo();
+  if (c > max) {
+    localStorage.setItem('xingzhuo_max_combo', c);
+  }
+}
+
+function resetCombo() {
+  setCurrentCombo(0);
+}
+
+// 完美通关计数
+function getPerfectCount() {
+  try { return parseInt(localStorage.getItem('xingzhuo_perfect_count') || '0', 10); } catch { return 0; }
+}
+
+function incrementPerfectCount() {
+  const n = getPerfectCount() + 1;
+  localStorage.setItem('xingzhuo_perfect_count', n);
+}
+
+/* -------- 徽章通知 -------- */
+let _badgeQueue = [];
+let _badgeShowing = false;
+
+function showBadgeEarned(badge) {
+  _badgeQueue.push(badge);
+  if (!_badgeShowing) processBadgeQueue();
+}
+
+function processBadgeQueue() {
+  if (_badgeQueue.length === 0) { _badgeShowing = false; return; }
+  _badgeShowing = true;
+  const badge = _badgeQueue.shift();
+
+  // 移除旧通知
+  const existing = document.querySelector('.badge-notification');
+  if (existing) existing.remove();
+
+  const notif = document.createElement('div');
+  notif.className = 'badge-notification';
+  notif.innerHTML = `
+    <div class="badge-popup">
+      <div class="badge-popup-glow"></div>
+      <div class="badge-popup-emoji">${badge.emoji}</div>
+      <div class="badge-popup-title">🏅 新成就解锁！</div>
+      <div class="badge-popup-name">${badge.name}</div>
+      <div class="badge-popup-desc">${badge.desc}</div>
+    </div>
+  `;
+  document.body.appendChild(notif);
+
+  // 播放解锁音效
+  playSound('win');
+  setTimeout(() => playSound('score'), 150);
+
+  // 3秒后自动消失
+  setTimeout(() => {
+    notif.classList.add('badge-fadeout');
+    setTimeout(() => {
+      notif.remove();
+      processBadgeQueue();
+    }, 400);
+  }, 3000);
+
+  // 点击也可关闭
+  notif.onclick = () => {
+    notif.classList.add('badge-fadeout');
+    setTimeout(() => {
+      notif.remove();
+      processBadgeQueue();
+    }, 400);
+  };
+}
+
 function saveCanvasSnapshot() {
   const canvas = document.getElementById('game-canvas');
   if (!canvas) return;
@@ -950,6 +1502,7 @@ function initGameInteraction(c) {
       // 检查是否是正确的连线
       if (isLineInConstellation(dragging, targetIdx)) {
         if (!isLineConnected(dragging, targetIdx)) {
+          state._totalAttempts = (state._totalAttempts || 0) + 1;
           state.gameConnected.push([dragging, targetIdx]);
           state.gameProgress++;
           playSound('correct');
@@ -962,6 +1515,17 @@ function initGameInteraction(c) {
           // 弹出部位标签气泡
           showStarLabel(canvas, targetIdx, c);
 
+          // 连击计数
+          incrementCombo();
+
+          // 即时检测连击类徽章
+          checkComboBadges();
+
+          // 新手引导：第一步正确连接后进入庆祝步骤
+          if (isTutorialStep2()) {
+            showTutorialStep3();
+          }
+
           // 检查是否完成
           if (state.gameProgress >= state.gameTotalEdges) {
             finishGame();
@@ -970,6 +1534,9 @@ function initGameInteraction(c) {
       } else {
         // 错误连线，抖动提示
         playSound('wrong');
+        state._wrongCount = (state._wrongCount || 0) + 1;
+        state._totalAttempts = (state._totalAttempts || 0) + 1;
+        resetCombo();
         shakeCanvas(canvas);
       }
     }
@@ -1009,14 +1576,46 @@ function finishGame() {
   if (state.gameFinished) return;
   state.gameFinished = true;
 
+  // 计算本局数据
+  const duration = state._startTime ? ((Date.now() - state._startTime) / 1000) : 0;
+  const totalAttempts = state._totalAttempts || 0;
+  const wrongCount = state._wrongCount || 0;
+  const accuracy = totalAttempts > 0 ? Math.round(((totalAttempts - wrongCount) / totalAttempts) * 100) : 100;
+  const maxCombo = getMaxCombo();
+
+  // 保存历史记录
+  const c = CONSTELLATION_MAP[state.currentConstellation];
+  saveGameHistory({
+    constId: state.currentConstellation,
+    name: c ? c.name : '未知',
+    difficulty: c ? c.difficulty : 1,
+    duration: duration,
+    accuracy: accuracy,
+    wrongCount: wrongCount,
+    maxCombo: maxCombo,
+    totalEdges: state.gameTotalEdges,
+    timestamp: Date.now(),
+    score: totalAttempts * 20 + 50, // 本局得分（正确连线×20 + 通关奖励50）
+  });
+
   // 标记已探索
   markExplored(state.currentConstellation);
   playSound('win');
   addScore(50); // 通关奖励
   playSound('score');
 
+  // 完美通关检测
+  if (wrongCount === 0) {
+    incrementPerfectCount();
+  }
+
+  // 检测成就徽章
+  setTimeout(() => {
+    const newBadges = checkAndUnlockBadges();
+    newBadges.forEach(b => showBadgeEarned(b));
+  }, 1600);
+
   // 重绘最终连线（自动连完所有线）
-  const c = CONSTELLATION_MAP[state.currentConstellation];
   if (c) {
     c.lines.forEach(([i, j]) => {
       if (!state.gameConnected.some(([a, b]) => (a === i && b === j) || (a === j && b === i))) {
@@ -1024,12 +1623,265 @@ function finishGame() {
       }
     });
 
-    // 先做轮廓淡入动画（1.2秒），再显示成功弹窗
+    // 先做轮廓淡入动画（1.2秒），再显示分析图
     animateSilhouette(c);
-    setTimeout(() => showGameSuccess(), 1400);
+    setTimeout(() => showAnalysisOverlay(c, { duration, accuracy, maxCombo, wrongCount, totalAttempts }), 1400);
   } else {
-    showGameSuccess();
+    showAnalysisOverlay(null, { duration, accuracy, maxCombo, wrongCount, totalAttempts });
   }
+}
+
+/* -------- 游戏历史 -------- */
+function getGameHistory() {
+  try {
+    return JSON.parse(localStorage.getItem('xingzhuo_game_history') || '[]');
+  } catch { return []; }
+}
+
+function saveGameHistory(record) {
+  try {
+    const history = getGameHistory();
+    history.unshift(record);
+    // 最多保留20条
+    if (history.length > 20) history.length = 20;
+    localStorage.setItem('xingzhuo_game_history', JSON.stringify(history));
+  } catch { /* ignore */ }
+}
+
+/* -------- 通关分析图 -------- */
+function showAnalysisOverlay(c, stats) {
+  const canvas = document.getElementById('game-canvas');
+  if (!canvas) return;
+  const parent = canvas.parentElement;
+  let overlay = parent.querySelector('.game-success-overlay');
+  if (!overlay) {
+    overlay = document.createElement('div');
+    overlay.className = 'game-success-overlay';
+    parent.appendChild(overlay);
+  }
+
+  // 计算评分
+  const rating = calcRating(stats.accuracy, stats.maxCombo, stats.wrongCount, stats.totalAttempts, c ? c.difficulty : 1);
+  const history = getGameHistory();
+  const prevBest = history.length > 1 ? getBestRecord(history.slice(1)) : null;
+
+  overlay.innerHTML = `
+    <div class="analysis-card">
+      <div class="analysis-header">
+        <div class="analysis-emoji">${rating.emoji}</div>
+        <div class="analysis-title">${c ? c.name.replace('座', '') : '星座'} · 通关！</div>
+        <div class="analysis-rating ${rating.grade.toLowerCase()}">评级 ${rating.grade}</div>
+      </div>
+
+      <div class="analysis-chart-wrap">
+        <canvas class="analysis-radar" id="analysis-radar" width="200" height="200"></canvas>
+        <div class="analysis-chart-label">能力雷达</div>
+      </div>
+
+      <div class="analysis-stats">
+        <div class="analysis-stat">
+          <div class="analysis-stat-value">${fmtDuration(stats.duration)}</div>
+          <div class="analysis-stat-label">⏱ 耗时</div>
+        </div>
+        <div class="analysis-stat">
+          <div class="analysis-stat-value">${stats.accuracy}%</div>
+          <div class="analysis-stat-label">🎯 准确率</div>
+        </div>
+        <div class="analysis-stat">
+          <div class="analysis-stat-value">${stats.maxCombo}x</div>
+          <div class="analysis-stat-label">🔥 最大连击</div>
+        </div>
+        <div class="analysis-stat">
+          <div class="analysis-stat-value">${stats.wrongCount}</div>
+          <div class="analysis-stat-label">❌ 错误次数</div>
+        </div>
+      </div>
+
+      ${prevBest ? `
+      <div class="analysis-compare">
+        <div class="analysis-compare-title">📊 与历史最佳对比</div>
+        <div class="analysis-compare-row">
+          <span class="compare-label">准确率</span>
+          <span class="compare-this">${stats.accuracy}%</span>
+          <span class="compare-vs">vs</span>
+          <span class="compare-best">${prevBest.accuracy}%</span>
+          <span class="compare-diff ${stats.accuracy >= prevBest.accuracy ? 'up' : 'down'}">${stats.accuracy >= prevBest.accuracy ? '↑' : '↓'}${Math.abs(stats.accuracy - prevBest.accuracy)}%</span>
+        </div>
+        <div class="analysis-compare-row">
+          <span class="compare-label">连击</span>
+          <span class="compare-this">${stats.maxCombo}x</span>
+          <span class="compare-vs">vs</span>
+          <span class="compare-best">${prevBest.maxCombo}x</span>
+          <span class="compare-diff ${stats.maxCombo >= prevBest.maxCombo ? 'up' : 'down'}">${stats.maxCombo >= prevBest.maxCombo ? '↑' : '↓'}${Math.abs(stats.maxCombo - prevBest.maxCombo)}</span>
+        </div>
+      </div>
+      ` : `
+      <div class="analysis-compare">
+        <div class="analysis-compare-title">🎖 首通记录已保存</div>
+        <div class="analysis-compare-hint">继续探索更多星座，解锁历史对比！</div>
+      </div>
+      `}
+
+      <div class="analysis-actions">
+        <button class="analysis-btn retry" id="btn-analysis-retry">🔄 再来一局</button>
+        <button class="analysis-btn detail" id="btn-analysis-detail">📖 查看故事 →</button>
+      </div>
+    </div>
+  `;
+
+  setTimeout(() => overlay.classList.add('show'), 100);
+
+  // 绑定按钮
+  setTimeout(() => {
+    const retryBtn = document.getElementById('btn-analysis-retry');
+    const detailBtn = document.getElementById('btn-analysis-detail');
+    if (retryBtn) retryBtn.onclick = () => {
+      overlay.classList.remove('show');
+      setTimeout(() => initGame(), 400);
+    };
+    if (detailBtn) detailBtn.onclick = () => {
+      overlay.classList.remove('show');
+      setTimeout(() => switchScreen('detail'), 400);
+    };
+
+    // 绘制雷达图
+    drawRadarChart(stats, c);
+  }, 200);
+
+  // 不自动消失（用户自己选择）
+}
+
+function calcRating(accuracy, maxCombo, wrongCount, totalAttempts, difficulty) {
+  // 综合评分：准确率权重50% + 连击权重25% + 错误权重15% + 难度加成10%
+  const comboRatio = totalAttempts > 0 ? Math.min(maxCombo / totalAttempts, 1) : 1;
+  let score = accuracy * 0.5 + comboRatio * 100 * 0.25 + (wrongCount === 0 ? 100 : Math.max(0, 100 - wrongCount * 15)) * 0.15 + difficulty * 10;
+
+  if (score >= 95) return { grade: 'S', emoji: '👑' };
+  if (score >= 85) return { grade: 'A', emoji: '🌟' };
+  if (score >= 70) return { grade: 'B', emoji: '✨' };
+  if (score >= 50) return { grade: 'C', emoji: '👍' };
+  return { grade: 'D', emoji: '💪' };
+}
+
+function getBestRecord(history) {
+  if (!history.length) return null;
+  return history.reduce((best, r) => r.accuracy > best.accuracy ? r : best, history[0]);
+}
+
+function fmtDuration(seconds) {
+  if (seconds < 60) return Math.round(seconds) + 's';
+  const m = Math.floor(seconds / 60);
+  const s = Math.round(seconds % 60);
+  return m + 'm' + s + 's';
+}
+
+/* -------- 雷达图绘制 -------- */
+function drawRadarChart(stats, c) {
+  const canvas = document.getElementById('analysis-radar');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const dpr = window.devicePixelRatio || 1;
+  const w = 200, h = 200;
+  canvas.width = w * dpr;
+  canvas.height = h * dpr;
+  canvas.style.width = w + 'px';
+  canvas.style.height = h + 'px';
+  ctx.scale(dpr, dpr);
+
+  const cx = w / 2, cy = h / 2;
+  const radius = 70;
+  const levels = 5;
+  const angles = 5; // 5 个维度
+
+  // 维度定义
+  const dims = [
+    { key: 'speed', label: '速度', value: calcSpeedScore(stats.duration, c ? c.difficulty : 1) },
+    { key: 'accuracy', label: '准确', value: stats.accuracy },
+    { key: 'combo', label: '连击', value: Math.min(stats.maxCombo * 20, 100) },
+    { key: 'perfection', label: '完美', value: stats.wrongCount === 0 ? 100 : Math.max(0, 100 - stats.wrongCount * 20) },
+    { key: 'efficiency', label: '效率', value: stats.totalAttempts > 0 ? Math.min((stats.totalAttempts - stats.wrongCount) / Math.max(stats.totalAttempts, 1) * 100, 100) : 100 },
+  ];
+
+  // 背景网格
+  for (let l = 1; l <= levels; l++) {
+    ctx.beginPath();
+    const r = (radius / levels) * l;
+    for (let i = 0; i <= angles; i++) {
+      const angle = (Math.PI * 2 / angles) * i - Math.PI / 2;
+      const x = cx + Math.cos(angle) * r;
+      const y = cy + Math.sin(angle) * r;
+      if (i === 0) ctx.moveTo(x, y);
+      else ctx.lineTo(x, y);
+    }
+    ctx.closePath();
+    ctx.strokeStyle = 'rgba(139, 92, 246, 0.15)';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+  }
+
+  // 轴线
+  for (let i = 0; i < angles; i++) {
+    const angle = (Math.PI * 2 / angles) * i - Math.PI / 2;
+    ctx.beginPath();
+    ctx.moveTo(cx, cy);
+    ctx.lineTo(cx + Math.cos(angle) * radius, cy + Math.sin(angle) * radius);
+    ctx.strokeStyle = 'rgba(139, 92, 246, 0.2)';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+  }
+
+  // 数据区域
+  ctx.beginPath();
+  for (let i = 0; i < dims.length; i++) {
+    const angle = (Math.PI * 2 / angles) * i - Math.PI / 2;
+    const r = (dims[i].value / 100) * radius;
+    const x = cx + Math.cos(angle) * r;
+    const y = cy + Math.sin(angle) * r;
+    if (i === 0) ctx.moveTo(x, y);
+    else ctx.lineTo(x, y);
+  }
+  ctx.closePath();
+  ctx.fillStyle = 'rgba(139, 92, 246, 0.2)';
+  ctx.fill();
+  ctx.strokeStyle = '#A78BFA';
+  ctx.lineWidth = 2;
+  ctx.stroke();
+
+  // 数据点
+  for (let i = 0; i < dims.length; i++) {
+    const angle = (Math.PI * 2 / angles) * i - Math.PI / 2;
+    const r = (dims[i].value / 100) * radius;
+    const x = cx + Math.cos(angle) * r;
+    const y = cy + Math.sin(angle) * r;
+    ctx.beginPath();
+    ctx.arc(x, y, 4, 0, Math.PI * 2);
+    ctx.fillStyle = '#C4B5FD';
+    ctx.fill();
+    ctx.strokeStyle = '#fff';
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+  }
+
+  // 标签
+  ctx.fillStyle = '#A5B4FC';
+  ctx.font = '10px "Fredoka", sans-serif';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  for (let i = 0; i < dims.length; i++) {
+    const angle = (Math.PI * 2 / angles) * i - Math.PI / 2;
+    const labelR = radius + 16;
+    const x = cx + Math.cos(angle) * labelR;
+    const y = cy + Math.sin(angle) * labelR;
+    ctx.fillText(dims[i].label, x, y);
+  }
+}
+
+function calcSpeedScore(duration, difficulty) {
+  // 根据难度调整基准时间：★=30s, ★★=45s, ★★★=60s, ★★★★=90s
+  const base = 20 + difficulty * 15;
+  if (duration <= 0) return 100;
+  const ratio = base / Math.max(duration, 1);
+  return Math.min(Math.round(ratio * 100), 100);
 }
 
 /* -------- Toast 提示 -------- */
@@ -1053,33 +1905,6 @@ function showToast(msg, duration = 2000) {
   toast.style.opacity = '1';
   clearTimeout(toast._timer);
   toast._timer = setTimeout(() => { toast.style.opacity = '0'; }, duration);
-}
-
-function showGameSuccess() {
-  const canvas = document.getElementById('game-canvas');
-  if (!canvas) return;
-  const c = CONSTELLATION_MAP[state.currentConstellation];
-  const parent = canvas.parentElement;
-  let overlay = parent.querySelector('.game-success-overlay');
-  if (!overlay) {
-    overlay = document.createElement('div');
-    overlay.className = 'game-success-overlay';
-    parent.appendChild(overlay);
-  }
-  overlay.innerHTML = `
-    <div class="game-success-emoji">🎉</div>
-    <div class="game-success-text">太棒了！</div>
-    <div class="game-success-subtext">${c ? c.name.replace('座','') : '星座'}出现啦 ✨</div>
-    <div class="game-success-score">+50 分！</div>
-    <button class="game-success-btn" onclick="this.closest('.game-success-overlay').classList.remove('show'); setTimeout(()=>switchScreen('detail'),400);">继续探索 →</button>
-  `;
-  setTimeout(() => overlay.classList.add('show'), 100);
-
-  // 5秒后自动消失并跳转
-  setTimeout(() => {
-    overlay.classList.remove('show');
-    setTimeout(() => switchScreen('detail'), 500);
-  }, 5000);
 }
 
 function shakeCanvas(canvas) {
@@ -1371,6 +2196,9 @@ function renderAchievement() {
   const achieved = getExploredIds();
   document.getElementById('achievement-count').textContent = `${achieved.length} / ${CONSTELLATIONS.length}`;
 
+  // 徽章区域
+  renderBadgeSection();
+
   // 按难度分组渲染已解锁
   const tiersEl = document.getElementById('achieved-tiers');
   if (tiersEl) {
@@ -1425,6 +2253,51 @@ function renderAchievementGrid(containerId, list, isUnlocked) {
       };
     }
     container.appendChild(card);
+  });
+}
+
+/* -------- 徽章渲染 -------- */
+function renderBadgeSection() {
+  const tiersEl = document.getElementById('achieved-tiers');
+  if (!tiersEl) return;
+  const parent = tiersEl.parentElement;
+
+  // 移除旧徽章区域
+  const existing = document.getElementById('badge-section-wrap');
+  if (existing) existing.remove();
+
+  const wrapper = document.createElement('div');
+  wrapper.id = 'badge-section-wrap';
+  wrapper.className = 'badge-section';
+
+  const unlocked = getUnlockedBadgeIds();
+  wrapper.innerHTML = `
+    <div class="badge-section-title">🏅 成就徽章 <span style="font-size:13px;color:var(--text-secondary);font-weight:400">${unlocked.length}/${BADGES.length}</span></div>
+    <div class="badge-grid" id="badge-grid"></div>
+  `;
+
+  // 插入到图鉴页最上方（进度区域之后）
+  const progressOverview = document.querySelector('.progress-overview');
+  if (progressOverview) {
+    progressOverview.after(wrapper);
+  } else {
+    parent.prepend(wrapper);
+  }
+
+  // 渲染每个徽章
+  const grid = document.getElementById('badge-grid');
+  if (!grid) return;
+  BADGES.forEach(b => {
+    const card = document.createElement('div');
+    const isUnlocked = unlocked.includes(b.id);
+    card.className = `badge-card ${isUnlocked ? 'unlocked' : 'locked'}`;
+    card.innerHTML = `
+      <div class="badge-card-emoji">${b.emoji}</div>
+      <div class="badge-card-name">${b.name}</div>
+      <div class="badge-card-desc">${b.desc}</div>
+      ${isUnlocked ? '' : '<div class="badge-lock">🔒</div>'}
+    `;
+    grid.appendChild(card);
   });
 }
 
@@ -1575,6 +2448,9 @@ const GROUP_COLORS = {
 };
 
 function initSkyMap() {
+  // 标记星图已访问
+  localStorage.setItem('xingzhuo_visited_skymap', 'true');
+
   const container = document.getElementById('sky-map-container');
   const canvas = document.getElementById('sky-map-canvas');
   if (!container || !canvas) return;

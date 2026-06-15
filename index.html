@@ -49,8 +49,50 @@
       <div class="search-wrap">
         <div class="search-box">
           <span class="search-icon">🔍</span>
-          <input type="text" class="search-input" id="search-input" placeholder="搜索星座...">
+          <input type="text" class="search-input" id="search-input" placeholder="搜索星座..." autocomplete="off">
         </div>
+      </div>
+
+      <!-- 筛选栏 -->
+      <div class="filter-bar" id="filter-bar">
+        <div class="filter-row" id="filter-difficulty">
+          <span class="filter-label">难度</span>
+          <span class="filter-chip active" data-key="diff" data-val="all">全部</span>
+          <span class="filter-chip" data-key="diff" data-val="1">★</span>
+          <span class="filter-chip" data-key="diff" data-val="2">★★</span>
+          <span class="filter-chip" data-key="diff" data-val="3">★★★</span>
+          <span class="filter-chip" data-key="diff" data-val="4">★★★★</span>
+        </div>
+        <div class="filter-row" id="filter-season">
+          <span class="filter-label">季节</span>
+          <span class="filter-chip active" data-key="season" data-val="all">全部</span>
+          <span class="filter-chip" data-key="season" data-val="spring">🌸春</span>
+          <span class="filter-chip" data-key="season" data-val="summer">☀️夏</span>
+          <span class="filter-chip" data-key="season" data-val="autumn">🍂秋</span>
+          <span class="filter-chip" data-key="season" data-val="winter">❄️冬</span>
+          <span class="filter-chip" data-key="season" data-val="polar">⭐拱极</span>
+          <span class="filter-chip" data-key="season" data-val="southern">🌏南天</span>
+        </div>
+        <div class="filter-row" id="filter-status">
+          <span class="filter-label">状态</span>
+          <span class="filter-chip active" data-key="status" data-val="all">全部</span>
+          <span class="filter-chip" data-key="status" data-val="unlocked">✅已解锁</span>
+          <span class="filter-chip" data-key="status" data-val="locked">🔒未解锁</span>
+          <span class="filter-chip" data-key="status" data-val="explored">⭐已探索</span>
+        </div>
+        <div class="filter-row filter-sort-row">
+          <span class="filter-label">排序</span>
+          <span class="filter-chip active" data-key="sort" data-val="default">默认</span>
+          <span class="filter-chip" data-key="sort" data-val="name-asc">名称 A→Z</span>
+          <span class="filter-chip" data-key="sort" data-val="name-desc">名称 Z→A</span>
+          <span class="filter-chip" data-key="sort" data-val="diff-asc">难度低→高</span>
+          <span class="filter-chip" data-key="sort" data-val="diff-desc">难度高→低</span>
+        </div>
+      </div>
+
+      <!-- 搜索结果提示 -->
+      <div class="search-result-info" id="search-result-info" style="display:none;">
+        <span id="result-count-text"></span>
       </div>
 
       <div class="featured-section">
@@ -163,6 +205,30 @@
       </div>
 
       <div class="game-complete-btn" id="btn-game-complete">✅ 完成连线</div>
+
+      <!-- ====== 新手引导遮罩 ====== -->
+      <div class="tutorial-overlay" id="tutorial-overlay">
+        <div class="tutorial-mask"></div>
+        <div class="tutorial-bubble" id="tutorial-bubble">
+          <div class="tutorial-bubble-arrow"></div>
+          <div class="tutorial-bubble-step" id="tutorial-step-dots">
+            <span class="tutorial-dot active"></span>
+            <span class="tutorial-dot"></span>
+            <span class="tutorial-dot"></span>
+          </div>
+          <div class="tutorial-bubble-text" id="tutorial-text"></div>
+          <div class="tutorial-bubble-hint" id="tutorial-hint"></div>
+        </div>
+        <div class="tutorial-hand" id="tutorial-hand">
+          <svg viewBox="0 0 60 60" class="tutorial-hand-svg">
+            <circle cx="30" cy="30" r="18" fill="rgba(139,92,246,0.25)" stroke="rgba(139,92,246,0.6)" stroke-width="2.5">
+              <animate attributeName="r" values="16;20;16" dur="1.5s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" values="1;0.4;1" dur="1.5s" repeatCount="indefinite"/>
+            </circle>
+            <text x="30" y="36" text-anchor="middle" font-size="22">👆</text>
+          </svg>
+        </div>
+      </div>
     </div>
 
     <!-- ========== 屏幕5：星座图鉴 / 成就收集 ========== -->
