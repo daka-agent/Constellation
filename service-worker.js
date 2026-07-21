@@ -3,7 +3,7 @@
  * 离线缓存策略：Cache First（优先缓存，离线可用）
  * 版本号变更时会自动更新缓存
  */
-const CACHE_NAME = 'xingzhuo-v2.1.0';
+const CACHE_NAME = 'xingzhuo-v2.2.0';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',

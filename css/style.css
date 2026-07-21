@@ -171,7 +171,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: var(--space-3xl) var(--space-lg);
+  padding: var(--space-xl) var(--space-lg) var(--space-lg);
   background: linear-gradient(180deg, #0F0F23 0%, #1E0D47 40%, #0F0F23 100%);
   text-align: center;
   flex-shrink: 0;
@@ -180,14 +180,14 @@ body {
 .hero-title {
   font-family: var(--font-heading);
   font-weight: 800;
-  font-size: 32px;
+  font-size: 26px;
   line-height: 1.2;
   color: var(--text-primary);
-  margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-xs);
 }
 
 .hero-subtitle {
-  font-size: 14px;
+  font-size: 13px;
   color: var(--text-secondary);
   line-height: 1.4;
 }
@@ -205,18 +205,19 @@ body {
   gap: var(--space-sm);
   background: var(--bg-card);
   border-radius: 24px;
-  padding: 12px var(--space-lg);
-  height: 48px;
+  padding: 10px 12px 10px 16px;
+  height: 44px;
   box-shadow: var(--shadow-clay-2);
 }
 
 .search-icon {
-  font-size: 16px;
+  font-size: 14px;
   flex-shrink: 0;
 }
 
 .search-input {
   flex: 1;
+  min-width: 0;
   background: none;
   border: none;
   outline: none;
@@ -229,6 +230,26 @@ body {
   color: var(--text-secondary);
 }
 
+/* 筛选折叠按钮 */
+.filter-toggle {
+  flex-shrink: 0;
+  padding: 4px 12px;
+  border-radius: 14px;
+  background: rgba(139, 92, 246, 0.2);
+  color: var(--primary-light);
+  font-size: 12px;
+  font-weight: 600;
+  font-family: var(--font-body);
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: all 0.2s;
+}
+.filter-toggle.active {
+  background: var(--primary);
+  color: #fff;
+}
+
 /* 搜索输入清除按钮 */
 .search-input::-webkit-search-cancel-button {
   -webkit-appearance: none;
@@ -238,11 +259,21 @@ body {
   cursor: pointer;
 }
 
-/* 筛选栏 */
+/* 筛选栏（可折叠） */
 .filter-bar {
   padding: 0 var(--space-lg);
   margin-top: var(--space-sm);
   flex-shrink: 0;
+  max-height: 500px;
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.2s ease, margin 0.2s ease;
+}
+
+.filter-bar.collapsed {
+  max-height: 0;
+  opacity: 0;
+  margin-top: 0;
+  pointer-events: none;
 }
 
 .filter-row {
@@ -341,22 +372,68 @@ body {
 .section-title {
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 18px;
+  font-size: 16px;
   color: var(--text-primary);
-  padding: var(--space-lg) var(--space-lg) var(--space-sm);
+  padding: var(--space-md) var(--space-lg) var(--space-xs);
   flex-shrink: 0;
 }
 
-/* 精选星座卡片行 */
+/* 精选星座卡片行 — 横向滚动 */
 .featured-section {
   flex-shrink: 0;
 }
 
-.card-row {
+.card-row-scroll {
   display: flex;
-  gap: var(--space-md);
+  gap: 10px;
   padding: 0 var(--space-lg);
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-sm);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.card-row-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* 精选卡片 — 横向滚动小卡 */
+.featured-card {
+  flex-shrink: 0;
+  width: 130px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  height: 100px;
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  padding: 10px;
+  cursor: pointer;
+  transition: transform var(--transition-fast);
+  box-shadow: var(--shadow-clay-1);
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.featured-card:active {
+  transform: scale(0.95);
+}
+.featured-card .card-name {
+  font-size: 13px;
+}
+.featured-card .card-count {
+  font-size: 10px;
+}
+
+.featured-card.locked {
+  opacity: 0.5;
+  filter: grayscale(0.5);
+}
+.featured-card.explored {
+  border: 1px solid rgba(139, 92, 246, 0.3);
+}
+.featured-card.explored .card-name {
+  color: var(--primary-light);
 }
 
 /* 星座卡片（首页 & 图鉴通用） */
@@ -408,8 +485,8 @@ body {
 
 .constellation-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-md);
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
   padding: 0 var(--space-lg);
 }
 
@@ -418,19 +495,44 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 4px;
-  height: 80px;
+  gap: 3px;
+  height: 72px;
   background: var(--bg-card);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
   cursor: pointer;
   transition: transform var(--transition-fast), background var(--transition-fast);
   user-select: none;
   -webkit-tap-highlight-color: transparent;
+  position: relative;
+  overflow: hidden;
 }
 
 .grid-card:active {
   transform: scale(0.95);
-  background: var(--primary);
+  background: rgba(139, 92, 246, 0.2);
+}
+
+.grid-card .card-name {
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.grid-card .card-difficulty {
+  margin-top: 0;
+  gap: 2px;
+}
+
+.grid-card .difficulty-stars {
+  font-size: 8px;
+  letter-spacing: 0.5px;
+}
+
+.grid-card .difficulty-label {
+  display: none;
+}
+
+.grid-card .card-lock-hint {
+  display: none;
 }
 
 .grid-card .card-star {
@@ -455,6 +557,14 @@ body {
 .constellation-card.locked .card-name,
 .grid-card.locked .card-name {
   color: var(--text-locked);
+}
+
+/* 已探索卡片 — 网格中的微妙高亮 */
+.grid-card.explored {
+  border-left: 3px solid var(--primary);
+}
+.grid-card.explored .card-name {
+  color: var(--primary-light);
 }
 
 /* =============================================
@@ -1241,9 +1351,10 @@ body {
 
 /* 超小屏幕适配 */
 @media (max-width: 360px) {
-  .hero-title { font-size: 26px; }
+  .hero-title { font-size: 22px; }
   .constellation-card { height: 120px; padding: 12px; }
-  .card-star { font-size: 26px; }
+  .constellation-grid { grid-template-columns: repeat(2, 1fr); }
+  .grid-card { height: 68px; }
 }
 
 /* 横屏适配 */
@@ -1276,7 +1387,7 @@ body {
    难度进度指示器（首页）
    ============================================= */
 .progress-section {
-  padding: 12px 16px 4px;
+  padding: 8px 16px 2px;
 }
 
 .progress-tiers {
@@ -1289,10 +1400,10 @@ body {
 .progress-tier {
   display: flex;
   align-items: center;
-  gap: 4px;
-  padding: 6px 12px;
-  border-radius: 20px;
-  font-size: 12px;
+  gap: 3px;
+  padding: 4px 10px;
+  border-radius: 16px;
+  font-size: 11px;
   font-family: 'Fredoka', sans-serif;
   font-weight: 600;
 }
@@ -1485,13 +1596,13 @@ body {
    ============================================= */
 .sky-map-entry {
   display: inline-block;
-  margin-top: 12px;
-  padding: 8px 20px;
+  margin-top: 10px;
+  padding: 6px 18px;
   background: linear-gradient(135deg, rgba(99,102,241,0.6), rgba(139,92,246,0.4));
   border: 1px solid rgba(139,92,246,0.3);
   border-radius: var(--radius-full);
   color: #fff;
-  font-size: 14px;
+  font-size: 13px;
   font-family: var(--font-body);
   cursor: pointer;
   transition: all 0.3s ease;

@@ -71,16 +71,68 @@ function initNav() {
 
 /* -------- 首页渲染 -------- */
 function renderHome() {
-  // 精选星座（前4个）
-  const featured = CONSTELLATIONS.slice(0, 4);
-  renderCardRow('featured-row1', featured.slice(0, 2));
-  renderCardRow('featured-row2', featured.slice(2, 4));
+  // 精选星座（前6个，横向滚动）
+  const featured = CONSTELLATIONS.slice(0, 6);
+  renderFeaturedScroll(featured);
 
   // 搜索 & 筛选（内部会渲染星座网格）
   initSearch();
+  initFilterToggle();
 
   // 渲染难度进度指示器
   renderProgressTiers();
+}
+
+function renderFeaturedScroll(constellations) {
+  const container = document.getElementById('featured-scroll');
+  if (!container) return;
+  container.innerHTML = '';
+  constellations.forEach(c => {
+    const unlocked = isConstellationUnlocked(c.id);
+    const explored = isExplored(c.id);
+    const locked = !unlocked;
+    const card = document.createElement('div');
+    card.className = `featured-card ${locked ? 'locked' : ''} ${explored ? 'explored' : ''}`;
+    card.innerHTML = `
+      <div class="card-name">${c.name}</div>
+      <div class="card-difficulty">
+        ${locked ? '<span class="card-lock-icon">🔒</span>' : (explored ? '<span class="card-explored-icon">⭐</span>' : '')}
+        <span class="difficulty-stars">${getDifficultyStars(c.difficulty)}</span>
+      </div>
+      <div class="card-count">${c.starsCount}颗星</div>
+    `;
+    if (locked) {
+      card.addEventListener('click', () => {
+        playSound('wrong');
+        showToast(getLockHint(c.difficulty));
+      });
+    } else {
+      card.addEventListener('click', () => {
+        state.currentConstellation = c.id;
+        playSound('click');
+        switchScreen('detail');
+      });
+    }
+    container.appendChild(card);
+  });
+}
+
+function initFilterToggle() {
+  const toggle = document.getElementById('filter-toggle');
+  const bar = document.getElementById('filter-bar');
+  if (!toggle || !bar) return;
+  toggle.addEventListener('click', () => {
+    const isCollapsed = bar.classList.contains('collapsed');
+    if (isCollapsed) {
+      bar.classList.remove('collapsed');
+      toggle.classList.add('active');
+      toggle.textContent = '收起';
+    } else {
+      bar.classList.add('collapsed');
+      toggle.classList.remove('active');
+      toggle.textContent = '筛选';
+    }
+  });
 }
 
 function renderProgressTiers() {

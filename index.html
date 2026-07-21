@@ -50,11 +50,12 @@
         <div class="search-box">
           <span class="search-icon">🔍</span>
           <input type="text" class="search-input" id="search-input" placeholder="搜索星座..." autocomplete="off">
+          <span class="filter-toggle" id="filter-toggle">筛选</span>
         </div>
       </div>
 
-      <!-- 筛选栏 -->
-      <div class="filter-bar" id="filter-bar">
+      <!-- 筛选栏（可折叠） -->
+      <div class="filter-bar collapsed" id="filter-bar">
         <div class="filter-row" id="filter-difficulty">
           <span class="filter-label">难度</span>
           <span class="filter-chip active" data-key="diff" data-val="all">全部</span>
@@ -97,8 +98,7 @@
 
       <div class="featured-section">
         <h2 class="section-title">✨ 精选星座</h2>
-        <div class="card-row" id="featured-row1"></div>
-        <div class="card-row" id="featured-row2"></div>
+        <div class="card-row-scroll" id="featured-scroll"></div>
       </div>
 
       <div class="all-constellations-section">
@@ -300,7 +300,7 @@
         </div>
         <div class="settings-divider"></div>
         <div class="settings-info">
-          <div class="settings-version">星座探索 v2.1.0</div>
+          <div class="settings-version">星座探索 v2.2.0</div>
           <div class="settings-desc">基于 HYG v4.1 真实天文数据</div>
         </div>
       </div>
