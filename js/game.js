@@ -518,10 +518,81 @@ function ensureVoicesLoaded() {
   });
 }
 
+/* 检测是否为微信内置浏览器 */
+function isWeChatBrowser() {
+  const ua = navigator.userAgent || '';
+  return /micromessenger/i.test(ua);
+}
+
+/* 显示微信浏览器提示弹窗 */
+function showWeChatTtsPrompt() {
+  // 移除旧弹窗
+  const existing = document.querySelector('.wechat-tts-prompt');
+  if (existing) existing.remove();
+
+  const overlay = document.createElement('div');
+  overlay.className = 'wechat-tts-prompt';
+  overlay.innerHTML = `
+    <div class="wechat-tts-popup">
+      <div class="wechat-tts-icon">📢</div>
+      <div class="wechat-tts-title">暂不支持语音朗读</div>
+      <div class="wechat-tts-desc">
+        微信内置浏览器暂不支持语音朗读功能。<br>
+        请点击右上角 <b>「···」</b> → <b>「在浏览器中打开」</b>，<br>
+        即可畅听88个星座神话故事～
+      </div>
+      <div class="wechat-tts-actions">
+        <button class="wechat-tts-btn copy-btn" onclick="copyPageUrl()">📋 复制链接</button>
+        <button class="wechat-tts-btn close-btn" onclick="closeWeChatTtsPrompt()">知道了</button>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(overlay);
+  // 点击遮罩层关闭
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) closeWeChatTtsPrompt();
+  });
+}
+
+/* 复制当前页面链接 */
+function copyPageUrl() {
+  const url = window.location.href;
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(url).then(() => {
+      showToast('链接已复制，请在浏览器中打开');
+    }).catch(() => {
+      fallbackCopy(url);
+    });
+  } else {
+    fallbackCopy(url);
+  }
+}
+
+function fallbackCopy(text) {
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.cssText = 'position:fixed;left:-9999px';
+  document.body.appendChild(ta);
+  ta.select();
+  try { document.execCommand('copy'); showToast('链接已复制，请在浏览器中打开'); }
+  catch (e) { showToast('请手动复制地址栏链接'); }
+  document.body.removeChild(ta);
+}
+
+/* 关闭微信提示弹窗 */
+function closeWeChatTtsPrompt() {
+  const el = document.querySelector('.wechat-tts-prompt');
+  if (el) el.remove();
+}
+
 async function toggleStoryAudio() {
   // 检查浏览器是否支持语音合成
   if (!window.speechSynthesis) {
-    showToast('您的浏览器不支持语音朗读功能');
+    if (isWeChatBrowser()) {
+      showWeChatTtsPrompt();
+    } else {
+      showToast('您的浏览器不支持语音朗读功能');
+    }
     return;
   }
   await ensureVoicesLoaded();

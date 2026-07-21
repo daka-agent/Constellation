@@ -1879,6 +1879,79 @@ body {
   color: rgba(255,255,255,0.6);
 }
 
+/* WeChat TTS 提示弹窗 */
+.wechat-tts-prompt {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.65);
+  animation: badgeFadeIn 0.3s ease-out;
+}
+.wechat-tts-popup {
+  position: relative;
+  background: linear-gradient(160deg, #1a1a3e, #2a1a4e);
+  border: 1.5px solid rgba(138,107,255,0.35);
+  border-radius: 20px;
+  padding: 32px 28px 24px;
+  text-align: center;
+  max-width: 300px;
+  width: 85%;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+  animation: bounceIn 0.45s ease-out;
+}
+.wechat-tts-icon {
+  font-size: 48px;
+  margin-bottom: 14px;
+}
+.wechat-tts-title {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  color: #ffd700;
+  margin-bottom: 14px;
+  font-weight: 700;
+}
+.wechat-tts-desc {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.8;
+  margin-bottom: 22px;
+}
+.wechat-tts-desc b {
+  color: #ffd700;
+  font-weight: 600;
+}
+.wechat-tts-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+.wechat-tts-btn {
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-family: var(--font-heading);
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.wechat-tts-btn:active {
+  transform: scale(0.95);
+}
+.wechat-tts-btn.copy-btn {
+  background: linear-gradient(135deg, #8a6bff, #6b4cff);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(138,107,255,0.35);
+}
+.wechat-tts-btn.close-btn {
+  background: rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.7);
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
 /* 图鉴页徽章区域 */
 .badge-section {
   padding: 0 var(--space-lg) var(--space-lg);
