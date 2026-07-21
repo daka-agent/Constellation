@@ -270,6 +270,43 @@
     </div>
   </div>
 
+  <!-- ========== 设置弹窗 ========== -->
+  <div class="settings-overlay" id="settings-overlay" style="display:none;">
+    <div class="settings-panel">
+      <div class="settings-header">
+        <span class="settings-icon">⚙️</span>
+        <span class="settings-title">设置</span>
+        <button class="settings-close" onclick="hideSettings()">✕</button>
+      </div>
+      <div class="settings-body">
+        <div class="settings-row">
+          <span class="settings-label">🔊 游戏音效</span>
+          <label class="settings-toggle">
+            <input type="checkbox" id="settings-sound" checked onchange="toggleSoundSetting(this)">
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+        <div class="settings-row">
+          <span class="settings-label">📖 朗读语音</span>
+          <label class="settings-toggle">
+            <input type="checkbox" id="settings-tts" checked onchange="toggleTtsSetting(this)">
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+        <div class="settings-divider"></div>
+        <div class="settings-row">
+          <span class="settings-label">🔄 重置游戏进度</span>
+          <button class="settings-btn-danger" onclick="confirmResetProgress()">重置</button>
+        </div>
+        <div class="settings-divider"></div>
+        <div class="settings-info">
+          <div class="settings-version">星座探索 v2.1.0</div>
+          <div class="settings-desc">基于 HYG v4.1 真实天文数据</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="js/data.js"></script>
   <script src="js/game.js"></script>
 

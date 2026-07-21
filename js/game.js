@@ -595,6 +595,11 @@ async function toggleStoryAudio() {
     }
     return;
   }
+  // TTS 开关检查
+  if (localStorage.getItem('xingzhuo_tts_off') === 'true') {
+    showToast('语音朗读已关闭，请在设置中开启');
+    return;
+  }
   await ensureVoicesLoaded();
 
   if (state.ttsSpeaking && !state.ttsPaused) {
@@ -2151,6 +2156,8 @@ function getAudioContext() {
 }
 
 function playSound(type) {
+  // 音效开关检查
+  if (localStorage.getItem('xingzhuo_sound_off') === 'true') return;
   try {
     const ctx = getAudioContext();
     const t = ctx.currentTime;
@@ -2390,10 +2397,61 @@ function initBackButtons() {
   ];
   ids.forEach(([btnId, target]) => {
     const btn = document.getElementById(btnId);
-    if (btn && target) {
+    if (!btn) return;
+    if (btnId === 'btn-settings') {
+      btn.onclick = () => { playSound('click'); showSettings(); };
+    } else if (target) {
       btn.onclick = () => switchScreen(target);
     }
   });
+}
+
+/* -------- 设置面板 -------- */
+function showSettings() {
+  const overlay = document.getElementById('settings-overlay');
+  if (!overlay) return;
+  overlay.style.display = 'flex';
+  // 同步开关状态
+  const soundCb = document.getElementById('settings-sound');
+  const ttsCb = document.getElementById('settings-tts');
+  if (soundCb) soundCb.checked = localStorage.getItem('xingzhuo_sound_off') !== 'true';
+  if (ttsCb) ttsCb.checked = localStorage.getItem('xingzhuo_tts_off') !== 'true';
+}
+
+function hideSettings() {
+  const overlay = document.getElementById('settings-overlay');
+  if (overlay) overlay.style.display = 'none';
+}
+
+function toggleSoundSetting(cb) {
+  localStorage.setItem('xingzhuo_sound_off', cb.checked ? 'false' : 'true');
+}
+
+function toggleTtsSetting(cb) {
+  localStorage.setItem('xingzhuo_tts_off', cb.checked ? 'false' : 'true');
+}
+
+function confirmResetProgress() {
+  if (!confirm('确定要重置所有游戏进度吗？\n这将清除已完成的星座、成就和徽章记录。')) return;
+  // 清除所有本地存储的游戏数据
+  const keysToRemove = [
+    'xingzhuo_completed',
+    'xingzhuo_stories_listened',
+    'xingzhuo_badges',
+    'xingzhuo_game_history',
+    'xingzhuo_max_combo',
+    'xingzhuo_perfect_count',
+    'xingzhuo_tutorial_done',
+    'xingzhuo_visited_skymap',
+    'xingzhuo_sound_off',
+    'xingzhuo_tts_off',
+    'xingzhuo_pwa_dismissed'
+  ];
+  keysToRemove.forEach(k => localStorage.removeItem(k));
+  showToast('游戏进度已重置');
+  hideSettings();
+  // 刷新页面以重新初始化
+  setTimeout(() => window.location.reload(), 800);
 }
 
 /* -------- 星图全景 -------- */

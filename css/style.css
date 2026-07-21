@@ -2029,3 +2029,155 @@ body {
   font-size: 11px;
   opacity: 0.4;
 }
+
+/* ========== 设置弹窗 ========== */
+.settings-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 10001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.6);
+  animation: badgeFadeIn 0.25s ease-out;
+}
+.settings-panel {
+  background: linear-gradient(160deg, #1e1145, #2d1b69);
+  border: 1.5px solid rgba(138,107,255,0.25);
+  border-radius: 20px;
+  width: 86%;
+  max-width: 340px;
+  box-shadow: 0 12px 50px rgba(0,0,0,0.5);
+  animation: badgeBounceIn 0.4s cubic-bezier(0.34,1.56,0.64,1);
+  overflow: hidden;
+}
+.settings-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 20px 14px;
+  position: relative;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.settings-icon {
+  font-size: 20px;
+  margin-right: 8px;
+}
+.settings-title {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+.settings-close {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  border: none;
+  color: rgba(255,255,255,0.5);
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+.settings-close:active {
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+}
+.settings-body {
+  padding: 10px 20px 20px;
+}
+.settings-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+}
+.settings-label {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: rgba(255,255,255,0.85);
+}
+.settings-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.06);
+  margin: 4px 0;
+}
+.settings-info {
+  text-align: center;
+  padding-top: 12px;
+}
+.settings-version {
+  font-family: var(--font-heading);
+  font-size: 13px;
+  color: rgba(255,255,255,0.4);
+}
+.settings-desc {
+  font-family: var(--font-body);
+  font-size: 11px;
+  color: rgba(255,255,255,0.25);
+  margin-top: 4px;
+}
+
+/* Toggle 开关 */
+.settings-toggle {
+  position: relative;
+  display: inline-block;
+  width: 46px;
+  height: 26px;
+  cursor: pointer;
+}
+.settings-toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.toggle-slider {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(255,255,255,0.15);
+  border-radius: 26px;
+  transition: background 0.3s;
+}
+.toggle-slider::before {
+  content: '';
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  bottom: 3px;
+  background: #fff;
+  border-radius: 50%;
+  transition: transform 0.3s;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+.settings-toggle input:checked + .toggle-slider {
+  background: linear-gradient(135deg, #8a6bff, #6b4cff);
+}
+.settings-toggle input:checked + .toggle-slider::before {
+  transform: translateX(20px);
+}
+
+/* 危险按钮 */
+.settings-btn-danger {
+  padding: 6px 16px;
+  border-radius: 10px;
+  background: rgba(239,68,68,0.15);
+  border: 1px solid rgba(239,68,68,0.3);
+  color: #ef4444;
+  font-family: var(--font-heading);
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.settings-btn-danger:active {
+  background: rgba(239,68,68,0.25);
+  transform: scale(0.96);
+}
