@@ -2457,12 +2457,16 @@ const GROUP_COLORS = {
 };
 
 function initSkyMap() {
-  // 标记星图已访问
-  localStorage.setItem('xingzhuo_visited_skymap', 'true');
+  try {
+    // 标记星图已访问
+    localStorage.setItem('xingzhuo_visited_skymap', 'true');
 
-  const container = document.getElementById('sky-map-container');
-  const canvas = document.getElementById('sky-map-canvas');
-  if (!container || !canvas) return;
+    const container = document.getElementById('sky-map-container');
+    const canvas = document.getElementById('sky-map-canvas');
+    if (!container || !canvas) {
+      console.error('[星图] 找不到容器或画布元素');
+      return;
+    }
 
   SKY_MAP.canvas = canvas;
   SKY_MAP.ctx = canvas.getContext('2d');
@@ -2605,9 +2609,11 @@ function initSkyMap() {
 
   window.addEventListener('resize', () => {
     if (state.currentScreen !== 'sky-map') return;
-    resizeSkyMap();
-    renderSkyMap();
+    try { resizeSkyMap(); renderSkyMap(); } catch(e) { console.error('[星图] resize失败:', e.message); }
   });
+  } catch (e) {
+    console.error('[星图] 初始化失败:', e.message, e.stack);
+  }
 }
 
 function resizeSkyMap() {
@@ -2626,6 +2632,7 @@ function resizeSkyMap() {
 }
 
 function renderSkyMap() {
+  try {
   const { ctx } = SKY_MAP;
   const dw = SKY_MAP.displayWidth;
   const dh = SKY_MAP.displayHeight;
@@ -2665,6 +2672,9 @@ function renderSkyMap() {
 
   // 绘制图例
   drawLegend(ctx, dw);
+  } catch (e) {
+    console.error('[星图] 渲染失败:', e.message, e.stack);
+  }
 }
 
 function drawStarfield(ctx, w, h) {
@@ -2743,7 +2753,11 @@ function drawAllConstellations(ctx) {
   for (const [id, pos] of Object.entries(SKY_POSITIONS)) {
     const c = CONSTELLATION_MAP[id];
     if (!c) continue;
-    drawConstellationOnMap(ctx, c, pos);
+    try {
+      drawConstellationOnMap(ctx, c, pos);
+    } catch (e) {
+      console.error('[星图] 绘制星座失败:', id, e.message);
+    }
   }
 }
 
